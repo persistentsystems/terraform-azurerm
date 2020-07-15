@@ -15,16 +15,10 @@ locals {
     runtime_version   = var.service_settings.runtime_version
     runtime_type      = var.service_settings.runtime_type
     app_settings      = local.combined_settings
-    plan_id = var.host_settings.plan_id
-    
+    plan_id           = var.host_settings.plan_id
+    storage_account   = var.host_settings.storage_account
   }
 }
-    name                      = string
-    runtime_version           = string
-    runtime_type              = string
-    app_settings              = map(string)
-    plan_id                   = string
-    storage_connection_string = string
 
 module "api_fn" {
   
