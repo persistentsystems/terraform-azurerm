@@ -1,12 +1,12 @@
 resource "azurerm_frontdoor" "frontdoor" {
   name                                         = var.service_settings.name
-  resource_group_name                          = var.environment.resource_group_name
+  resource_group_name                          = var.context.resource_group_name
 
   enforce_backend_pools_certificate_name_check = false
 
   tags = {
-    app = var.environment.application_name
-    env = var.environment.environment_name
+    app = var.context.application_name
+    env = var.context.environment_name
   }
 
   frontend_endpoint {

@@ -1,4 +1,4 @@
-variable "environment" {
+variable "context" {
   type = object({
 
     application_name            = string

@@ -6,7 +6,7 @@ module "api_hosting_plan" {
   context                = var.context
   
   service_settings = {
-    name                    = "${var.context.application_name}-${var.context.environment_name}-plan-${var.environment.location_suffix}"
+    name                    = "${var.context.application_name}-${var.context.environment_name}-plan-${var.context.location_suffix}"
     size                    = "EP1"
     storage_type            = var.storage_type
     maximum_instance_count  = var.maximum_instance_count
