@@ -12,7 +12,9 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
+    keyvault_id     = string
     name            = string
+    value           = string
 
   })
 }

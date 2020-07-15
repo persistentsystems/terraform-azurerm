@@ -1,9 +1,9 @@
   
-variable "environment" {
+variable "context" {
   type = object({
 
-    app_name = string
-    env_name = string
+    application_name = string
+    environment_name = string
     resource_group_name = string
     location = string
     location_suffix = string

@@ -2,10 +2,10 @@
 module "code_storage" {
   
   source                = "github.com/markti/tf_azure_storage/blob/account"
-  resource_group_name   = var.environment.resource_group_name
-  location              = var.environment.location
-  app_name              = var.environment.app_name
-  env_name              = var.environment.env_name
+  resource_group_name   = var.context.resource_group_name
+  location              = var.context.location
+  application_name      = var.context.application_name
+  environment_name      = var.context.environment_name
   name                  = "code"
 
 }

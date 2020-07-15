@@ -3,12 +3,12 @@ module "api_hosting_plan" {
   
   source                  = "github.com/markti/tf_azure_appservice/plan/premium"
 
-  app_name                = var.environment.app_name
-  env_name                = var.environment.env_name
+  application_name                = var.context.application_name
+  environment_name                = var.context.environment_name
   
-  name                    = "${var.environment.app_name}-${var.environment.env_name}-plan-${var.environment.location_suffix}"
-  resource_group_name     = var.environment.resource_group_name
-  location                = var.environment.location
+  name                    = "${var.context.application_name}-${var.context.environment_name}-plan-${var.context.location_suffix}"
+  resource_group_name     = var.context.resource_group_name
+  location                = var.context.location
 
   storage_type            = var.storage_type
 

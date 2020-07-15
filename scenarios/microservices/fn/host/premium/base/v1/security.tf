@@ -4,12 +4,12 @@ module "keyvault" {
   
   source                    = "github.com/markti/tf_azure_keyvault/vault/base_v2"
 
-  app_name                  = var.environment.app_name
-  env_name                  = var.environment.env_name
+  application_name                  = var.context.application_name
+  environment_name                  = var.context.environment_name
   
-  name                      = "${var.environment.app_name}-${var.environment.env_name}-${var.environment.location_suffix}"
-  resource_group_name       = var.environment.resource_group_name
-  location                  = var.environment.location
+  name                      = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
+  resource_group_name       = var.context.resource_group_name
+  location                  = var.context.location
   loganalytics_workspace_id = var.workspace_id
 
 }

@@ -1,12 +1,12 @@
 
 resource "azurerm_resource_group" "rg" {
 
-  name      = var.environment.resource_group_name
-  location  = var.environment.location
+  name      = var.context.resource_group_name
+  location  = var.context.location
 
   tags = {
-    app = var.environment.app_name
-    env = var.environment.env_name
+    app = var.context.application_name
+    env = var.context.environment_name
   }
 
 }
