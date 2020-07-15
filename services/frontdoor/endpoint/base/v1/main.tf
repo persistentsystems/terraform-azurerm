@@ -5,8 +5,8 @@ resource "azurerm_frontdoor" "frontdoor" {
   enforce_backend_pools_certificate_name_check = false
 
   tags = {
-    app = var.environment.app_name
-    env = var.environment.env_name
+    app = var.environment.application_name
+    env = var.environment.environment_name
   }
 
   frontend_endpoint {

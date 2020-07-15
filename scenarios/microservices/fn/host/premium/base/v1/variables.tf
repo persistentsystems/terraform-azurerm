@@ -17,8 +17,8 @@ variable "service_settings" {
     name            = string
     storage_type = string
     workspace_id = string
-    maximum_instance_count = int
-    minimum_instance_count = int
+    maximum_instance_count = number
+    minimum_instance_count = number
 
   })
   default = {

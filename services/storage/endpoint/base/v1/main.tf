@@ -8,8 +8,8 @@ resource "azurerm_storage_account" "storage_account" {
   account_replication_type  = var.service_settings.type
 
   tags = {
-    app = var.context.app_name
-    env = var.context.env_name
+    app = var.context.application_name
+    env = var.context.environment_name
   }
 
 }

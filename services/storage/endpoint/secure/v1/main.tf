@@ -7,8 +7,8 @@ module "storage_account" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  app_name            = var.app_name
-  env_name            = var.env_name
+  application_name            = var.application_name
+  environment_name            = var.environment_name
 
   tier                = var.tier
   type                = var.type
@@ -24,7 +24,7 @@ module "secret_accesskey" {
   name                  = "${var.secret_prefix}-ConnectionString"
   value                 = module.storage_account.primary_connection_string
 
-  app_name              = var.app_name
-  env_name              = var.env_name
+  application_name              = var.application_name
+  environment_name              = var.environment_name
 
 }
