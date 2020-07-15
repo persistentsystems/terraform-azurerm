@@ -6,7 +6,7 @@ module "keyvault" {
 
   context                  = var.context
   
-  service_settingd = {
+  service_settings = {
     name                      = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
     loganalytics_workspace_id = var.workspace_id
   }
