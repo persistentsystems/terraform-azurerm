@@ -26,6 +26,7 @@ module "func_storage" {
 
   service_settings = {
     name                  = "func"
+    tier                  = "Standard"
     type                  = var.service_settings.storage_type
   }
 
