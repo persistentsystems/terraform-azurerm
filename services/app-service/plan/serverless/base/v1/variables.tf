@@ -16,10 +16,7 @@ variable "service_settings" {
   type = object({
 
     name                   = string
-    size                   = string
     storage_type           = string
-    maximum_instance_count = number
-    minimum_instance_count = number
 
   })
 }
