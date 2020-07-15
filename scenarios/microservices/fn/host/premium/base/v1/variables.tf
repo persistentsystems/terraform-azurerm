@@ -11,6 +11,9 @@ variable "context" {
   })
 }
 
+# storage_type = "GRS"
+# maximum_instance_count = 1
+# minimum_instance_count = 1
 variable "service_settings" {
   type = object({
 
@@ -21,9 +24,4 @@ variable "service_settings" {
     minimum_instance_count = number
 
   })
-  default = {
-    storage_type = "GRS"
-    maximum_instance_count = 1
-    minimum_instance_count = 1
-  }
 }
