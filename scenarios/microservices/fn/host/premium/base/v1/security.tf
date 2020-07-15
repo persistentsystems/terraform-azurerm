@@ -8,7 +8,7 @@ module "keyvault" {
   
   service_settings = {
     name                      = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
-    loganalytics_workspace_id = var.workspace_id
+    workspace_id = var.service_settings.workspace_id
   }
 
 }
