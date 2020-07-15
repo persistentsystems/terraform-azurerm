@@ -8,10 +8,4 @@ variable "context" {
 
   })
 }
-variable "service_settings" {
-  type = object({
-
-    name            = string
-
-  })
-}
+variable "name" { }

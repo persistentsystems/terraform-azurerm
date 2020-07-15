@@ -1,7 +1,7 @@
 
 resource "azurerm_resource_group" "rg" {
 
-  name      = var.service_settings.resource_group_name
+  name      = var.name
   location  = var.context.location
 
   tags = {
