@@ -4,13 +4,12 @@ module "keyvault" {
   
   source                    = "../../../../../../../services/keyvault/endpoint/base/v1"
 
-  application_name                  = var.context.application_name
-  environment_name                  = var.context.environment_name
+  context                  = var.context
   
-  name                      = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
-  resource_group_name       = var.context.resource_group_name
-  location                  = var.context.location
-  loganalytics_workspace_id = var.workspace_id
+  service_settingd = {
+    name                      = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
+    loganalytics_workspace_id = var.workspace_id
+  }
 
 }
 
