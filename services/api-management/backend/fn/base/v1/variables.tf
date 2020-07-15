@@ -12,18 +12,11 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name            = string
-    publisher_name  = string
-    publisher_email = string
-    sku_name        = string
-
-  })
-}
-variable "cors_settings" {
-  type = object({
-
-    allowed_origins = list(string)
-    allowed_headers = list(string)
+    name          = string
+    endpoint_name = string
+    function_name = string
+    function_key  = string
+    protocol      = string
 
   })
 }

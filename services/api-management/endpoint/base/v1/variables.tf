@@ -9,7 +9,7 @@ variable "context" {
 
   })
 }
-variable "apim_settings" {
+variable "service_settings" {
   type = object({
 
     name            = string
