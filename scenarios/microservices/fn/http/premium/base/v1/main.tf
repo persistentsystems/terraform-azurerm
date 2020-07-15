@@ -26,7 +26,7 @@ locals {
 
 module "api_fn" {
   
-  source                        = "../services/fn/premium/base/v1"
+  source                        = "../../../../../../../services/fn/premium/base/v1"
   
   context = var.context
   host_settings = var.host_settings
