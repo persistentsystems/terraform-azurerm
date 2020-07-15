@@ -17,7 +17,11 @@ variable "service_settings" {
     runtime_type              = string
     app_settings              = map(string)
     plan_id                   = string
-    storage_connection_string = string
+    storage_account = object({
+        connection_string = string
+        name = string
+        access_key = string
+    })
 
   })
 }
