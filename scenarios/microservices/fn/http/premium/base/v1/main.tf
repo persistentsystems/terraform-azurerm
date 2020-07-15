@@ -8,7 +8,7 @@ locals {
       "ClientID"                          = var.service_settings.client_id,
       "ClientSecret"                      = var.service_settings.client_secret
   }
-  combined_settings = merge(local.required_settings, var.fn_settings.app_settings)
+  combined_settings = merge(local.required_settings, var.service_settings.app_settings)
 
   merged_service_settings = {
     name              = var.service_settings.name
