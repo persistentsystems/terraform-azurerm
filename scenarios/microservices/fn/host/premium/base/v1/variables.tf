@@ -17,11 +17,12 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name            = string
-    storage_type = string
-    workspace_id = string
+    name                   = string
+    size                   = string
+    storage_type           = string
     maximum_instance_count = number
     minimum_instance_count = number
+    workspace_id           = string
 
   })
 }

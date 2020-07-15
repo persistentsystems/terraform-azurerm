@@ -20,6 +20,7 @@ variable "service_settings" {
     storage_type           = string
     maximum_instance_count = number
     minimum_instance_count = number
+    workspace_id           = string
 
   })
 }
