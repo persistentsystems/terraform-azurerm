@@ -10,7 +10,7 @@ locals {
   }
   combined_settings = merge(local.required_settings, var.fn_settings.app_settings)
 
-  merged_fn_settings = {
+  merged_service_settings = {
     name              = var.service_settings.name
     service_name      = var.service_settings.service_name
     runtime_version   = var.service_settings.runtime_version
@@ -26,10 +26,10 @@ locals {
 
 module "api_fn" {
   
-  source                        = "github.com/markti/tf_azure_fn/http/premium_v2020-06-30"
+  source                        = "../services/fn/premium/base/v1"
   
-  environment = var.environment
+  context = var.context
   host_settings = var.host_settings
-  fn_settings = local.merged_fn_settings
+  service_settings = local.merged_service_settings
 
 }
