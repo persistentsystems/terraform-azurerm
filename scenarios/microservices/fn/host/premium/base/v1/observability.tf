@@ -2,13 +2,13 @@
 
 module "appinsights" {
   
-  source                = "github.com/markti/tf_azure_appinsights/base"
+  source           = "../../../../../services/app-insights/endpoint/base/v1"
 
-  application_name              = var.context.application_name
-  environment_name              = var.context.environment_name
+  context          = var.context
   
-  name                  = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
-  resource_group_name   = var.context.resource_group_name
-  location              = var.context.location
+  service_settings = {
+    name           = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
+    retention_days = 90
+  }
 
 }

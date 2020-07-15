@@ -1,12 +1,14 @@
 
 module "code_storage" {
   
-  source                = "github.com/markti/tf_azure_storage/blob/account"
-  resource_group_name   = var.context.resource_group_name
-  location              = var.context.location
-  application_name      = var.context.application_name
-  environment_name      = var.context.environment_name
-  name                  = "code"
+  source           = "../../../../../services/storage/endpoint/base/v1"
+  context          = var.context
+
+  service_settings = {
+    name = "code"
+    tier = "Standard"
+    type = "GRS"
+  }
 
 }
 

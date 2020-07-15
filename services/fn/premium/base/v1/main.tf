@@ -26,8 +26,8 @@ resource "azurerm_function_app" "function_app" {
   }
 
   tags = {
-    app = var.context.app_name
-    env = var.context.env_name
+    app = var.context.application_name
+    env = var.context.environment_name
   }
 
 }

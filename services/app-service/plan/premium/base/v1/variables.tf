@@ -10,13 +10,16 @@ variable "context" {
   })
 }
 # tier = "Standard"
-# type = "GRS"
+# size = "EP1"
+# storage_type = "GRS"
 variable "service_settings" {
   type = object({
 
-    name            = string
-    tier            = string
-    type            = string
+    name                   = string
+    size                   = string
+    storage_type           = string
+    maximum_instance_count = number
+    minimum_instance_count = number
 
   })
 }
