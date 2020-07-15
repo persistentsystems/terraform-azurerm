@@ -13,7 +13,11 @@ variable "host_settings" {
   type = object({
 
     plan_id                         = string
-    storage_connection_string       = string
+    storage_account                 = object({
+        connection_string = string
+        name = string
+        access_key = string
+    })
     instrumentation_key             = string
     keyvault_id                     = string
     deployment_storage_account_name = string

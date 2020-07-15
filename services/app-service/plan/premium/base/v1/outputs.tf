@@ -14,8 +14,8 @@ output "storage_account" {
   value = {
 
     connection_string = module.func_storage.primary_connection_string
-    name              = "foo"
-    access_key        = "bar"
+    name              = module.func_storage.name
+    access_key        = module.func_storage.primary_access_key
 
   }
 }
