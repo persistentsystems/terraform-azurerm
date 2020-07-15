@@ -9,6 +9,9 @@ variable "context" {
 
   })
 }
+# tier = "Standard"
+# kind = "GlobalDocumentDB"
+# consistency_level = "Eventual"
 variable "service_settings" {
   type = object({
 
@@ -19,9 +22,4 @@ variable "service_settings" {
     consistency_level = string
 
   })
-  default = {
-    tier                = "Standard"
-    kind                = "GlobalDocumentDB"
-    consistency_level   = "Eventual"
-  }
 }
