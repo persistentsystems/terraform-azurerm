@@ -16,6 +16,7 @@ variable "host_settings" {
     storage_connection_string       = string
     instrumentation_key             = string
     keyvault_id                     = string
+    workspace_id                    = string
     deployment_storage_account_name = string
     deployment_storage_container    = string
     deployment_package_sas          = string
