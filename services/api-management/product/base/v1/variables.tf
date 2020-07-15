@@ -13,10 +13,8 @@ variable "service_settings" {
   type = object({
 
     endpoint_name = string
-    name          = string
-    function_name = string
-    function_key  = string
-    protocol      = string
+    product_id    = string
+    description   = string
 
   })
 }
