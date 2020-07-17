@@ -7,7 +7,7 @@ module "app" {
 }
 module "sp" {
   
-  source          = "../../../../../services/service-principal/base/v1"
+  source          = "../../../../../../services/service-principal/base/v1"
   application_id  = module.app.application_id
 
 }
