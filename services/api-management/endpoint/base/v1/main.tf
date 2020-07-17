@@ -1,5 +1,6 @@
 
 resource "azurerm_api_management" "apim" {
+
   name                = var.service_settings.name
   location            = var.context.location
   resource_group_name = var.context.resource_group_name
@@ -28,4 +29,4 @@ XML
     env = var.context.environment_name
   }
 
-}di
+}
