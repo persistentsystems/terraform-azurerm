@@ -21,7 +21,7 @@ module "secret_accesskey" {
 
   context = var.context
 
-  service_settings {
+  service_settings = {
 
     keyvault_id           = var.service_settings.keyvault_id
     name                  = "${var.service_settings.secret_prefix}-ConnectionString"
