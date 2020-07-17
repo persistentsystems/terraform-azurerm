@@ -14,7 +14,7 @@ variable "service_settings" {
 
     name            = string
     data_factory_name = string
-    connection_string = string 
-
+    authentication_type = string 
+    url = string
   })
 }
