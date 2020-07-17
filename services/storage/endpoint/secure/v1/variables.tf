@@ -19,8 +19,4 @@ variable "service_settings" {
     keyvault_id     = string
 
   })
-  default = {
-    tier = "Standard"
-    type = "GRS"
-  }
 }
