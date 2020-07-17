@@ -18,7 +18,4 @@ variable "service_settings" {
     throughput        = string
 
   })
-  default = {
-    throughput   = "400"
-  }
 }
