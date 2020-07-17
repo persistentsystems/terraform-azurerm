@@ -3,28 +3,30 @@ module "storage_account" {
   
   source              = "../../base/v1"
 
-  name                = var.name
-  resource_group_name = var.resource_group_name
-  location            = var.location
+  context = var.context
 
-  application_name            = var.application_name
-  environment_name            = var.environment_name
+  service_settings {
 
-  tier                = var.tier
-  type                = var.type
+    name                = var.service_settings.name
+    tier                = var.service_settings.tier
+    type                = var.service_settings.type
+  
+  }
 
 }
 
 module "secret_accesskey" {
   
-  source                = "github.com/markti/tf_azure_keyvault/secret"
+  source                = "github.com/persistentsystems/terraform-azurerm/services/keyvault/secret/base/v1"
 
-  keyvault_id           = var.keyvault_id
+  context = var.context
+
+  service_settings {
+
+    keyvault_id           = var.service_settings.keyvault_id
+    name                  = "${var.service_settings.secret_prefix}-ConnectionString"
+    value                 = module.storage_account.primary_connection_string
   
-  name                  = "${var.secret_prefix}-ConnectionString"
-  value                 = module.storage_account.primary_connection_string
-
-  application_name              = var.application_name
-  environment_name              = var.environment_name
+  }
 
 }
