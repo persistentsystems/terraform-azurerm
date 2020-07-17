@@ -5,7 +5,7 @@ module "storage_account" {
 
   context = var.context
 
-  service_settings {
+  service_settings = {
 
     name                = var.service_settings.name
     tier                = var.service_settings.tier
