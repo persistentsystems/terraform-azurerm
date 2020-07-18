@@ -4,11 +4,12 @@ module "keyvault" {
   
   source                    = "../../../../../../../services/keyvault/endpoint/base/v1"
 
-  context                  = var.context
+  context                   = var.context
   
   service_settings = {
-    name                      = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
-    workspace_id = var.service_settings.workspace_id
+    name                    = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
+    workspace_id            = var.service_settings.workspace_id
+    soft_delete_enabled     = var.service_settings.soft_delete_enabled
   }
 
 }
@@ -16,9 +17,9 @@ module "keyvault" {
 
 module "terraform_admin" {
   
-  source                = "../../../../../../../services/keyvault/accesspolicy/templates/machine-admin/v1"
+  source                    = "../../../../../../../services/keyvault/accesspolicy/templates/machine-admin/v1"
 
-  keyvault_id           = module.keyvault.id
-  application_id        = data.azurerm_client_config.current.client_id
+  keyvault_id               = module.keyvault.id
+  application_id            = data.azurerm_client_config.current.client_id
 
 }
