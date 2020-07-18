@@ -14,8 +14,9 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name         = string
-    workspace_id = string
+    name                = string
+    workspace_id        = string
+    soft_delete_enabled = bool
 
   })
 }
