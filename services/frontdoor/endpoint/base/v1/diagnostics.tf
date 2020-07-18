@@ -1,6 +1,6 @@
 resource "azurerm_monitor_diagnostic_setting" "frontdoor_diagnostic_setting" {
 
-  name                        = "${var.service_settings.name}-logs"
+  name                        = "${var.service_settings.name}-frontdoor-logs"
   target_resource_id          = azurerm_frontdoor.frontdoor.id
   log_analytics_workspace_id  = var.service_settings.workspace_id
 
