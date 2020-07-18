@@ -27,7 +27,7 @@ resource "azurerm_key_vault" "keyvault" {
 
 resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
-  name                        = "${var.service_settings.name}-logs"
+  name                        = "${var.service_settings.name}-keyvault-logs"
   target_resource_id          = azurerm_key_vault.keyvault.id
   log_analytics_workspace_id  = var.service_settings.workspace_id
 
