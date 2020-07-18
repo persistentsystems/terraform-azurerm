@@ -1,6 +1,6 @@
 resource "azurerm_storage_account" "storage_account" {
 
-  name                      = "${var.service_settings.name}${random_integer.random.result}"
+  name                      = "${var.service_settings.name}${random_string.random.result}"
   resource_group_name       = var.context.resource_group_name
 
   location                  = var.context.location
@@ -14,7 +14,9 @@ resource "azurerm_storage_account" "storage_account" {
 
 }
 
-resource "random_integer" "random" {
-  min = 100000
-  max = 999999
+resource "random_string" "random" {
+  length = 8
+  special = false
+  lower = true
+  upper = false
 }
