@@ -27,6 +27,7 @@ variable "service_settings" {
 }
 variable "identity_settings" {
   type = object({
+    managed_identity_id  = string
     client_id            = string
     client_secret        = string
   })
