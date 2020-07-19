@@ -37,7 +37,7 @@ resource "azurerm_template_deployment" "managed_identity_rgt" {
         }
         "principalId": {
             "type": "string",
-            "value": "[parameters('principalId')]"
+            "value": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('resourceName'))).principalId]"
         }
     }
   }
