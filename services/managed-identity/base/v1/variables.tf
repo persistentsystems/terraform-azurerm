@@ -10,12 +10,10 @@ variable "context" {
 
   })
 }
-
 variable "service_settings" {
   type = object({
 
-    name                = string
-    description         = string
+    name                      = string
 
   })
 }
