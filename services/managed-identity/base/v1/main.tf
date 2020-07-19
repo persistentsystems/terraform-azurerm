@@ -1,3 +1,5 @@
+data "azurerm_client_config" "current" {}
+
 
 # This will obtain the Azure Function's Key that can be used to integrate with the Azure Function by API Management
 resource "azurerm_template_deployment" "managed_identity_rgt" {
