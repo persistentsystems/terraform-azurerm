@@ -2,7 +2,8 @@
 
 locals {
     required_settings = {
-        "FUNCTIONS_WORKER_RUNTIME" = var.service_settings.runtime_type
+      "FUNCTIONS_WORKER_RUNTIME" = var.service_settings.runtime_type,
+      "APPINSIGHTS_INSTRUMENTATIONKEY"    = var.observability_settings.instrumentation_key,
     }
     combined_settings = merge(local.required_settings, var.service_settings.app_settings)
 }
@@ -27,7 +28,7 @@ resource "azurerm_function_app" "function_app" {
 
   identity {
     type = "UserAssigned"
-    identity_ids = [ var.identity_settings.application_id ]
+    identity_ids = [ var.identity_settings.client_id ]
   }
 
   tags = {

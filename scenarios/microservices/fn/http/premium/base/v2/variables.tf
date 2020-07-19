@@ -36,14 +36,18 @@ variable "service_settings" {
     runtime_type      = string
     app_settings      = map(string)
     package_filename  = string
-    workspace_id      = string
-    client_id         = string
-    client_secret     = string
 
   })
 }
 variable "identity_settings" {
   type = object({
-    application_id            = string
+    client_id            = string
+    client_secret        = string
+  })
+}
+variable "observability_settings" {
+  type = object({
+    instrumentation_key       = string
+    workspace_id              = string
   })
 }

@@ -3,10 +3,9 @@
 locals {
 
   required_settings = {
-      "APPINSIGHTS_INSTRUMENTATIONKEY"    = var.host_settings.instrumentation_key,
       "WEBSITE_RUN_FROM_PACKAGE"          = local.code_drop_url,
-      "ClientID"                          = var.service_settings.client_id,
-      "ClientSecret"                      = var.service_settings.client_secret
+      "ClientID"                          = var.identity_settings.client_id,
+      "ClientSecret"                      = var.identity_settings.client_secret
   }
   combined_settings = merge(local.required_settings, var.service_settings.app_settings)
 
@@ -27,5 +26,6 @@ module "api_fn" {
   context = var.context
   service_settings = local.merged_service_settings
   identity_settings = var.identity_settings
+  observability_settings = var.observability_settings
 
 }
