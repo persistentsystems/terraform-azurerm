@@ -22,6 +22,9 @@ resource "azurerm_template_deployment" "managed_identity_rgt" {
             }
             }
     },
+    "variables": {
+        "managedIdentityId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('resourceName'))]"
+    },
     "resources": [
         {
         "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
@@ -37,7 +40,7 @@ resource "azurerm_template_deployment" "managed_identity_rgt" {
         },
         "principalId": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('resourceName'))).principalId]"
+            "value": "[reference(managedIdentityId).principalId]"
         }
     }
   }
