@@ -10,7 +10,7 @@ resource "azurerm_storage_share" "fileshare" {
     access_policy {
       permissions = "rwdl"
       start       = "2020-07-14T09:38:21.0000000Z"
-      expiry      = "2020-07-15T10:38:21.0000000Z"
+      expiry      = "2021-07-15T10:38:21.0000000Z"
     }
   }
 
