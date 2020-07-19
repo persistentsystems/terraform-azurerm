@@ -35,6 +35,10 @@ resource "azurerm_template_deployment" "managed_identity_rgt" {
             "type": "string",
             "value": "[parameters('resourceName')]"
         }
+        "principalId": {
+            "type": "string",
+            "value": "[parameters('principalId')]"
+        }
     }
   }
   BODY
