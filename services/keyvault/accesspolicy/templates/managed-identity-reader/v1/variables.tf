@@ -1,2 +1,2 @@
-variable "application_id" { }
+variable "object_id" { }
 variable "keyvault_id" { }
