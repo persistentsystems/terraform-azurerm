@@ -1,12 +1,39 @@
-variable "resource_group_name" {}
-variable "operation_id" {}
-variable "apim_name" {}
-variable "api_name" {}
-variable "backend_name" {}
-variable "display_name" {}
-variable "description" {}
-variable "method" {}
-variable "url_template" {}
+variable "context" {
+  type = object({
 
-variable "parameter_1" {}
-variable "parameter_2" {}
+    application_name    = string
+    environment_name    = string
+    resource_group_name = string
+    location            = string
+    location_suffix     = string
+
+  })
+}
+variable "service_settings" {
+  type = object({
+
+    endpoint_name = string
+    api_name      = string
+    backend_name  = string
+
+  })
+}
+variable "operation_settings" {
+  type = object({
+
+    operation_id = string
+    display_name = string
+    description  = string
+    method       = string
+    url_template = string
+
+  })
+}
+variable "parameters" {
+  type = object({
+
+    p1 = string
+    p2 = string
+
+  })
+}
