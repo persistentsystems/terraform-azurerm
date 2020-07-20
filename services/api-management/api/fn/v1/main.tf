@@ -20,7 +20,7 @@ module "api" {
 
 }
 
-module "fn_apim_backend" {
+module "backend" {
   
   source                = "../../../backend/fn/base/v1"
   
