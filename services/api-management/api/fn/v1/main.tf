@@ -19,9 +19,9 @@ module "fn_apim_backend" {
     name                  = var.service_settings.name
   }
   backend_settings = {
-    function_name         = var.function_name
-    function_key          = var.function_key
-    protocol              = "http"
+    function_name         = var.backend_settings.function_name
+    function_key          = var.backend_settings.function_key
+    protocol              = var.backend_settings.protocol
   }
 
 }
