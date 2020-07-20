@@ -1,0 +1,26 @@
+
+
+
+
+module "api" {
+  
+  source                = "../../fn/v1"
+  
+  context          = var.context
+  service_settings = {
+
+    endpoint_name    = var.service_settings.endpoint_name
+    name             = var.service_settings.name
+    description      = var.service_settings.description
+    revision         = var.service_settings.revision
+    path             = var.service_settings.path
+    primary_protocol = var.service_settings.primary_protocol
+    publish          = var.service_settings.publish
+    product_id       = var.service_settings.product_id
+    backend_name     = module.backend.name
+
+  }
+  policies         = var.policies
+  backend_settings = var.backend_settings
+
+}
