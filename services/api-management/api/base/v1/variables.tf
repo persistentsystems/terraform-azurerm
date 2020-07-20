@@ -15,9 +15,9 @@ variable "service_settings" {
     endpoint_name    = string
     name             = string
     description      = string
-    revision         = bool
-    path             = bool
-    primary_protocol = number
+    revision         = string
+    path             = string
+    primary_protocol = string
     publish          = bool
     product_id       = string
     backend_name     = string
