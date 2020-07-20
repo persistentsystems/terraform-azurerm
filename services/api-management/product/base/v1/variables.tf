@@ -17,6 +17,7 @@ variable "service_settings" {
     description           = string
     approval_required     = bool
     subscription_required = bool
+    subscriptions_limit   = number
     publish               = bool
 
   })
