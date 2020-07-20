@@ -5,7 +5,7 @@ locals {
 <policies>
   <inbound>
     ${var.policies.inbound}
-    <set-backend-service id="tf-generated-policy" backend-id="${var.backend_name}" />
+    <set-backend-service id="tf-generated-policy" backend-id="${var.service_settings.backend_name}" />
     <base />
   </inbound>    
   <backend>

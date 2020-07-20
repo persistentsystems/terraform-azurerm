@@ -20,6 +20,7 @@ variable "service_settings" {
     primary_protocol = number
     publish          = bool
     product_id       = string
+    backend_name     = string
 
   })
 }
