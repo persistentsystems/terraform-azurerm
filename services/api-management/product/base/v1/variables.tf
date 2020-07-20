@@ -12,9 +12,12 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    endpoint_name = string
-    product_id    = string
-    description   = string
+    endpoint_name         = string
+    product_id            = string
+    description           = string
+    approval_required     = bool
+    subscription_required = bool
+    publish               = bool
 
   })
 }
