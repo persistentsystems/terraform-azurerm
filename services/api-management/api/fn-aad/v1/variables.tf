@@ -42,3 +42,10 @@ variable "backend_settings" {
 
   })
 }
+variable "aad_settings" {
+  type = object({
+
+    scope = string
+
+  })
+}
