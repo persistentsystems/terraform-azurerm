@@ -23,7 +23,6 @@ module "api_fn" {
   
   context = var.context
   service_settings = local.merged_service_settings
-  identity_settings = var.identity_settings
   observability_settings = var.observability_settings
 
 }
