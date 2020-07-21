@@ -26,7 +26,7 @@ module "api_fn" {
   observability_settings = var.observability_settings
 
 }
-
+/*
 module "identity_access_policy" {
   
   source                    = "github.com/persistentsystems/terraform-azurerm/services/keyvault/accesspolicy/templates/managed-identity-reader/v1"
@@ -34,4 +34,4 @@ module "identity_access_policy" {
   keyvault_id               = var.host_settings.keyvault_id
   object_id                 = module.api_fn.identity[0].principal_id
 
-}
+}*/
