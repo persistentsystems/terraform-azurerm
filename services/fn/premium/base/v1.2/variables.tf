@@ -25,12 +25,6 @@ variable "service_settings" {
 
   })
 }
-variable "identity_settings" {
-  type = object({
-    client_id            = string
-    client_secret        = string
-  })
-}
 variable "observability_settings" {
   type = object({
     instrumentation_key       = string
