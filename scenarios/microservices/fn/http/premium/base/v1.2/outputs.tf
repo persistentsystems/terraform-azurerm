@@ -7,3 +7,6 @@ output "function_key" {
 output "identity" {
     value = module.api_fn.identity
 }
+output "hostname" {
+    value = module.api_fn.default_hostname
+}
