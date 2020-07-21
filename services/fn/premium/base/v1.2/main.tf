@@ -36,3 +36,16 @@ resource "azurerm_function_app" "function_app" {
   }
 
 }
+
+resource "null_resource" "delay" {
+  provisioner "local-exec" {
+    command = "sleep 10"
+  }
+  triggers = {
+    "function_app" = "${azurerm_function_app.function_app.id}"
+  }
+}
+
+resource "null_resource" "after" {
+  depends_on = ["null_resource.delay"]
+}
