@@ -37,15 +37,14 @@ resource "azurerm_function_app" "function_app" {
 
 }
 
-resource "null_resource" "delay" {
-  provisioner "local-exec" {
-    command = "timeout 10"
-  }
-  triggers = {
-    "function_app" = "${azurerm_function_app.function_app.id}"
-  }
+
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [azurerm_function_app.function_app]
+
+  create_duration = "30s"
 }
 
-resource "null_resource" "after" {
-  depends_on = ["null_resource.delay"]
+# This resource will create (at least) 30 seconds after null_resource.previous
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_30_seconds]
 }
