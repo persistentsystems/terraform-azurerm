@@ -3,7 +3,7 @@ output "ADF_ID" {
   description = "The generated ID for the ADF created"
 }
 
-output "ADF_NAME" {
+output "name" {
   value       = azurerm_data_factory.datafactory.name
   description = "The generated ID for the ADF created"
 }
