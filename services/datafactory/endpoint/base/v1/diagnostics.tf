@@ -16,6 +16,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "PipelineRuns"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -24,6 +25,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "TriggerRuns"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -32,6 +34,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "SSISPackageEventMessages"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -40,6 +43,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "SSISPackageExecutableStatistics"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -48,6 +52,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "SSISPackageEventMessageContext"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -56,6 +61,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "SSISPackageExecutionComponentPhases"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -64,6 +70,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "SSISPackageExecutionDataStatistics"
+    enabled  = true
 
     retention_policy {
       enabled = true
@@ -72,6 +79,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   log {
     category = "SSISIntegrationRuntimeLogs"
+    enabled  = true
 
     retention_policy {
       enabled = true
