@@ -15,31 +15,3 @@ resource "azurerm_api_management_api_operation" "op" {
     status_code = 200
   }
 }
-
-resource "azurerm_api_management_api_operation_policy" "op_policy" {
-
-  resource_group_name = var.context.resource_group_name
-
-  api_name            = var.service_settings.api_name
-  api_management_name = var.service_settings.endpoint_name
-
-  operation_id        = azurerm_api_management_api_operation.op.operation_id
-
-  xml_content = <<XML
-<policies>
-    <inbound>
-        <base />
-    </inbound>
-    <backend>
-        <base />
-    </backend>
-    <outbound>
-        <base />
-    </outbound>
-    <on-error>
-        <base />
-    </on-error>
-</policies>
-XML
-
-}
