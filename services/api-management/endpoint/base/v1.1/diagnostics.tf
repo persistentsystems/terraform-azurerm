@@ -1,5 +1,5 @@
 
-resource "azurerm_monitor_diagnostic_setting" "frontdoor_diagnostic_setting" {
+resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   name                        = "${var.service_settings.name}-apim-logs"
   target_resource_id          = azurerm_api_management.apim.id
