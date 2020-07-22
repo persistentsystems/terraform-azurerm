@@ -13,6 +13,15 @@ locals {
     </validate-jwt>
 XML
 
+  merged_policies {
+
+    inbound          = var.inbound + "\n" + local.jwt_authentication
+    outbound         = var.outbound
+    backend          = var.backend
+    error            = var.error
+
+  }
+
 }
 
 
@@ -34,7 +43,7 @@ module "api" {
     backend_name     = module.backend.name
 
   }
-  policies         = var.policies
+  policies         = local.merged_policies
   backend_settings = var.backend_settings
 
 }
