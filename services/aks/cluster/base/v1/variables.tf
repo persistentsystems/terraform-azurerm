@@ -13,9 +13,10 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name              = string
-    node_count        = number
-    node_size         = string
+    name                = string
+    resource_group_name = string
+    node_count          = number
+    node_size           = string
 
   })
 }

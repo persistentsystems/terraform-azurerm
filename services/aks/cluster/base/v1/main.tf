@@ -4,6 +4,8 @@ resource "azurerm_kubernetes_cluster" "cluster" {
   resource_group_name = var.context.resource_group_name
   dns_prefix          = "${var.service_settings.name}"
 
+  node_resource_group = "${var.service_settings.resource_group_name}"
+
   default_node_pool {
     name       = "default"
     node_count = var.service_settings.node_count
