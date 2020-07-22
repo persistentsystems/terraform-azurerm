@@ -15,7 +15,7 @@ XML
 
   merged_policies = {
 
-    inbound          = var.policies.inbound + "\n" + local.jwt_authentication
+    inbound          = "${var.policies.inbound} \n ${local.jwt_authentication}"
     outbound         = var.policies.outbound
     backend          = var.policies.backend
     error            = var.policies.error
