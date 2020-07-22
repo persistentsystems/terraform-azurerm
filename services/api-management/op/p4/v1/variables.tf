@@ -39,3 +39,13 @@ variable "parameters" {
 
   })
 }
+variable "policies" {
+  type = object({
+
+    inbound          = string
+    outbound         = string
+    backend          = string
+    error            = string
+
+  })
+}
