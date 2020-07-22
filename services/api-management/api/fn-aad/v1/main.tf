@@ -13,7 +13,7 @@ locals {
     </validate-jwt>
 XML
 
-  merged_policies {
+  merged_policies = {
 
     inbound          = var.inbound + "\n" + local.jwt_authentication
     outbound         = var.outbound
