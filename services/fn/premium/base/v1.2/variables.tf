@@ -32,7 +32,7 @@ variable "observability_settings" {
   })
 }
 
-variable "security" {
+variable "https_only" {
   type        = bool
   default     = true
 }
