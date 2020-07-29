@@ -31,3 +31,8 @@ variable "observability_settings" {
     workspace_id              = string
   })
 }
+
+variable "security" {
+  type        = bool
+  default     = true
+}
