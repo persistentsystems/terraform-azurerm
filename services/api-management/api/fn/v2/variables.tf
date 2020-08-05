@@ -41,6 +41,7 @@ variable "backend1_settings" {
     protocol      = string
 
   })
+ } 
 variable "backend2_settings" {
   type = object({
 
