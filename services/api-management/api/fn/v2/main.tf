@@ -13,7 +13,8 @@ module "api" {
     primary_protocol = var.service_settings.primary_protocol
     publish          = var.service_settings.publish
     product_id       = var.service_settings.product_id
-    backend_name     = module.backend.name
+    backend1_name     = module.backend1.name
+    backend2_name     = module.backend2.name
 
   }
   policies         = var.policies
