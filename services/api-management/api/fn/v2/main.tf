@@ -29,7 +29,7 @@ resource "random_string" "random1" {
 }   
     
 resource "random_string" "random2" {
-  length = 4
+  length = 6
   special = false
   lower = true
   upper = false
