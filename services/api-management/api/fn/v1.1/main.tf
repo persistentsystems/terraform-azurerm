@@ -1,6 +1,6 @@
 module "api" {
   
-  source                = "../../base/v1"
+  source                = "../../base/v1.1"
   
   context          = var.context
   service_settings = {
