@@ -21,6 +21,15 @@ module "api" {
 
 }
 
+resource "random_string" "random" {
+  length = 4
+  special = false
+  lower = true
+  upper = false
+}    
+    
+    
+    
 module "backend1" {
   
   source                = "../../../backend/fn/base/v1"
@@ -29,7 +38,7 @@ module "backend1" {
   
   service_settings = {
     endpoint_name         = var.service_settings.endpoint_name
-    name                  = var.service_settings.name
+    name                  = "${var.service_settings.name}${random_string.random.result}"
   }
   backend_settings = {
     function_name         = var.backend1_settings.function_name
@@ -47,7 +56,7 @@ module "backend2" {
   
   service_settings = {
     endpoint_name         = var.service_settings.endpoint_name
-    name                  = var.service_settings.name
+    name                  = "${var.service_settings.name}${random_string.random.result}"
   }
   backend_settings = {
     function_name         = var.backend2_settings.function_name
