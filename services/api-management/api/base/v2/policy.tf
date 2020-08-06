@@ -4,8 +4,7 @@ locals {
 <policies>
   <inbound>
     ${var.policies.inbound}
-    <set-backend-service id="tf-generated-policy" backend-id="${var.service_settings.backend_name}" />
-	<choose>
+    <choose>
             <when condition="@(context.Api.Path.Contains("rx"))">
                 <set-backend-service id="tf-generated-policy" backend-id="${var.service_settings.backend1_name}" />
             </when>
