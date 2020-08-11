@@ -5,7 +5,7 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
   mode                              = "Prevention"
   redirect_url                      = "https://www.example.com"
   custom_block_response_status_code = 403
-  custom_block_response_body        = ""
+  custom_block_response_body        = "cmVxdWVzdCBub3QgYXV0aG9yaXNlZCBlbmNvZGUK"
 
   managed_rule {
       type    = "DefaultRuleSet"
