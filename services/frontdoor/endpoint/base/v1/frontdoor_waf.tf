@@ -1,5 +1,5 @@
 resource "azurerm_frontdoor_firewall_policy" "waf" {
-  name                              = "${var.context.app_name}-${var.context.env_name}-wafpolicy"
+  name                              = "${var.context.application_name}-${var.context.environment_name}-wafpolicy"
   resource_group_name               = var.context.resource_group_name
   enabled                           = true
   mode                              = "Prevention"
