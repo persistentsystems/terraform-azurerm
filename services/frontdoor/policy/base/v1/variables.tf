@@ -27,17 +27,6 @@ variable "policy_settings" {
     })
 }
 
-variable "managed_rule_set" {
-
-    type = object({
-
-        managed_rule = {
-            type    = string
-            version = string
-        }
-    })
-}
-
 variable "custom_rule_set" {
     type = object({
 
