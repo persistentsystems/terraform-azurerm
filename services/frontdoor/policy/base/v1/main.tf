@@ -4,24 +4,31 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
   enabled                           = true
 
   managed_rule = {
-     type    = string
-     version = string
+      managed_rule1 = { 
+        type    = string
+        version = string
+      }
   }
   
   custom_rule = {
-    name        = string
-    enabled     = bool
-    priority    = number
-    type        = string
-    action      = string
+    custom_rule1 = {
+          name        = string
+          enabled     = bool
+          priority    = number
+          type        = string
+          action      = string
 
-    match_condition {
-      match_variable     = string
-      operator           = string
-      negation_condition = bool
-      match_values       = string
-      }
+          match_condition {
+              match_variable     = string
+              operator           = string
+              negation_condition = bool
+              match_values       = string
+          }
+
+    }
+
   }
+  
   tags = {
     app = var.context.application_name
     env = var.context.environment_name
