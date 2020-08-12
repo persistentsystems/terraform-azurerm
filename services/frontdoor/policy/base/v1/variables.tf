@@ -26,10 +26,3 @@ variable "policy_settings" {
 
     })
 }
-
-variable "custom_rule_set" {
-    type = object({
-
-
-    })
-}
