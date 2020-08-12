@@ -30,8 +30,8 @@ variable "policy_settings" {
 variable "managed_rule_set" {
 
     type = object({
-        
-        managed_rule {
+
+        managed_rule = {
             type    = string
             version = string
         }
@@ -41,7 +41,7 @@ variable "managed_rule_set" {
 variable "custom_rule_set" {
     type = object({
 
-        custom_rule {
+        custom_rule = {
             name        = string
             enabled     = bool
             priority    = number
