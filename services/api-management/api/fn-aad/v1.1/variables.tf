@@ -19,7 +19,7 @@ variable "service_settings" {
     path             = string
     primary_protocol = string
     publish          = bool
-    product_id       = string
+    product_id       = list(string)
 
   })
 }
