@@ -35,10 +35,13 @@ variable "managed_rule_set" {
 }
 
 variable "custom_rule_set" {
+
     custom_rule {
-        name = string
-        enabled = bool
-        priority = number
+        name        = string
+        enabled     = bool
+        priority    = number
+        type        = string
+        action      = string
 
         match_condition {
             match_variable     = string
