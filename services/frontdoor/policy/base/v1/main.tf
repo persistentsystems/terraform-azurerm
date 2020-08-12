@@ -8,18 +8,18 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
         version = var.managed_rules_settings.version
       }
   
-  custom_rule {
-      name               = var.custom_rules_settings.name
-      enabled            = var.custom_rules_settings.enabled
-      priority           = var.custom_rules_settings.priority
-      type               = var.custom_rules_settings.type
-      action             = var.custom_rules_settings.action
-      match_variable     = var.custom_rules_settings.match_variable
-      operator           = var.custom_rules_settings.operator
-      negation_condition = var.custom_rules_settings.negation_condition
-      match_values       = var.custom_rules_settings.match_values
+  #custom_rule {
+      #name               = var.custom_rules_settings.name
+      #enabled            = var.custom_rules_settings.enabled
+      #priority           = var.custom_rules_settings.priority
+      #type               = var.custom_rules_settings.type
+      #action             = var.custom_rules_settings.action
+      #match_variable     = var.custom_rules_settings.match_variable
+      #operator           = var.custom_rules_settings.operator
+      #negation_condition = var.custom_rules_settings.negation_condition
+      #match_values       = var.custom_rules_settings.match_values
 
-  }
+  #}
 
   tags = {
     app = var.context.application_name

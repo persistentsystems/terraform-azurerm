@@ -34,16 +34,16 @@ variable "managed_rules_settings" {
     })
 }
 
-variable "custom_rules_settings" {
-    type = object({
-          name               = string
-          enabled            = bool
-          priority           = number
-          type               = string
-          action             = string
-          match_variable     = string
-          operator           = string
-          negation_condition = bool
-          match_values       = string
-    })
-}
+#variable "custom_rules_settings" {
+    #type = object({
+          #name               = string
+          #enabled            = bool
+          #priority           = number
+          #type               = string
+          #action             = string
+          #match_variable     = string
+          #operator           = string
+          #negation_condition = bool
+          #match_values       = string
+    #})
+#}
