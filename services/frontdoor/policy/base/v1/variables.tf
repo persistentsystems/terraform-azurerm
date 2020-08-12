@@ -19,10 +19,10 @@ variable "service_settings" {
 
 variable "policy_settings" {
     type = object({
-        custom_block_response_status_code = number 
-        custom_block_response_body = string 
-        mode = string
-        redirect_url = string
+        custom_block_response_status_code   = number 
+        custom_block_response_body          = string 
+        mode                                = string
+        redirect_url                        = string
 
     })
 }
