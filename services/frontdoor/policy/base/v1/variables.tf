@@ -28,26 +28,8 @@ variable "policy_settings" {
 }
 
 variable "managed_rules_settings" {
-    type = list(object({
+    type = object({
         type    = string
         version = string
-    })) 
+    })
 }
-
-#variable "custom_rules_settings" {
-    #type = object({
-          #name                                 = string
-          #enabled                              = bool
-          #priority                             = number
-          #type                                 = string
-          #action                               = string
-          #match_variable                       = string
-          #operator                             = string
-          #negation_condition                   = bool
-          #match_values                         = list(string)
-          #rate_limit_duration_in_minutes       = number
-          #rate_limit_threshold                 = number
-          #selector                             = string
-          #transforms                           = list(string)
-    #})
-#}
