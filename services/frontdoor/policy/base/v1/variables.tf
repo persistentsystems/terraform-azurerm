@@ -28,10 +28,10 @@ variable "policy_settings" {
 }
 
 variable "managed_rules_settings" {
-    type = object({
-        type    = string 
-        version = string 
-    })
+    type = list(object({
+        type    = string
+        version = string
+    })) 
 }
 
 #variable "custom_rules_settings" {
