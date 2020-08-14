@@ -11,8 +11,8 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
     for_each = var.managed_rules_settings
 	
 	content {
-	    type = managed_rule.values.managed_rules_settings.type
-		version = managed_rule.values.managed_rules_settings.version
+	    type = managed_rule.value.managed_rules_settings.type
+		version = managed_rule.value.managed_rules_settings.version
 		}
 	}
   
