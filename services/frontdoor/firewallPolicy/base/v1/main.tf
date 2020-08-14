@@ -8,7 +8,7 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
   redirect_url                      = var.policy_settings.redirect_url
 
   dynamic "managed_rule" {
-    for_each = var.managed_rule_settings
+    for_each = var.managed_rules_settings
 	
 	content {
 	    type = managed_rule.values.managed_rules_settings.type
