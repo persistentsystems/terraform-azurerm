@@ -1,4 +1,4 @@
-/*
+
 resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   name                        = "${var.service_settings.name}-apim-logs"
@@ -47,5 +47,3 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
   }
 
 }
-
-*/

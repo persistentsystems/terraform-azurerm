@@ -16,8 +16,8 @@ resource "azurerm_function_app" "function_app" {
   resource_group_name       = var.context.resource_group_name
   app_service_plan_id       = var.service_settings.plan_id
   storage_connection_string = var.service_settings.storage_account.connection_string
-  version                   = var.service_settings.runtime_version
-
+  version                   = var.service_settings.runtime_version 
+  https_only                = true 
   app_settings = local.combined_settings
 
   site_config {
