@@ -2,7 +2,7 @@
 resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
   name                        = "${var.service_settings.name}-eventgrid-logs"
-  target_resource_id          = module.topic.id
+  target_resource_id          = azurerm_eventgrid_topic.topic.id
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
   log {
