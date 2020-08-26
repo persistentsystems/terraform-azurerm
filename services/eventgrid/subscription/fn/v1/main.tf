@@ -16,7 +16,7 @@ resource "azurerm_eventgrid_event_subscription" "subscription" {
 }
 
 resource "time_sleep" "wait_90_seconds" {
-  depends_on = [azurerm_eventgrid_topic.topic]
+  depends_on = [azurerm_eventgrid_topic.topic.id]
 
   create_duration = "90s"
 }
