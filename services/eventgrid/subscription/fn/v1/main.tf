@@ -23,5 +23,5 @@ resource "time_sleep" "wait_90_seconds" {
 
 # This resource will create (at least) 90 seconds after null_resource.previous
 resource "null_resource" "next" {
-  depends_on = [time_sleep.wait_30_seconds]
+  depends_on = [time_sleep.wait_90_seconds]
 }
