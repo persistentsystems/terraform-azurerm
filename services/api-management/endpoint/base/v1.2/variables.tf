@@ -28,3 +28,12 @@ variable "observability_settings" {
     retention_days            = number
   })
 }
+
+variable "policies" {
+  type = object({
+    inbound          = string
+    outbound         = string
+    backend          = string
+    error            = string
+  })
+}

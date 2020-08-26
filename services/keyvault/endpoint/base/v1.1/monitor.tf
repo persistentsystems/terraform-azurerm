@@ -26,7 +26,7 @@ resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 resource "azurerm_monitor_diagnostic_setting" "keyvault_log_setting" {
   name                        = "${var.service_settings.name}-keyvault-storage"
   target_resource_id          = azurerm_key_vault.keyvault.id
-  storage_account_id          = var.observability_settings.workspace_id
+  storage_account_id          = var.observability_settings.storage_account
 
   log {
     category = "AuditEvent"

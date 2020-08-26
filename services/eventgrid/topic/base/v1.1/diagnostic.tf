@@ -38,7 +38,7 @@ resource "azurerm_monitor_diagnostic_setting" "eventgrid_log_setting" {
 
   name                        = "${var.service_settings.name}-eventgrid-storage"
   target_resource_id          = azurerm_eventgrid_topic.topic.id
-  storage_account_id          = var.observability_settings.workspace_id
+  storage_account_id          = var.observability_settings.storage_account
 
   log {
     category = "DeliveryFailures"

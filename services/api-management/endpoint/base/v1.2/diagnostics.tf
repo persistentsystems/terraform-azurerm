@@ -57,7 +57,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_log_setting" {
 
   name                        = "${var.service_settings.name}-apim-storage"
   target_resource_id          = azurerm_api_management.apim.id
-  storage_account_id          = var.observability_settings.workspace_id  
+  storage_account_id          = var.observability_settings.storage_account  
 
   log {
     category = "GatewayLogs"
