@@ -10,31 +10,15 @@ resource "azurerm_api_management" "apim" {
   sku_name = var.service_settings.sku_name
 
 locals {
-    
   policy_xml = <<XML
 
-  <policies>
-    <inbound>
-      ${var.policies.inbound}
-      <base />
-    </inbound>    
-    <backend>
-      ${var.policies.backend}
-      <base />
-    </backend>
-    <outbound>
-      ${var.policies.outbound}
-      <base />
-    </outbound>
-    <on-error>
-      ${var.policies.error}
-      <base />
-    </on-error>
-  </policies>
+    ${var.policies.inbound}
+    ${var.policies.backend}
+    ${var.policies.outbound}
+    ${var.policies.error}
 
 XML
 }
-
 
   tags = {
     app = var.context.application_name
