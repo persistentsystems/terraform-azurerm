@@ -14,3 +14,14 @@ resource "azurerm_eventgrid_event_subscription" "subscription" {
   }
 
 }
+
+resource "time_sleep" "wait_90_seconds" {
+  depends_on = [azurerm_eventgrid_topic.topic]
+
+  create_duration = "90s"
+}
+
+# This resource will create (at least) 90 seconds after null_resource.previous
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_30_seconds]
+}
