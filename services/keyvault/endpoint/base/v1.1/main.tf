@@ -1,7 +1,14 @@
 data "azurerm_client_config" "current" {}
 
+resource "random_string" "random" {
+  length = 8
+  special = false
+  lower = true
+  upper = false
+}
+
 resource "azurerm_key_vault" "keyvault" {
-  name                        = var.service_settings.name
+  name                        = "${var.service_settings.name}-${random_string.random.result}"
   location                    = var.context.location
   resource_group_name         = var.context.resource_group_name
   tenant_id                   = data.azurerm_client_config.current.tenant_id
