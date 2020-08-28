@@ -7,21 +7,21 @@ resource "azurerm_storage_container" "container" {
       delete                = true
       read                  = true
       write                 = true
-      version               = var.version
+      version               = var.storage_version
       retention_policy_days = var.retention_policy
     }
   
     hour_metrics {
       enabled               = true
       include_apis          = true
-      version               = var.version
+      version               = var.storage_version
       retention_policy_days = var.retention_policy
     }
 
     minute_metrics {
       enabled               = true
       include_apis          = true
-      version               = var.version
+      version               = var.storage_version
       retention_policy_days = var.retention_policy
     }
 }
