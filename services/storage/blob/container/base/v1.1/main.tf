@@ -3,8 +3,7 @@ resource "azurerm_storage_container" "container" {
   storage_account_name  = var.storage_account_name
   container_access_type = var.access_type
 
-  blob_properties {
-    logging {
+  logging {
       delete                = true
       read                  = true
       write                 = true
@@ -25,5 +24,4 @@ resource "azurerm_storage_container" "container" {
       version               = var.version
       retention_policy_days = var.retention_policy
     }
-  }
 }
