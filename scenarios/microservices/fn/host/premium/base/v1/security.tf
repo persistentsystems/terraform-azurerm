@@ -10,13 +10,13 @@ module "keyvault" {
     name                    = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
     workspace_id            = var.service_settings.workspace_id
     soft_delete_enabled     = var.service_settings.soft_delete_enabled
-    log_storage_account     = module.logs_hot_storage.name
+    log_storage_account     = module.logs_hot_storage.id
   }
   
   observability_settings = {
-    instrumentation_key         = module.host.host_settings.instrumentation_key
+    #instrumentation_key         = module.host.host_settings.instrumentation_key
     workspace_id                = var.service_settings.workspace_id
-    storage_account             = module.logs_hot_storage.name
+    storage_account             = module.logs_hot_storage.id
     retention_days              = 365
   }
 
