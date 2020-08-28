@@ -16,7 +16,6 @@ variable "service_settings" {
 
     name                = string
     soft_delete_enabled = bool
-    log_storage_account = string 
 
   })
 }
