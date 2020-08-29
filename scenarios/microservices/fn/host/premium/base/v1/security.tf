@@ -10,6 +10,7 @@ module "keyvault" {
     name                    = "${var.context.application_name}-${var.context.environment_name}-${var.context.location_suffix}"
     workspace_id            = var.service_settings.workspace_id
     soft_delete_enabled     = var.service_settings.soft_delete_enabled
+    
   }
 
 }
