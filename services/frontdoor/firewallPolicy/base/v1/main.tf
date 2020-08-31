@@ -14,7 +14,7 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
 	content {
 	    type = managed_rule.value.type
 		  version = managed_rule.value.version
-      match_condtion {
+      
         
       }
 		}
