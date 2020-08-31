@@ -8,6 +8,6 @@ variable "retention_policy" {
     default = 90
 }
 
-variable "version" {
+variable "storage_version" {
     default = "2.0"
 }

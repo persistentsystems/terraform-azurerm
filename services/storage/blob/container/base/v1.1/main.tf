@@ -3,7 +3,7 @@ resource "azurerm_storage_container" "container" {
   storage_account_name  = var.storage_account_name
   container_access_type = var.access_type
 
-  logging {
+    logging {
       delete                = true
       read                  = true
       write                 = true
