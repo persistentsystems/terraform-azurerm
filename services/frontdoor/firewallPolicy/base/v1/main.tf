@@ -18,8 +18,8 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
         
       }
 		}
-	}
-/*
+
+  /*
   dynamic "custom_rule" {
     for_each = var.custom_rules_settings
 
