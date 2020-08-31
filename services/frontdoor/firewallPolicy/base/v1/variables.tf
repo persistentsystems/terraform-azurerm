@@ -33,7 +33,7 @@ variable "managed_rules_settings" {
         version = string
     }))
 }
-
+/*
 variable "custom_rules_settings" {
     type = list(object({
           name                           = string
@@ -52,3 +52,4 @@ variable "custom_rules_settings" {
           selector                       = string
     }))
 }
+*/

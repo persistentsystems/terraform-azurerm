@@ -19,10 +19,10 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
       }
 		}
 	}
-
+/*
   dynamic "custom_rule" {
     for_each = var.custom_rules_settings
-/*
+
   content {
       name                           = var.custom_rule.value.name
       enabled                        = var.custom_rule.value.enabled
