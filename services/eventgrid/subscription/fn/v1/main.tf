@@ -1,6 +1,6 @@
 
 locals {
-  webhook_endpoint = "https://${var.endpoint_settings.hostname}/runtime/webhooks/eventgrid?functionName=${var.endpoint_settings.function_name}&code=${var.endpoint_settings.eventgrid_key}"
+  webhook_endpoint = "https://${var.endpoint_settings.hostname}/runtime/webhooks/EventGrid?functionName=${var.endpoint_settings.function_name}&code=${var.endpoint_settings.eventgrid_key}"
 }
 
 resource "azurerm_eventgrid_event_subscription" "subscription" {
