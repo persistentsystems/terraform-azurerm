@@ -33,3 +33,23 @@ variable "managed_rules_settings" {
         version = string
     }))
 }
+/*
+variable "custom_rules_settings" {
+    type = list(object({
+          name                           = string
+          enabled                        = bool
+          priority                       = string
+          rate_limit_duration_in_minutes = string
+          rate_limit_threshold           = string
+          type                           = string
+          action                         = string
+          version                        = string
+          match_variable                 = string
+          operator                       = string
+          negation_condition             = bool
+          match_values                   = string
+          transforms                     = string
+          selector                       = string
+    }))
+}
+*/
