@@ -13,7 +13,7 @@ variable "service_settings" {
   type = object({
 
     name                 = string
-    topic_id             = string
+    #topic_id             = string
     included_event_types = list(string)
 
   })
