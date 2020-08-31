@@ -1,7 +1,7 @@
 
 module "code_storage" {
   
-  source           = "../../../../../../../services/storage/endpoint/base/v1"
+  source           = "../../../../../../../services/storage/endpoint/base/v1.1"
   context          = var.context
 
   service_settings = {
@@ -12,19 +12,6 @@ module "code_storage" {
 
 }
 
-/*
-resource "null_resource" "cli-codestorage-log" {
-  provisioner "local-exec" {
-    command = "az storage logging update --log rwd --retention 365 --services b --version 2.0 --account-name ${module.code_storage.name} --account-key ${module.code_storage.primary_access_key}"
-  }
-}
-
-resource "null_resource" "cli-codestorage-metrics" {
-  provisioner "local-exec" {
-    command = "az storage metrics update --account-name ${module.code_storage.name} --api true --hour true --minute true --retention 365 --services b --account-key ${module.code_storage.primary_access_key}"
-  }
-}
-*/
 
 resource "azurerm_storage_container" "code_storage" {
   name                    = "drop"
