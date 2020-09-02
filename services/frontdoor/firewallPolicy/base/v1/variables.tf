@@ -36,7 +36,7 @@ variable "managed_rules_settings" {
 
 
 variable "custom_rules_settings" {
-    type = object({
+    type = list(object({
           name                           = string
           enabled                        = bool
           priority                       = string
@@ -44,7 +44,7 @@ variable "custom_rules_settings" {
           rate_limit_threshold           = string
           type                           = string
           action                         = string
-    })
+    }))
 }
 
 
