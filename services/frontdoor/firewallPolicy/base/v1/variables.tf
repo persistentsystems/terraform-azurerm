@@ -44,15 +44,21 @@ variable "custom_rules_settings" {
           rate_limit_threshold           = string
           type                           = string
           action                         = string
+          match_variable                 = string
+          operator                       = string
+          negation_condition             = bool
+          match_values                   = string
     }))
 }
 
 
+/*
 variable "match_condition_settings" {
-    type = list(object({
+    type = map(object({
           match_variable                 = string
           operator                       = string
           negation_condition             = bool
           match_values                   = string
   }))
 }
+*/

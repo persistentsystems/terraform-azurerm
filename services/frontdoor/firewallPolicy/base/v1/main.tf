@@ -31,14 +31,11 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
       type                           = var.custom_rule.value.type
       action                         = var.custom_rule.value.action
 
-      dynamic "match_condition" {
-        for_each = var.match_condition_settings
-        content {
-          match_variable             = var.match_condition_settings.value.match_variable
-          operator                   = var.match_condition_settings.value.operator
-          negation_condition         = var.match_condition_settings.value.negation_condition
-          match_values               = var.match_condition_settings.value.match_values
-        } 
+      match_condition {
+          match_variable             = var.custom_rule.value.match_variable
+          operator                   = var.custom_rule.value.operator
+          negation_condition         = var.custom_rule.value.negation_condition
+          match_values               = var.custom_rule.value.match_values
       } 
     }
   }
