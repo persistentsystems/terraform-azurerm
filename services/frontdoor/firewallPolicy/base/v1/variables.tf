@@ -47,7 +47,7 @@ variable "custom_rules_settings" {
           match_variable                 = string
           operator                       = string
           negation_condition             = bool
-          match_values                   = string
+          match_values                   = list(string)
     }))
 }
 
