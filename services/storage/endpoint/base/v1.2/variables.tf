@@ -30,7 +30,7 @@ variable "security_settings" {
 
   default = {
     allow_blob_public_access = false
-    min_tls_version          = "1.2"
+    min_tls_version          = "TLS1_2"
 
   }
 }
