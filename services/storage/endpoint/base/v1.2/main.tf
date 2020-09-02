@@ -1,4 +1,10 @@
 # user story 3676 added Security settings to storage account
+data.azurerm_storage_account.storage_account{
+  name                      = azurerm_storage_account.storage_account.name
+  min_tls_version           = var.min_tls_version
+  allow_blob_public_access  = var.allow_blob_public_access
+
+}
 resource "azurerm_storage_account" "storage_account" {
 
   name                      = "${var.service_settings.name}${random_string.random.result}"
@@ -7,11 +13,6 @@ resource "azurerm_storage_account" "storage_account" {
   location                  = var.context.location
   account_tier              = var.service_settings.tier
   account_replication_type  = var.service_settings.type
-  
-
-  min_tls_version           = var.min_tls_version
-  allow_blob_public_access  = var.allow_blob_public_access
- 
 
   tags = {
     app = var.context.application_name
