@@ -6,6 +6,7 @@ resource "azurerm_storage_account" "storage_account" {
   location                  = var.context.location
   account_tier              = var.service_settings.tier
   account_replication_type  = var.service_settings.type
+  
 
   tags = {
     app = var.context.application_name
