@@ -45,11 +45,16 @@ variable "custom_rules_settings" {
           type                           = string
           action                         = string
         # version                        = string
+        #  transforms                     = string
+        #  selector                       = string
+    }))
+}
+
+variable "match_condition" {
+    type = list(object({
           match_variable                 = string
           operator                       = string
           negation_condition             = bool
           match_values                   = string
-        #  transforms                     = string
-        #  selector                       = string
-    }))
+  }))
 }
