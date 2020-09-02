@@ -48,7 +48,7 @@ variable "custom_rules_settings" {
 }
 
 
-variable "match_condition" {
+variable "match_condition_settings" {
     type = list(object({
           match_variable                 = string
           operator                       = string

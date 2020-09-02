@@ -35,12 +35,12 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
   }
 
   dynamic "match_condition" {
-    for_each = var.match_condition
+    for_each = var.match_condition_settings
     content {
-      match_variable             = var.match_condition.value.match_variable
-      operator                   = var.match_condition.value.operator
-      negation_condition         = var.match_condition.value.negation_condition
-      match_values               = var.match_condition.value.match_values
+      match_variable             = var.match_condition_settings.value.match_variable
+      operator                   = var.match_condition_settings.value.operator
+      negation_condition         = var.match_condition_settings.value.negation_condition
+      match_values               = var.match_condition_settings.value.match_values
     }
   }  
   
