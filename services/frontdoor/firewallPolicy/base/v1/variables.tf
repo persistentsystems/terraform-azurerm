@@ -47,9 +47,14 @@ variable "custom_rules_settings" {
         # version                        = string
         #  transforms                     = string
         #  selector                       = string
+          match_variable                 = string
+          operator                       = string
+          negation_condition             = bool
+          match_values                   = string
     }))
 }
 
+/*
 variable "match_condition" {
     type = list(object({
           match_variable                 = string
@@ -58,3 +63,4 @@ variable "match_condition" {
           match_values                   = string
   }))
 }
+*/
