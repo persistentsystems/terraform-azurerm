@@ -33,7 +33,8 @@ variable "managed_rules_settings" {
         version = string
     }))
 }
-/*
+
+
 variable "custom_rules_settings" {
     type = list(object({
           name                           = string
@@ -43,13 +44,12 @@ variable "custom_rules_settings" {
           rate_limit_threshold           = string
           type                           = string
           action                         = string
-          version                        = string
+        # version                        = string
           match_variable                 = string
           operator                       = string
           negation_condition             = bool
           match_values                   = string
-          transforms                     = string
-          selector                       = string
+        #  transforms                     = string
+        #  selector                       = string
     }))
 }
-*/
