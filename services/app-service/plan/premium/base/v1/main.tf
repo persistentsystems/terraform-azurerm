@@ -21,7 +21,7 @@ resource "azurerm_app_service_plan" "app_service_plan" {
 
 module "func_storage" {
   
-  source                = "../../../../../../services/storage/endpoint/base/v1"
+  source                = "../../../../../../services/storage/endpoint/base/v1.1"
   context   = var.context
 
   service_settings = {
@@ -30,16 +30,4 @@ module "func_storage" {
     type                  = var.service_settings.storage_type
   }
 
-}
-  
-resource "null_resource" "cli-funcdatastorage-log" {
-  provisioner "local-exec" {
-    command = "az storage logging update --log rwd --retention 365 --services b --version 2.0 --account-name ${module.func_storage.name} --account-key ${module.func_storage.primary_access_key}"
-  }
-}
-
-resource "null_resource" "cli-funcdatastorage-metrics" {
-  provisioner "local-exec" {
-    command = "az storage metrics update --account-name ${module.func_storage.name} --api true --hour true --minute true --retention 365 --services b --account-key ${module.func_storage.primary_access_key}"
-  }
 }
