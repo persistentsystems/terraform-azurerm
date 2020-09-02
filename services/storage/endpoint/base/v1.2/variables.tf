@@ -9,8 +9,7 @@ variable "context" {
 
   })
 }
-# tier = "Standard"
-# type = "GRS"
+
 variable "service_settings" {
   type = object({
 

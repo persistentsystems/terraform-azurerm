@@ -8,10 +8,10 @@ resource "azurerm_storage_account" "storage_account" {
   account_tier              = var.service_settings.tier
   account_replication_type  = var.service_settings.type
   
-  security_settings {
-    min_tls_version           = var.security_settings.min_tls_version
-    allow_blob_public_access  = var.security_settings.allow_blob_public_access
-  }
+
+  min_tls_version           = var.security_settings.min_tls_version
+  allow_blob_public_access  = var.security_settings.allow_blob_public_access
+ 
 
   tags = {
     app = var.context.application_name
