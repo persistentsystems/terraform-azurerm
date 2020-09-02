@@ -30,15 +30,17 @@ resource "azurerm_frontdoor_firewall_policy" "waf" {
       rate_limit_threshold           = var.custom_rule.value.rate_limit_threshold
       type                           = var.custom_rule.value.type
       action                         = var.custom_rule.value.action
-      
-      match_condition {
-        
-          match_variable             = var.custom_rule.value.match_variable
-          operator                   = var.custom_rule.value.operator
-          negation_condition         = var.custom_rule.value.negation_condition
-          match_values               = var.custom_rule.value.match_values
-        
-      }
+
+    }
+  }
+
+  dynamic "match_condition" {
+    for_each = var.match_condition
+    content {
+      match_variable             = var.match_condition.value.match_variable
+      operator                   = var.match_condition.value.operator
+      negation_condition         = var.match_condition.value.negation_condition
+      match_values               = var.match_condition.value.match_values
     }
   }  
   
