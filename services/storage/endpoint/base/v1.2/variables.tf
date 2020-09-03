@@ -25,4 +25,8 @@ variable "security_settings" {
   type = object({
     allow_blob_public_access    = bool
   })
+  default = {
+    allow_blob_public_access                = false
+  }
+
 }
