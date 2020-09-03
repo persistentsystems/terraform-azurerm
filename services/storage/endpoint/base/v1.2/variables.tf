@@ -21,8 +21,14 @@ variable "service_settings" {
 }
 
 variable "security_settings" {
+  type = object({
+  allow_blob_public_access    = bool
+  min_tls_version             = string
+  })
 
-  blob_access    = bool
-  tls_version     = string
+  default = {
+    allow_blob_public_access    = false
+    min_tls_version             = "TLS1_2"
+  }
 
 }
