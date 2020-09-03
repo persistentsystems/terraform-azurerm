@@ -27,7 +27,7 @@ variable "security_settings" {
     min_tls_version             = string
   })
   default = {
-    allow_blob_public_access            = false
+    allow_blob_public_access            = true
     min_tls_version                     = "TLS1_2"
   }
 
