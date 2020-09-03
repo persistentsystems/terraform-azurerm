@@ -3,13 +3,14 @@ resource "azurerm_storage_account" "storage_account" {
 
   name                      = "${var.service_settings.name}${random_string.random.result}"
   resource_group_name       = var.context.resource_group_name
-
   location                  = var.context.location
   account_tier              = var.service_settings.tier
   account_replication_type  = var.service_settings.type
-  min_tls_version           = "TLS1_2"
-  allow_blob_public_access  = false
 
+  
+  min_tls_version           = var.security_settings.blob_access
+  allow_blob_public_access  = var.security_settings.tls_version
+  
   tags = {
     app = var.context.application_name
     env = var.context.environment_name
