@@ -39,9 +39,9 @@ variable "custom_rules_settings" {
     type = list(object({
           name                           = string
           enabled                        = bool
-          priority                       = string
-          rate_limit_duration_in_minutes = string
-          rate_limit_threshold           = string
+          priority                       = number
+          rate_limit_duration_in_minutes = number
+          rate_limit_threshold           = number
           type                           = string
           action                         = string
           match_variable                 = string
