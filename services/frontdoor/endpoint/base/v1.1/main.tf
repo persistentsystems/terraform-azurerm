@@ -13,7 +13,7 @@ resource "azurerm_frontdoor" "frontdoor" {
     name                                    = "DefaultEndpoint"
     host_name                               = "${var.service_settings.name}.azurefd.net"
     custom_https_provisioning_enabled       = false
-    web_application_firewall_policy_link_id = var.service_settings.web_application_firewall_policy_link_id
+    #web_application_firewall_policy_link_id = var.service_settings.web_application_firewall_policy_link_id
   }
 
   backend_pool_load_balancing {
