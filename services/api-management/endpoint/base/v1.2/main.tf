@@ -18,7 +18,6 @@ policy {
       </inbound>
       <backend>
 		    ${var.policies.backend}
-          <forward-request />
       </backend>
       <outbound > 
 		    ${var.policies.outbound} 
