@@ -15,7 +15,7 @@ variable "service_settings" {
     name                                    = string
     workspace_id                            = string
     log_storage_account                     = string
-    # web_application_firewall_policy_link_id = string
+    web_application_firewall_policy_link_id = string
 
   })
 }
