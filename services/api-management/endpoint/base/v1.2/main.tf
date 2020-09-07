@@ -9,7 +9,7 @@ resource "azurerm_api_management" "apim" {
 
   sku_name = var.service_settings.sku_name
 
-/*
+
 policy {
     xml_content = <<XML
     <policies>
@@ -29,8 +29,8 @@ policy {
     </policies>
 XML
   }
-*/
 
+/*
 policy {
     xml_content = <<XML
     <policies>
@@ -45,7 +45,7 @@ policy {
     </policies>
 XML
   }
-
+*/
   tags = {
     app = var.context.application_name
     env = var.context.environment_name
