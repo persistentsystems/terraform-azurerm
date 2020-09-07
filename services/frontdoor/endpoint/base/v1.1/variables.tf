@@ -15,8 +15,7 @@ variable "service_settings" {
     name                                    = string
     workspace_id                            = string
     log_storage_account                     = string
-    web_application_firewall_policy_link_id = string
-
+    
   })
 }
 variable "primary_backend" {
@@ -55,4 +54,8 @@ variable "observability_settings" {
     storage_account     = string 
     retention_days      = number
   })
+}
+
+variable "web_application_firewall_policy_link_id" { 
+  type = string
 }
