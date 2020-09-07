@@ -65,10 +65,4 @@ resource "azurerm_frontdoor" "frontdoor" {
 
   }
 
-/*
-  web_application_firewall_policy_link_settings {
-    web_application_firewall_policy_link_id = var.web_application_firewall_policy_link_settings.web_application_firewall_policy_link_id
-  }
-
-*/
 }
