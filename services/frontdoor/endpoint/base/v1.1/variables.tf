@@ -55,3 +55,12 @@ variable "observability_settings" {
     retention_days      = number
   })
 }
+
+variable "web_application_firewall_policy_link_settings" {
+  type = object({
+
+    web_application_firewall_policy_link_id        = string
+  })
+}
+
+}
