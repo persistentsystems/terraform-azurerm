@@ -12,10 +12,10 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name         = string
-    workspace_id = string
-    log_storage_account = string
-
+    name                                    = string
+    workspace_id                            = string
+    log_storage_account                     = string
+    
   })
 }
 variable "primary_backend" {
@@ -54,4 +54,8 @@ variable "observability_settings" {
     storage_account     = string 
     retention_days      = number
   })
+}
+
+variable "web_application_firewall_policy_link_id" { 
+  type = string
 }
