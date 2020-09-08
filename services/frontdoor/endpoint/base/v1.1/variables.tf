@@ -56,6 +56,8 @@ variable "observability_settings" {
   })
 }
 
+/*
 variable "web_application_firewall_policy_link_id" { 
   type = string
 }
+*/
