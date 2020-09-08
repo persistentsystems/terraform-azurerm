@@ -20,31 +20,15 @@ policy {
 		    ${var.policies.backend}
       </backend>
       <outbound > 
-		    ${var.policies.outbound} 
-	    </outbound >
+	    ${var.policies.outbound} 
+      </outbound >
       <on-error>
-		    ${var.policies.error}
+	    ${var.policies.error}
       </on-error>
     </policies>
 XML
   }
 
-/*
-policy {
-    xml_content = <<XML
-    <policies>
-    <inbound>
-    </inbound>
-    <backend>
-      <forward-request />
-    </backend>
-    <outbound />
-    <on-error>
-    </on-error>
-    </policies>
-XML
-  }
-*/
   tags = {
     app = var.context.application_name
     env = var.context.environment_name
