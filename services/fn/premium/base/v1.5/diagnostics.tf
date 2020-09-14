@@ -28,7 +28,7 @@ resource "azurerm_monitor_diagnostic_setting" "function_log_setting" {
 
   name                        = "${var.service_settings.name}-function-storage"
   target_resource_id          = azurerm_function_app.function_app.id
-  storage_account_id          = var.observability_settings.storage_account
+  storage_account_id          = var.observability_settings.storage_account.id
 
   log {
     category = "FunctionAppLogs"
