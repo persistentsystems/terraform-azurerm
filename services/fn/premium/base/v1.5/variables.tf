@@ -32,6 +32,7 @@ variable "observability_settings" {
     workspace_id        = string
     storage_account     = string 
     retention_in_days   = number
+    storage_account_id  = string
   })
 }
 variable "ip_rules_settings" {
