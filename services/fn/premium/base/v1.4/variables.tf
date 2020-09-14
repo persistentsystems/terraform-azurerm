@@ -17,7 +17,6 @@ variable "service_settings" {
     runtime_type              = string
     app_settings              = map(string)
     plan_id                   = string
-    ip_whitelist_enabled      = bool
     storage_account = object({
         connection_string = string
         name = string

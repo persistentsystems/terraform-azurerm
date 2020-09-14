@@ -34,7 +34,6 @@ variable "service_settings" {
     runtime_version   = string
     runtime_type      = string
     app_settings      = map(string)
-    ip_whitelist_enabled = bool
     package_filename  = string
 
   })
