@@ -20,7 +20,7 @@ locals {
 
 module "api_fn" {
   
-  source                        = "github.com/Santosh-Peddi/terraform-azurerm/services/fn/premium/base/v1.5"
+  source                        = "github.com/persistentsystems/terraform-azurerm/services/fn/premium/base/v1.5"
   
   context = var.context
   service_settings = local.merged_service_settings
