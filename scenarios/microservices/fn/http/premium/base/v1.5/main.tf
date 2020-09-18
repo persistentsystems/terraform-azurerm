@@ -4,7 +4,6 @@ locals {
 
   required_settings = {
       "WEBSITE_RUN_FROM_PACKAGE"          = local.code_drop_url,
-      "APPINSIGHTS_INSTRUMENTATIONKEY"    = var.host_settings.instrumentation_key,
   }
   combined_settings = merge(local.required_settings, var.service_settings.app_settings)
 
