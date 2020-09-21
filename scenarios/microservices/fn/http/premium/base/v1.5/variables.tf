@@ -47,7 +47,7 @@ variable "observability_settings" {
     storage_account     = string 
     retention_in_days   = number
     storage_account_id  = string
-    app_id              = string
+    id                  = string
   })
 }
 variable "ip_rules_settings" {
