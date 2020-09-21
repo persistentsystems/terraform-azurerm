@@ -42,12 +42,12 @@ variable "service_settings" {
 variable "observability_settings" {
   type = object({
 
-    #instrumentation_key = string
+    instrumentation_key = string
     workspace_id        = string
     storage_account     = string 
     retention_in_days   = number
     storage_account_id  = string
-    #id                  = string
+    #app_id             = string
   })
 }
 variable "ip_rules_settings" {
