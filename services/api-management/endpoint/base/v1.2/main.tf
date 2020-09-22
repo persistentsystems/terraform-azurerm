@@ -9,7 +9,7 @@ resource "azurerm_api_management" "apim" {
 
   sku_name = var.service_settings.sku_name
 
-/*
+
 policy {
     xml_content = <<XML
     <policies>
@@ -18,30 +18,13 @@ policy {
       </inbound>
       <backend>
 		    ${var.policies.backend}
-          <forward-request />
       </backend>
       <outbound > 
-		    ${var.policies.outbound} 
-	    </outbound >
+	    ${var.policies.outbound} 
+      </outbound >
       <on-error>
-		    ${var.policies.error}
+	    ${var.policies.error}
       </on-error>
-    </policies>
-XML
-  }
-*/
-
-policy {
-    xml_content = <<XML
-    <policies>
-    <inbound>
-    </inbound>
-    <backend>
-      <forward-request />
-    </backend>
-    <outbound />
-    <on-error>
-    </on-error>
     </policies>
 XML
   }
