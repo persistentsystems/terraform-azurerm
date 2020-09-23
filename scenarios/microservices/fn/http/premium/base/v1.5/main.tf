@@ -14,7 +14,7 @@ locals {
     app_settings        = local.combined_settings
     plan_id             = var.host_settings.plan_id
     storage_account     = var.host_settings.storage_account
-    storage_account_id  = var.observability_settings.storage_account_id 
+    storage_account_id  = var.observability_settings.storage_account_id
   }
 }
 
