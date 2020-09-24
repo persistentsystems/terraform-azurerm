@@ -4,3 +4,7 @@ output "api_name" {
 output "backend_name" {
     value = module.backend.name
 }
+
+output "api_description" {
+    value = module.description
+}
