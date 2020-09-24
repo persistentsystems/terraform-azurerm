@@ -6,5 +6,5 @@ output "backend_name" {
 }
 
 output "api_description" {
-    value = module.description
+    value = module.backend.description
 }
