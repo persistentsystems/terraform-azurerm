@@ -5,6 +5,6 @@ output "backend_name" {
     value = module.backend.name
 }
 
-output "api_description" {
+output "description" {
     value = module.backend.description
 }
