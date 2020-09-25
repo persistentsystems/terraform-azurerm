@@ -5,8 +5,8 @@ output "backend_name" {
     value = module.api.backend_name
 }
 
-output "description" {
-    value = module.api.description
+output "api_displayname" {
+    value = module.api.api_displayname
 }
 
 output "endpoint_name" {

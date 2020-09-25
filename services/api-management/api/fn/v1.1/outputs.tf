@@ -6,14 +6,14 @@ output "backend_name" {
 }
 
 
-output "description" {
-    value = module.api.display_name
+output "api_displayname" {
+    value = module.api.api_displayname
 }
 
 output "endpoint_name" {
-    value = module.api.endpoint_name
+    value = module.api.service_settings.endpoint_name
 }
 
 output "product_id" {
-    value = module.api.product_id
+    value = module.api.service_settings.product_id
 }
