@@ -13,6 +13,6 @@ output "endpoint_name" {
     value = module.backend.name
 }
 
-output "emr_product_id" {
-    value = module.api.emr_product_id
+output "product_id" {
+    value = module.api.product_id
 }
