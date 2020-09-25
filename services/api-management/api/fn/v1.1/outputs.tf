@@ -6,13 +6,13 @@ output "backend_name" {
 }
 
 output "description" {
-    value = module.api.description
+    value = module.api.service_settings.description
 }
 
 output "endpoint_name" {
-    value = module.backend.name
+    value = module.api.service_settings.backend.name
 }
 
 output "product_id" {
-    value = module.api.product_id
+    value = module.api.service_settings.product_id
 }
