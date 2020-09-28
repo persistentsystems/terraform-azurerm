@@ -24,6 +24,6 @@ resource "azurerm_api_management_api_diagnostic" "api" {
 
 module "api_insights" {
 
-  source              = "../../endpoint/base/v1.2"
+  source              = "../../../endpoint/base/v1.2"
 
 }
