@@ -18,6 +18,9 @@ module "api" {
   }
   policies         = var.policies
 
+  observability_settings = {
+    instrumentation_key = var.observability_settings.instrumentation_key
+  }
 }
 
 module "backend" {

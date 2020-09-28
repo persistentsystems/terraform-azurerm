@@ -42,3 +42,10 @@ variable "backend_settings" {
 
   })
 }
+
+variable "observability_settings" {
+  type = object({
+    instrumentation_key       = string
+    #workspace_id              = string
+  })
+}
