@@ -25,5 +25,13 @@ resource "azurerm_api_management_api_diagnostic" "api" {
 module "api_insights" {
 
   source              = "../../../endpoint/base/v1.2"
-
+  context             = var.context
+  name                = azurerm_api_management_logger.app_insights.id
+  api_management_name = var.service_settings.endpoint_name
+  
+/*
+  application_insights {
+    instrumentation_key = var.observability_settings.instrumentation_key
+  }
+*/
 }
