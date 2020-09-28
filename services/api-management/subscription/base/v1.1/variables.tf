@@ -12,11 +12,11 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
+    api_management_name = string
     endpoint_name = string
-    user_id       = string
-    first_name    = string
-    last_name     = string
-    email         = string
+    product_id    = string
+    description   = string
+    user_id   = string
 
   })
 }
