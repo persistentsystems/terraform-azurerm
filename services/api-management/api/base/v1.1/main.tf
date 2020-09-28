@@ -21,7 +21,7 @@ resource "azurerm_api_management_api_diagnostic" "api" {
   api_name                 = azurerm_api_management_api.api.name
   api_management_logger_id = azurerm_api_management_logger.api_logger_id
 }
-
+/*
 module "api_insights" {
 
   source              = "../../../endpoint/base/v1.2"
@@ -29,9 +29,19 @@ module "api_insights" {
   name                = azurerm_api_management_logger.app_insights.id
   api_management_name = var.service_settings.endpoint_name
   
-/*
   application_insights {
     instrumentation_key = var.observability_settings.instrumentation_key
   }
+
+}
 */
+
+resource "azurerm_api_management_logger" "app_insights" {
+  name                = "${var.service_settings.name}-appinsights-logger"
+  api_management_name = var.service_settings.endpoint_name
+  resource_group_name = var.context.resource_group_name
+
+  application_insights {
+    instrumentation_key = var.observability_settings.instrumentation_key
+  }
 }
