@@ -13,3 +13,23 @@ resource "azurerm_api_management_api" "api" {
   protocols           = [var.service_settings.primary_protocol]
 
 }
+
+module "api_diagnostic" {
+  source                   = "../../endpoint/base/v1.2"
+  resource_group_name      = var.context.resource_group_name
+  api_management_name      = var.service_settings.endpoint_name
+  api_name                 = azurerm_api_management_api.api.name
+  #api_management_logger_id = azurerm_api_management_logger.api_logger_id
+}
+
+module "api_insights" {
+
+  source              = "../../endpoint/base/v1.2"
+  #name                = "${var.service_settings.name}-appinsights-logger"
+  api_management_name = var.service_settings.endpoint_name
+  resource_group_name = var.context.resource_group_name
+
+  application_insights {
+    instrumentation_key = var.observability_settings.instrumentation_key
+  }
+}
