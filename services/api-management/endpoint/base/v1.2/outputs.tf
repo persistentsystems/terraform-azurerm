@@ -10,11 +10,3 @@ output "public_ip_addresses" {
 output "gateway_url" {
   value = azurerm_api_management.apim.gateway_url
 }
-
-output "api_logger" {
-  value = azurerm_api_management_logger.app_insights.name
-}
-
-output "api_logger_id" {
-  value = azurerm_api_management_logger.app_insights.id
-}

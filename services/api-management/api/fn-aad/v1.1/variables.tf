@@ -49,5 +49,3 @@ variable "aad_settings" {
 
   })
 }
-
-

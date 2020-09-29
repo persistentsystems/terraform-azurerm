@@ -33,5 +33,4 @@ module "api" {
   service_settings = var.service_settings
   policies         = local.merged_policies
   backend_settings = var.backend_settings
-  
 }
