@@ -16,6 +16,8 @@ module "api" {
     backend_name     = module.backend.name
 
   }
+
+  observability_settings = var.observability_settings.api_logger_id
   policies         = var.policies
 }
 
