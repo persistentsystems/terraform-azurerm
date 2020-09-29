@@ -50,4 +50,9 @@ variable "aad_settings" {
   })
 }
 
+variable "observability_settings" {
+  type = object({
+	  api_logger_id             = string
+  })
+}
 
