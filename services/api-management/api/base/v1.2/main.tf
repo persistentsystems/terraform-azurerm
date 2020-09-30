@@ -13,3 +13,12 @@ resource "azurerm_api_management_api" "api" {
   protocols           = [var.service_settings.primary_protocol]
 
 }
+
+resource "azurerm_api_management_api_diagnostic" "api" {
+  
+  identifier               = "applicationinsights"
+  resource_group_name      = var.context.resource_group_name
+  api_management_name      = var.service_settings.endpoint_name
+  api_name                 = azurerm_api_management_api.api.name
+  api_management_logger_id = var.observability_settings.api_logger_id
+}

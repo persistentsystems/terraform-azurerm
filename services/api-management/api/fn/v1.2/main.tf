@@ -1,6 +1,6 @@
 module "api" {
   
-  source                = "../../base/v1.1"
+  source                = "../../base/v1.2"
   
   context          = var.context
   service_settings = {
@@ -15,6 +15,9 @@ module "api" {
     product_id       = var.service_settings.product_id
     backend_name     = module.backend.name
 
+  }
+  observability_settings = {
+    api_logger_id = var.observability_settings.api_logger_id
   }
   policies         = var.policies
 }

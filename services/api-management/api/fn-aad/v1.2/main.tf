@@ -27,11 +27,11 @@ XML
 
 module "api" {
   
-  source                = "../../fn/v1.1"
+  source                = "../../fn/v1.2"
   
   context          = var.context
   service_settings = var.service_settings
   policies         = local.merged_policies
   backend_settings = var.backend_settings
-  
+  observability_settings = var.observability_settings
 }
