@@ -34,9 +34,6 @@ variable "parameters" {
     aggregation         = string
     operator            = string
     threshold           = string
-    name                = string
-    operator            = string
-    values              = string
 
   })
 }
