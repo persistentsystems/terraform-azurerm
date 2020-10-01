@@ -20,7 +20,7 @@ variable "metrics" {
   type = object({
 
     name               = string
-    scopes             = string
+    scopes             = list(string)
     description        = string
 
   })
@@ -42,6 +42,6 @@ variable "dimensions" {
   type = object({
     name                = string
     operator            = string
-    values              = string
+    values              = list(string)
   })
 }
