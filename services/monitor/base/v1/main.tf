@@ -25,9 +25,9 @@ resource "azurerm_monitor_metric_alert" "alert" {
     threshold        = var.parameters.threshold
 
     dimension {
-      name     = var.parameters.name
-      operator = var.parameters.operator
-      values   = var.parameters.values
+      name     = var.dimensions.name
+      operator = var.dimensions.operator
+      values   = var.dimensions.values
     }
   }
 

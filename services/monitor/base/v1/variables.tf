@@ -29,14 +29,22 @@ variable "metrics" {
 variable "parameters" {
   type = object({
     
-    metric_namespace    = "Microsoft.Storage/storageAccounts"
-    metric_name         = "Transactions"
-    aggregation         = "Total"
-    operator            = "GreaterThan"
-    threshold           = "5"
-    name                = "ApiName"
-    operator            = "Include"
-    values              = ["*"]
+    metric_namespace    = string
+    metric_name         = string
+    aggregation         = string
+    operator            = string
+    threshold           = string
+    name                = string
+    operator            = string
+    values              = string
 
+  })
+}
+
+variable "dimensions" {
+  type = object({
+    name                = string
+    operator            = string
+    values              = string
   })
 }
