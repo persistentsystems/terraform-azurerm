@@ -14,7 +14,7 @@ resource "azurerm_monitor_action_group" "monitor" {
 resource "azurerm_monitor_metric_alert" "alert" {
   name                = var.metrics.metric_alert_name
   resource_group_name = var.context.resource_group_name
-  scopes              = var.metrics.scopes
+  scopes              = [ var.metrics.scopes ]
   description         = var.metrics.description
 
   criteria {
