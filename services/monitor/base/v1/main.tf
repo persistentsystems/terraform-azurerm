@@ -45,7 +45,7 @@ resource "azurerm_monitor_metric_alert" "alert" {
   
   dynamic "metric_alert" {
     for_each = var.custom_rules_settings
-
+    content {
       name                = metric_alert.value.name
       scopes              = metric_alert.value.scopes
       description         = metric_alert.value.description
@@ -64,7 +64,7 @@ resource "azurerm_monitor_metric_alert" "alert" {
           values   = metric_alert.value.values
         }
       }
-  }
+    }
   action {
     action_group_id = azurerm_monitor_action_group.monitor.id
   }
