@@ -42,14 +42,13 @@ resource "azurerm_monitor_metric_alert" "alert" {
 
 resource "azurerm_monitor_metric_alert" "alert" {
 
-  
+  resource_group_name = var.context.resource_group_name
   dynamic "metric_alert" {
     for_each = var.custom_rules_settings
     content {
       name                = metric_alert.value.name
       scopes              = metric_alert.value.scopes
       description         = metric_alert.value.description
-      resource_group_name = var.context.resource_group_name
 
       criteria {
         metric_namespace = metric_alert.value.metric_namespace
