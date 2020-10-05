@@ -26,3 +26,4 @@ variable "container" {
     partition_key_path = string
 
   }))
+}
