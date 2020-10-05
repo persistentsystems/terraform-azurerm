@@ -49,7 +49,7 @@ variable "dimensions" {
 }
 */
 
-variable "metrics" {
+variable "custom_rules_settings" {
   type = list(object({
 
     name               = string

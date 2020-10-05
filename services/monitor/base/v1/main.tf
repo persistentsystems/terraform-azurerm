@@ -43,29 +43,28 @@ resource "azurerm_monitor_metric_alert" "alert" {
 resource "azurerm_monitor_metric_alert" "alert" {
 
   resource_group_name = var.context.resource_group_name
-  dynamic "alerts" {
-    for_each = var.metrics
+  dynamic "metric_alert" {
+    for_each = var.custom_rules_settings
 
-      name                = alerts.value.name
-      scopes              = alerts.value.scopes
-      description         = alerts.value.description
-
+      name                = metric_alert.value.name
+      scopes              = metric_alert.value.scopes
+      description         = metric_alert.value.description
 
       criteria {
-        metric_namespace = alerts.value.metric_namespace
-        metric_name      = alerts.value.metric_name
-        aggregation      = alerts.value.aggregation
-        operator         = alerts.value.operator
-        threshold        = alerts.value.threshold
+        metric_namespace = metric_alert.value.metric_namespace
+        metric_name      = metric_alert.value.metric_name
+        aggregation      = metric_alert.value.aggregation
+        operator         = metric_alert.value.operator
+        threshold        = metric_alert.value.threshold
 
         dimension {
-          name     = alerts.value.dimensions_name
-          operator = alerts.value.dimensions_operator
-          values   = alerts.value.values
+          name     = metric_alert.value.dimensions_name
+          operator = metric_alert.value.dimensions_operator
+          values   = metric_alert.value.values
         }
       }
   }
   action {
     action_group_id = azurerm_monitor_action_group.monitor.id
   }
-} 
+}
