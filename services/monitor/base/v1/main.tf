@@ -46,22 +46,22 @@ resource "azurerm_monitor_metric_alert" "alert" {
   dynamic "alerts" {
   for_each = var.metrics
 
-    name                = var.alerts.name
-    scopes              = var.alerts.scopes
-    description         = var.alerts.description
+    name                = alerts.value.name
+    scopes              = alerts.value.scopes
+    description         = alerts.value.description
 
 
     criteria {
-      metric_namespace = var.alerts.metric_namespace
-      metric_name      = var.alerts.metric_name
-      aggregation      = var.alerts.aggregation
-      operator         = var.alerts.operator
-      threshold        = var.alerts.threshold
+      metric_namespace = alerts.value.metric_namespace
+      metric_name      = alerts.value.metric_name
+      aggregation      = alerts.value.aggregation
+      operator         = alerts.value.operator
+      threshold        = alerts.value.threshold
 
       dimension {
-        name     = var.alerts.dimensions_name
-        operator = var.alerts.dimensions_operator
-        values   = var.alerts.values
+        name     = alerts.value.dimensions_name
+        operator = alerts.value.dimensions_operator
+        values   = alerts.value.values
       }
     }
   }
