@@ -50,19 +50,17 @@ variable "dimensions" {
 */
 
 variable "custom_rules_settings" {
-  type = list(object({
-
-    name               = string
-    scopes             = list(string)
-    description        = string
-    metric_namespace    = string
-    metric_name         = string
-    aggregation         = string
-    operator            = string
-    threshold           = string
-    dimensions_name     = string
-    dimensions_operator = string
-    values              = list(string)
-
-  }))
+    type = list(object({
+        name                = string
+        scopes              = list(string)
+        description         = string
+        metric_namespace    = string
+        metric_name         = string
+        aggregation         = string
+        operator            = string
+        threshold           = string
+        dimensions_name     = string
+        dimensions_operator = string
+        values              = list(string)
+    }))
 }
