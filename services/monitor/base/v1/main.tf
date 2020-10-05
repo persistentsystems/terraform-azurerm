@@ -9,8 +9,9 @@ resource "azurerm_monitor_action_group" "monitor" {
     name          = "sendtoadmin"
     email_address = "testing@test.com"
   }
-}
 */
+}
+
 
 /*
 resource "azurerm_monitor_metric_alert" "alert" {
