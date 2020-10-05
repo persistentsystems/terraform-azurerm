@@ -10,20 +10,14 @@ variable "context" {
 
   })
 }
-variable "service_settings" {
-  type = object({
-
-    name              = string
-    account_name      = string
-    throughput        = string
-
-  })
-}
 
 variable "container" {
   type = list(object({
-    name = string
+    name               = string
     partition_key_path = string
+    name               = string
+    account_name       = string
+    throughput         = string
 
   }))
 }
