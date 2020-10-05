@@ -50,7 +50,7 @@ variable "dimensions" {
 */
 
 variable "metrics" {
-  type = object({
+  type = list(object({
 
     name               = string
     scopes             = list(string)
@@ -64,5 +64,5 @@ variable "metrics" {
     dimensions_operator = string
     values              = list(string)
 
-  })
+  }))
 }
