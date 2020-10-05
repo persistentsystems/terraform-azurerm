@@ -9,7 +9,7 @@ resource "azurerm_cosmosdb_sql_database" "database" {
 
 resource "azurerm_cosmosdb_sql_container" "erx" {
 
-resource_group_name = var.context.resource_group_name
+
   
   
   dynamic "container" {
@@ -19,9 +19,9 @@ resource_group_name = var.context.resource_group_name
     content {
           name                = container.value.name
           partition_key_path  = container.value.partition_key_path
-          throughput          = container.value.throughput
-          
-          account_name        = container.value.account_name
+          throughput          = var.service_settings.throughput
+          resource_group_name = var.context.resource_group_name
+          account_name        = var.service_settings.account_name
           database_name       = azurerm_cosmosdb_sql_database.database.name
 
     }
