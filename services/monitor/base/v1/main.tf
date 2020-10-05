@@ -46,25 +46,26 @@ resource "azurerm_monitor_metric_alert" "alert" {
   name                = var.dimensions.name
   scopes              = var.dimensions.scopes
 
-  dynamic "metric_alert" {
+
+  dynamic "custom_rule" {
     for_each = var.custom_rules_settings
     
     content {
     #  name                = metric_alert.value.name
     #  scopes              = metric_alert.value.scopes
-      description         = metric_alert.value.description
+      description         = custom_rule.value.description
 
       criteria {
-        metric_namespace = metric_alert.value.metric_namespace
-        metric_name      = metric_alert.value.metric_name
-        aggregation      = metric_alert.value.aggregation
-        operator         = metric_alert.value.operator
-        threshold        = metric_alert.value.threshold
+        metric_namespace = custom_rule.value.metric_namespace
+        metric_name      = custom_rule.value.metric_name
+        aggregation      = custom_rule.value.aggregation
+        operator         = custom_rule.value.operator
+        threshold        = custom_rule.value.threshold
 
         dimension {
-          name     = metric_alert.value.dimensions_name
-          operator = metric_alert.value.dimensions_operator
-          values   = metric_alert.value.values
+          name     = custom_rule.value.dimensions_name
+          operator = custom_rule.value.dimensions_operator
+          values   = custom_rule.value.values
         }
       }
     }
