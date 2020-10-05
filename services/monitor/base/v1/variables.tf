@@ -49,10 +49,16 @@ variable "dimensions" {
 }
 */
 
+variable "dimensions" {
+  type = object({
+    name                = string
+    scopes              = list(string)
+  })
+}
 variable "custom_rules_settings" {
     type = list(object({
-        name                = string
-        scopes              = list(string)
+    #    name                = string
+    #    scopes              = list(string)
         description         = string
         metric_namespace    = string
         metric_name         = string

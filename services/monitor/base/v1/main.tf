@@ -43,9 +43,9 @@ resource "azurerm_monitor_metric_alert" "alert" {
 resource "azurerm_monitor_metric_alert" "alert" {
 
   resource_group_name = var.context.resource_group_name
-  name                = var.custom_rules_settings.name
-  scopes              = var.custom_rules_settings.scopes
-  
+  name                = var.dimensions.name
+  scopes              = var.dimensions.scopes
+
   dynamic "metric_alert" {
     for_each = var.custom_rules_settings
     
