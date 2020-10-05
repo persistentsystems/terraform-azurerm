@@ -19,9 +19,9 @@ resource "azurerm_cosmosdb_sql_container" "erx" {
     content {
           name                = container.value.name
           partition_key_path  = container.value.partition_key_path
-          throughput          = var.service_settings.throughput
+          throughput          = container.value.throughput
           resource_group_name = var.context.resource_group_name
-          account_name        = var.service_settings.account_name
+          account_name        = container.value.account_name
           database_name       = azurerm_cosmosdb_sql_database.database.name
 
     }
