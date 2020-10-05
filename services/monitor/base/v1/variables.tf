@@ -53,13 +53,14 @@ variable "dimensions" {
   type = object({
     name                = string
     scopes              = list(string)
+    description         = string
   })
 }
 variable "custom_rules_settings" {
     type = list(object({
     #    name                = string
     #    scopes              = list(string)
-        description         = string
+    #    description         = string
         metric_namespace    = string
         metric_name         = string
         aggregation         = string
