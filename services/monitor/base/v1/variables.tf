@@ -8,6 +8,7 @@ variable "context" {
   })
 }
 
+
 variable "service_settings" {
   type = object({
 
@@ -16,6 +17,7 @@ variable "service_settings" {
   })
 }
 
+/*
 variable "metrics" {
   type = object({
 
@@ -43,5 +45,24 @@ variable "dimensions" {
     name                = string
     operator            = string
     values              = list(string)
+  })
+}
+*/
+
+variable "metrics" {
+  type = object({
+
+    name               = string
+    scopes             = list(string)
+    description        = string
+    metric_namespace    = string
+    metric_name         = string
+    aggregation         = string
+    operator            = string
+    threshold           = string
+    dimensions_name     = string
+    dimensions_operator = string
+    values              = list(string)
+
   })
 }
