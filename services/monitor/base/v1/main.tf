@@ -4,9 +4,10 @@ resource "azurerm_monitor_action_group" "monitor" {
   short_name          = var.service_settings.short_name
 
 /*
-  webhook_receiver {
-    name        = var.service_settings.webhook_name
-    service_uri = var.service_settings.service_uri
+### For sending an email on alert
+  email_receiver {
+    name          = "sendtoadmin"
+    email_address = "admin@contoso.com"
   }
   */
 }
@@ -14,7 +15,7 @@ resource "azurerm_monitor_action_group" "monitor" {
 resource "azurerm_monitor_metric_alert" "alert" {
   name                = var.metrics.name
   resource_group_name = var.context.resource_group_name
-  scopes              = [ var.metrics.scopes ]
+  scopes              = var.metrics.scopes
   description         = var.metrics.description
 
   criteria {
