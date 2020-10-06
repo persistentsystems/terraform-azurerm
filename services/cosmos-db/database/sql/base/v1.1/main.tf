@@ -12,7 +12,7 @@ resource "azurerm_cosmosdb_sql_database" "database" {
 
 resource "azurerm_cosmosdb_sql_container" "erx" {
 
-  throughput          = var.service_settings.throughput
+  #throughput          = var.service_settings.throughput
   resource_group_name = var.context.resource_group_name
   account_name        = var.service_settings.account_name
   database_name       = azurerm_cosmosdb_sql_database.database.name
