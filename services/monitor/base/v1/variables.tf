@@ -49,18 +49,12 @@ variable "dimensions" {
 }
 */
 
-variable "dimensions" {
-  type = object({
-    name                = string
-    scopes              = list(string)
-    description         = string
-  })
-}
+
 variable "custom_rules_settings" {
-    type = list(object({
-    #    name                = string
-    #    scopes              = list(string)
-    #    description         = string
+    type = object({
+        name                = string
+        scopes              = list(string)
+        description         = string
         metric_namespace    = string
         metric_name         = string
         aggregation         = string
@@ -69,5 +63,5 @@ variable "custom_rules_settings" {
         dimensions_name     = string
         dimensions_operator = string
         values              = list(string)
-    }))
+    })
 }
