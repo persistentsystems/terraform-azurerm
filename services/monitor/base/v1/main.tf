@@ -55,16 +55,16 @@ resource "azurerm_monitor_metric_alert" "alert" {
     #  name                = metric_alert.value.name
     #  scopes              = metric_alert.value.scopes
 
-      metric_namespace = custom_rule.value.metric_namespace
-      metric_name      = custom_rule.value.metric_name
-      aggregation      = custom_rule.value.aggregation
-      operator         = custom_rule.value.operator
-      threshold        = custom_rule.value.threshold
+      metric_namespace = criteria.value.metric_namespace
+      metric_name      = criteria.value.metric_name
+      aggregation      = criteria.value.aggregation
+      operator         = criteria.value.operator
+      threshold        = criteria.value.threshold
 
       dimension {
-        name     = custom_rule.value.dimensions_name
-        operator = custom_rule.value.dimensions_operator
-        values   = custom_rule.value.values
+        name     = criteria.value.dimensions_name
+        operator = criteria.value.dimensions_operator
+        values   = criteria.value.values
       }
     }
   }
