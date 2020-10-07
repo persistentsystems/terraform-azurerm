@@ -3,13 +3,12 @@ resource "azurerm_monitor_action_group" "monitor" {
   resource_group_name = var.context.resource_group_name
   short_name          = var.service_settings.short_name
 
-/*
 ### For sending an email on alert
   email_receiver {
-    name          = "sendtoadmin"
-    email_address = "testing@test.com"
+    name          = var.service_settings.email_title
+    email_address = var.service_settings.email_address
   }
-*/
+
 }
 
 resource "azurerm_monitor_metric_alert" "alert" {

@@ -14,41 +14,11 @@ variable "service_settings" {
 
     name                = string
     short_name          = string
-  })
-}
-
-/*
-variable "metrics" {
-  type = object({
-
-    name               = string
-    scopes             = list(string)
-    description        = string
+    email_title         = string
+    email_address       = string
 
   })
 }
-
-variable "parameters" {
-  type = object({
-    
-    metric_namespace    = string
-    metric_name         = string
-    aggregation         = string
-    operator            = string
-    threshold           = string
-
-  })
-}
-
-variable "dimensions" {
-  type = object({
-    name                = string
-    operator            = string
-    values              = list(string)
-  })
-}
-*/
-
 
 variable "custom_rules_settings" {
     type = object({
