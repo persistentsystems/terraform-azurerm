@@ -9,7 +9,7 @@ resource "azurerm_cosmosdb_sql_container" "erx" {
   partition_key_path  = var.service_settings.partition_key_path
 
   indexing_policy {
-    indexing_mode = "Consistent"
+    indexing_mode = "consistent"
 
     included_path {
       path = "/*"
