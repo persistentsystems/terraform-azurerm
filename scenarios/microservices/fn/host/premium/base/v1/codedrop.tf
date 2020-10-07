@@ -1,7 +1,7 @@
 
 module "code_storage" {
   
-  source           = "../../../../../../../services/storage/endpoint/base/v1.1"
+  source           = "../../../../../../../services/storage/endpoint/base/v1.2"
   context          = var.context
 
   service_settings = {
