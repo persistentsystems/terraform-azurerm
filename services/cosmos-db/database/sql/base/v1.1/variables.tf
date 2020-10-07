@@ -20,11 +20,3 @@ variable "service_settings" {
 
   })
 }
-
-variable "container" {
-  type = object({
-    name = string
-    partition_key_path = string
-
-  })
-}
