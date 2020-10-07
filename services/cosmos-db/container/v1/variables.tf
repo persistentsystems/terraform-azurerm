@@ -13,15 +13,9 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    account_name      = string
-    database_name     = string
-  })
-}
-
-variable "container" {
-  type = object({
-    name = string
-    partition_key_path = string
-
+    account_name        = string
+    database_name       = string
+    name                = string
+    partition_key_path  = string
   })
 }
