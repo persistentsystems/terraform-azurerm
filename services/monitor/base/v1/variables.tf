@@ -21,5 +21,6 @@ variable "custom_rules_settings" {
         dimensions_name     = string
         dimensions_operator = string
         values              = list(string)
+        action_group_id     = string
     })
 }
