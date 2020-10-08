@@ -14,10 +14,15 @@ variable "service_settings" {
 
     name                = string
     short_name          = string
-    email_title         = string
-    email_address       = string
 
   })
+}
+
+variable "email_settings" {
+    type = list(object({
+      email_title    = string
+      email_address = string
+    }))
 }
 
 variable "custom_rules_settings" {

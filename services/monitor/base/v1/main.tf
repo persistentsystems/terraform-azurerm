@@ -4,11 +4,14 @@ resource "azurerm_monitor_action_group" "monitor" {
   short_name          = var.service_settings.short_name
 
 ### For sending an email on alert
-  email_receiver {
-    name          = var.service_settings.email_title
-    email_address = var.service_settings.email_address
-  }
-
+## Dynamic block logic
+  dynamic "email_receiver" {
+    for_each = var.email_settings
+	
+	  content {
+      name          = email_receiver.value.email_title
+      email_address = email_receiver.value.email_address
+    }
 }
 
 resource "azurerm_monitor_metric_alert" "alert" {
