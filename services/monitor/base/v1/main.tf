@@ -18,7 +18,9 @@ resource "azurerm_monitor_metric_alert" "alert" {
     }
   }
 
+  /*
   action {
     action_group_id = azurerm_monitor_action_group.monitor.id
   }
+  */
 }
