@@ -8,18 +8,6 @@ variable "context" {
   })
 }
 
-
-variable "service_settings" {
-  type = object({
-
-    name                = string
-    short_name          = string
-    email_title         = string
-    email_address       = string
-
-  })
-}
-
 variable "custom_rules_settings" {
     type = object({
         name                = string
@@ -33,5 +21,6 @@ variable "custom_rules_settings" {
         dimensions_name     = string
         dimensions_operator = string
         values              = list(string)
+        action_group_id     = string
     })
 }
