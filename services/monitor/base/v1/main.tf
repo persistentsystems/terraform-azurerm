@@ -12,6 +12,7 @@ resource "azurerm_monitor_action_group" "monitor" {
       name          = email_receiver.value.email_title
       email_address = email_receiver.value.email_address
     }
+  }
 }
 
 resource "azurerm_monitor_metric_alert" "alert" {
