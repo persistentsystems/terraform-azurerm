@@ -14,7 +14,6 @@ variable "service_settings" {
 
     name                                    = string
     workspace_id                            = string
-    log_storage_account                     = string
     
   })
 }
@@ -51,7 +50,7 @@ variable "observability_settings" {
   type = object({
 
     workspace_id        = string
-    storage_account     = string 
+    storage_account_id  = string 
     retention_days      = number
   })
 }

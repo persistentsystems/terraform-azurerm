@@ -38,7 +38,7 @@ resource "azurerm_monitor_diagnostic_setting" "frontdoor_log_setting" {
 
   name                        = "${var.service_settings.name}-frontdoor-storage"
   target_resource_id          = azurerm_frontdoor.frontdoor.id
-  storage_account_id          = var.observability_settings.storage_account
+  storage_account_id          = var.observability_settings.storage_account_id
 
   log {
     category = "FrontdoorAccessLog"
