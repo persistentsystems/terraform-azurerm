@@ -8,7 +8,7 @@ variable "context" {
   })
 }
 
-/*
+/* 
 variable "custom_rules_settings" {
     type = object({
         name                = string
