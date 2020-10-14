@@ -8,8 +8,9 @@ variable "context" {
   })
 }
 
+/*
 variable "custom_rules_settings" {
-    type = map(object({
+    type = object({
         name                = string
         scopes              = list(string)
         description         = string
@@ -22,5 +23,6 @@ variable "custom_rules_settings" {
         dimensions_operator = string
         values              = list(string)
         action_group_id     = string
-    }))
+    })
 }
+*/
