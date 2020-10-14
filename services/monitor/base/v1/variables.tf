@@ -8,11 +8,10 @@ variable "context" {
   })
 }
 
-/* 
 variable "custom_rules_settings" {
     type = object({
         name                = string
-        scopes              = list(string)
+        scopes              = string
         description         = string
         metric_namespace    = string
         metric_name         = string
@@ -25,4 +24,3 @@ variable "custom_rules_settings" {
         action_group_id     = string
     })
 }
-*/
