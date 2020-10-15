@@ -2,7 +2,7 @@ resource "azurerm_monitor_metric_alert" "alert" {
   
   resource_group_name = var.context.resource_group_name
   
-  dynamic "alert_settings"  {
+  dynamic "azurerm_monitor_metric_alert"  {
       for_each = var.alert_settings
       content {
         name                = var.alert_settings.name
@@ -23,8 +23,8 @@ resource "azurerm_monitor_metric_alert" "alert" {
 
       dimension {
 
-        dimentions_name     = var.criteria_settings.dimensions_name
-        dimentions_operator = var.criteria_settings.dimensions_operator
+        name     = var.criteria_settings.dimensions_name
+        operator = var.criteria_settings.dimensions_operator
         values              = var.criteria_settings.values
       }
     }
