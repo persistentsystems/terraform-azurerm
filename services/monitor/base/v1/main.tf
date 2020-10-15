@@ -1,16 +1,3 @@
-resource "azurerm_monitor_action_group" "monitor" {
-  name                = var.service_settings.name
-  resource_group_name = var.context.resource_group_name
-  short_name          = var.service_settings.short_name
-
-### For sending an email on alert
-  email_receiver {
-    name          = var.service_settings.email_title
-    email_address = var.service_settings.email_address
-  }
-
-}
-
 resource "azurerm_monitor_metric_alert" "alert" {
   name                = var.custom_rules_settings.name
   resource_group_name = var.context.resource_group_name
@@ -32,6 +19,7 @@ resource "azurerm_monitor_metric_alert" "alert" {
   }
 
   action {
-    action_group_id = azurerm_monitor_action_group.monitor.id
+    action_group_id = var.custom_rules_settings.action_group_id
   }
+  
 }
