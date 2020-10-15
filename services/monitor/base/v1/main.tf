@@ -1,21 +1,34 @@
 resource "azurerm_monitor_metric_alert" "alert" {
-  name                = var.custom_rules_settings.name
+  
   resource_group_name = var.context.resource_group_name
-  scopes              = var.custom_rules_settings.scopes
-  description         = var.custom_rules_settings.description
+  
+  dynamic "alert_settings"  {
+      for_each = var.alert_settings
+      content {
+        name                = var.alert_settings.name
+        scopes              = var.alert_settings.scopes
+        description         = var.alert_settings.description
+      }
+  }
 
-  criteria {
-    metric_namespace = var.custom_rules_settings.metric_namespace
-    metric_name      = var.custom_rules_settings.metric_name
-    aggregation      = var.custom_rules_settings.aggregation
-    operator         = var.custom_rules_settings.operator
-    threshold        = var.custom_rules_settings.threshold
+  dynamic "criteria" {
+    for_each = var.criteria_settings
+    content {
 
-    dimension {
-      name     = var.custom_rules_settings.dimensions_name
-      operator = var.custom_rules_settings.dimensions_operator
-      values   = var.custom_rules_settings.values
+      metric_namespace    = var.criteria_settings.metric_namespace
+      metric_name         = var.criteria_settings.metric_name
+      aggregation         = var.criteria_settings.aggregation
+      operator            = var.criteria_settings.operator
+      threshold           = var.criteria_settings.threshold
+
+      dimension {
+
+        dimentions_name     = var.criteria_settings.dimensions_name
+        dimentions_operator = var.criteria_settings.dimensions_operator
+        values              = var.criteria_settings.values
+      }
     }
+
   }
 
   action {
