@@ -38,8 +38,8 @@ variable "criteria_settings" {
         aggregation         = string
         operator            = string
         threshold           = string
-        dimensions_name     = string
-        dimensions_operator = string
+        name                = string
+        operator            = string
         values              = list(string)
     }))  
 }
