@@ -44,21 +44,16 @@ variable "criteria_settings" {
     }))  
 }
 variable "name" {
-    type = list(object({
-      name                = string
-
-    }))
+    type = list(string)
 
 }
 
 variable "scopes" {
-  type = list(object({
-      scopes              = list(string)
-  }))
+  type = list(string)
+
 }    
 
 variable "description" {
-  type = list(object({
-      description         = string
-  }))
-}       
+  type = list(string)
+
+}     
