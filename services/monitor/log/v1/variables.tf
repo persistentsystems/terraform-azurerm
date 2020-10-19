@@ -12,7 +12,7 @@ variable "custom_rules_settings" {
     type = object({
         name                = string
         description         = string
-        action_group        = string
+        action_group        = list(string)
         data_source_id      = string
         query               = string
         severity            = string
