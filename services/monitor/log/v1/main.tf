@@ -1,5 +1,6 @@
 resource "azurerm_monitor_scheduled_query_rules_alert" "example" {
   name                = var.custom_rules_settings.name
+  location            = var.context.location
   resource_group_name = var.context.resource_group_name
   description         = var.custom_rules_settings.description
   enabled             = true
