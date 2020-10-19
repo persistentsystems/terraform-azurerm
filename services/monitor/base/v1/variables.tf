@@ -44,10 +44,10 @@ variable "criteria_settings" {
     }))  
 }
 variable "alert_settings" {
-    type = list(object ({
-        name                = string
-        scopes              = list(string)
-        description         = string
+    type = list(object({
+      name                = string
+      scopes              = list(string)
+      description         = string
     }))
 
 }
