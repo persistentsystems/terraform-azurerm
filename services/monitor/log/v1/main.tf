@@ -1,4 +1,4 @@
-resource "azurerm_monitor_scheduled_query_rules_alert" "example" {
+resource "azurerm_monitor_scheduled_query_rules_alert" "log" {
   name                = var.custom_rules_settings.name
   location            = var.context.location
   resource_group_name = var.context.resource_group_name
