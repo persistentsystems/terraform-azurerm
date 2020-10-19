@@ -1,9 +1,9 @@
 resource "azurerm_monitor_metric_alert" "alert" {
   
   resource_group_name = var.context.resource_group_name
-  name                = var.alert_settings.name
-  scopes              = var.alert_settings.scopes
-  description         = var.alert_settings.description
+  name                = var.name.name
+  scopes              = var.scopes.scopes
+  description         = var.description.description
   
 
   dynamic "criteria" {
