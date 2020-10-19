@@ -6,7 +6,7 @@ resource "azurerm_monitor_scheduled_query_rules_alert" "example" {
   enabled             = true
   
   action {
-    action_group           = var.custom_rules_settings.action_group_id
+    action_group           = var.custom_rules_settings.action_group
   }
   data_source_id = var.custom_rules_settings.data_source_id
   
