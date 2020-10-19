@@ -57,7 +57,7 @@ variable "scopes" {
   }))
 }    
 
-variable "scopes" {
+variable "description" {
   type = list(object({
       description         = string
   }))
