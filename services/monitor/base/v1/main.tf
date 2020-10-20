@@ -14,8 +14,8 @@ resource "azurerm_monitor_metric_alert" "alert" {
 
     dimension {
 
-      name     = var.criteria_settings.name
-      operator = var.criteria_settings.operator
+      name     = var.criteria_settings.dimension_name
+      operator = var.criteria_settings.dimension_operator
       values   = var.criteria_settings.values
     }
   }
