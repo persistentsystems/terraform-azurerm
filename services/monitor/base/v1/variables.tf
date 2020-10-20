@@ -11,7 +11,7 @@ variable "context" {
 variable "custom_rules_settings" {
     type = object({
         name                = string
-        scopes              = string
+        scopes              = list(string)
         description         = string
         metric_namespace    = string
         metric_name         = string
