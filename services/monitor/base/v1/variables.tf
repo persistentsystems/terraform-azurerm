@@ -60,11 +60,11 @@ variable "description" {
 } 
 */
 variable "alert_settings" {
-  type =list(object({
+  type =object({
     name   =string
     scopes = list(string)
     description = string
   }
 
-  ))
+  )
 }    
