@@ -18,8 +18,8 @@ resource "azurerm_monitor_metric_alert" "alert" {
 
       dimension {
 
-        name     = criteria.value.dimensions_name
-        operator = criteria.value.dimensions_operator
+        name     = criteria.value.name
+        operator = criteria.value.operator
         values   = criteria.value.values
       }
     }
