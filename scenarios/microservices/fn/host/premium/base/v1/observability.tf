@@ -2,7 +2,7 @@
 
 module "appinsights" {
   
-  source           = "../../../../../../../services/app-insights/endpoint/base/v1.1"
+  source           = "../../../../../../../services/app-insights/endpoint/base/v1"
   
 
   context          = var.context
