@@ -6,7 +6,7 @@ resource "azurerm_monitor_metric_alert" "alert" {
   description         = var.alert_settings.description
   
   criteria {
-    metric_namespace    = var.alert_settings.metric_namespace
+    metric_namespace    = var.criteria_settings.metric_namespace
     metric_name         = var.criteria_settings.metric_name
     aggregation         = var.criteria_settings.aggregation
     operator            = var.criteria_settings.operator
