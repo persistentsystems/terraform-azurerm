@@ -66,5 +66,5 @@ variable "alert_settings" {
     description = string
   }
 
-  )
+  ))
 }    
