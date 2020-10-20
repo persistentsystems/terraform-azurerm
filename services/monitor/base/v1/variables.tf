@@ -43,6 +43,7 @@ variable "criteria_settings" {
         values              = list(string)
     }))  
 }
+/*
 variable "name" {
     type = list(string)
 
@@ -56,4 +57,14 @@ variable "scopes" {
 variable "description" {
   type = list(string)
 
-}     
+} 
+*/
+variable "alert_settings" {
+  type =list(object({
+    name   =string
+    scopes = list(string)
+    description = string
+  }
+
+  )
+}    

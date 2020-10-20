@@ -1,7 +1,7 @@
 resource "azurerm_monitor_metric_alert" "alert" {
-  
+  count = 2
   resource_group_name = var.context.resource_group_name
-  name                = var.name
+  name                = var.name[]
   scopes              = var.scopes
   description         = var.description
   
