@@ -32,7 +32,7 @@ variable "custom_rules_settings" {
 }
 
 variable "criteria_settings" {
-    type = list(object({
+    type = object({
         metric_namespace    = string
         metric_name         = string
         aggregation         = string
@@ -41,7 +41,7 @@ variable "criteria_settings" {
         name                = string
         operator            = string
         values              = list(string)
-    }))  
+    }) 
 }
 /*
 variable "name" {
