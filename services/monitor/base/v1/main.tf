@@ -10,17 +10,17 @@ resource "azurerm_monitor_metric_alert" "alert" {
     for_each = var.criteria_settings
     content {
 
-      metric_namespace    = var.criteria_settings.metric_namespace
-      metric_name         = var.criteria_settings.metric_name
-      aggregation         = var.criteria_settings.aggregation
-      operator            = var.criteria_settings.operator
-      threshold           = var.criteria_settings.threshold
+      metric_namespace    = criteria.value.metric_namespace
+      metric_name         = criteria.value.metric_name
+      aggregation         = criteria.value.aggregation
+      operator            = criteria.value.operator
+      threshold           = criteria.value.threshold
 
       dimension {
 
-        name     = var.criteria_settings.dimensions_name
-        operator = var.criteria_settings.dimensions_operator
-        values              = var.criteria_settings.values
+        name     = criteria.value.dimensions_name
+        operator = criteria.value.dimensions_operator
+        values   = criteria.value.values
       }
     }
 
