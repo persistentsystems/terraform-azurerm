@@ -11,7 +11,7 @@ output "host_settings" {
     deployment_storage_account_name = module.code_storage.name
     deployment_storage_container    = azurerm_storage_container.code_storage.name
     deployment_package_sas          = data.azurerm_storage_account_sas.code_storage.sas
-    appinsights_name                = module.appinsights.name
-    appinsights_conn_string         = module.appinsights.connection_string
+    appinsights_name                = module.appinsights.id
+    #appinsights_conn_string         = module.appinsights.connection_string
   }
 }
