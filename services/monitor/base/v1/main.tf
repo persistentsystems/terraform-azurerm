@@ -4,27 +4,18 @@ resource "azurerm_monitor_metric_alert" "alert" {
   name                = var.alert_settings.name
   scopes              = var.alert_settings.scopes
   description         = var.alert_settings.description
-  
-
-  dynamic "criteria" {
-    for_each = var.criteria_settings
-    content {
-
-      metric_namespace    = criteria.value.metric_namespace
-      metric_name         = criteria.value.metric_name
-      aggregation         = criteria.value.aggregation
-      operator            = criteria.value.operator
-      threshold           = criteria.value.threshold
+  metric_namespace    = var.alert_settings.metric_namespace
+  metric_name         = var.criteria_settings.metric_name
+  aggregation         = var.criteria_settings.aggregation
+  operator            = var.criteria_settings.operator
+  threshold           = var.criteria_settings.threshold
 
       dimension {
 
-        name     = criteria.value.name
-        operator = criteria.value.operator
-        values   = criteria.value.values
+        name     = var.criteria_settings.name
+        operator = var.criteria_settings.operator
+        values   = var.criteria_settings.values
       }
-    }
-
-  }
 
   action {
     action_group_id = var.custom_rules_settings.action_group_id
