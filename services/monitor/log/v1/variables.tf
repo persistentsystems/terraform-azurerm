@@ -12,6 +12,7 @@ variable "custom_rules_settings" {
     type = object({
         name                = string
         description         = string
+        action_group        = list(string)
         data_source_id      = string
         query               = string
         severity            = string
@@ -19,11 +20,5 @@ variable "custom_rules_settings" {
         time_window         = string
         operator            = string
         threshold           = string
-    })
-}
-
-variable "group_settings" {
-    type = object({
-      action_group        = list(string)
     })
 }
