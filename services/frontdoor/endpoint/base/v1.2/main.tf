@@ -50,7 +50,6 @@ resource "azurerm_frontdoor" "frontdoor" {
       http_port   = var.primary_backend.http_port
       https_port  = var.primary_backend.https_port
       weight      = 50
-      priority    = var.primary_backend.priority
     }
 
     backend {
@@ -59,7 +58,6 @@ resource "azurerm_frontdoor" "frontdoor" {
       http_port   = var.secondary_backend.http_port
       https_port  = var.secondary_backend.https_port
       weight      = 50
-      priority    = var.secondary_backend.priority
     }
 
     load_balancing_name = var.backend_settings.name
