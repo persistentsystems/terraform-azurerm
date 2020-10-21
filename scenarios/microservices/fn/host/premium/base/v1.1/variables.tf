@@ -23,7 +23,9 @@ variable "service_settings" {
     maximum_instance_count = number
     minimum_instance_count = number
     workspace_id           = string
-    soft_delete_enabled    = bool
+    keyvault = {
+      id = string 
+    } 
 
   })
 }
