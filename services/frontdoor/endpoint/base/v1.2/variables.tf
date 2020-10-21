@@ -24,6 +24,7 @@ variable "primary_backend" {
     address          = string
     http_port        = string
     https_port       = string
+    priority         = number
 
   })
 }
@@ -34,6 +35,7 @@ variable "secondary_backend" {
     address          = string
     http_port        = string
     https_port       = string
+    priority         = number
 
   })
 }
