@@ -33,4 +33,4 @@ variable "alert_settings" {
     scopes = list(string)
     description = string
   })
-}    
+}
