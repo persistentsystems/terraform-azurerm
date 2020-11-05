@@ -24,8 +24,9 @@ variable "observability_settings" {
   type = object({
 
     instrumentation_key = string
+    # log analytics
     workspace_id        = string
     storage_account     = string 
-    retention_in_days   = number
+    retention_days   = number
   })
 }

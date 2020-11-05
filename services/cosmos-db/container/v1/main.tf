@@ -15,9 +15,11 @@ resource "azurerm_cosmosdb_sql_container" "erx" {
       path = "/*"
     }
 
-    excluded_path {
-      path = "/\"_etag\"/?"
-    }
+    # Automatically added by Azure, causes infinite rebuilds
+    # https://github.com/terraform-providers/terraform-provider-azurerm/issues/8798
+    #excluded_path {
+    #  path = "/\"_etag\"/?"
+    #}
   }
 /*
   unique_key {

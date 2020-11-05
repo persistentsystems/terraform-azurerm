@@ -19,7 +19,8 @@ locals {
 
 module "api_fn" {
   
-  source                        = "github.com/persistentsystems/terraform-azurerm/services/fn/premium/base/v1.3"
+  #source                        = "github.com/persistentsystems/terraform-azurerm/services/fn/premium/base/v1.3"
+  source = "../../../../../../../services/fn/premium/base/v1.3"
   
   context = var.context
   service_settings = local.merged_service_settings
@@ -29,7 +30,8 @@ module "api_fn" {
 
 module "identity_access_policy" {
   
-  source                    = "github.com/persistentsystems/terraform-azurerm/services/keyvault/accesspolicy/templates/managed-identity-reader/v1"
+  # source                    = "github.com/persistentsystems/terraform-azurerm/services/keyvault/accesspolicy/templates/managed-identity-reader/v1"
+  source = "../../../../../../../services/keyvault/accesspolicy/templates/managed-identity-reader/v1"
 
   keyvault_id               = var.host_settings.keyvault_id
   object_id                 = module.api_fn.identity[0].principal_id
