@@ -13,9 +13,9 @@ variable "service_settings" {
   type = object({
 
     api_management_name = string
-    product_id    = string
-    description   = string
-    user_id   = string
+    product_id          = string
+    description         = string
+    user_id             = string
 
   })
 }
