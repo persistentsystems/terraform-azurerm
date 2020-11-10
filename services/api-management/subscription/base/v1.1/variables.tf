@@ -16,7 +16,6 @@ variable "service_settings" {
     product_id          = string
     description         = string
     user_id             = string
-    subscription_id     = string
 
   })
 }

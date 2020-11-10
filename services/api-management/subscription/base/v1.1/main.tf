@@ -7,6 +7,5 @@ resource "azurerm_api_management_subscription" "subscription" {
   product_id            = var.service_settings.product_id
   display_name          = var.service_settings.description
   state                 = "active"
-  subscription_id       = var.service_settings.subscription_id
-
+  
 }
