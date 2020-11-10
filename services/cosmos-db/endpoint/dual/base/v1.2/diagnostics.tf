@@ -91,7 +91,7 @@ resource "azurerm_monitor_diagnostic_setting" "cosmosdb_log_setting" {
 
   name                        = "${var.service_settings.name}-cosmosdb-storage"
   target_resource_id          = azurerm_cosmosdb_account.account.id
-  storage_account_id          = var.observability_settings.storage_account
+  storage_account_id          = var.observability_settings.storage_account_id
 
   log {
     category = "DataPlaneRequests"
