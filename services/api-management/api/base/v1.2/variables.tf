@@ -21,6 +21,7 @@ variable "service_settings" {
     publish          = bool
     product_id       = list(string)
     backend_name     = string
+    subscription_required = string
 
   })
 }
