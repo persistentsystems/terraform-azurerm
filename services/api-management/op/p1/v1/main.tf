@@ -16,7 +16,7 @@ resource "azurerm_api_management_api_operation" "op" {
   }
 
   template_parameter {
-    name        = var.parameter_1
+    name        = var.parameters.p1
     required    = "true"
     type        = "string"
   }
