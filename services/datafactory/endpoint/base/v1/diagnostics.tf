@@ -101,6 +101,7 @@ resource "azurerm_monitor_diagnostic_setting" "datafactory_log_setting" {
   target_resource_id          = azurerm_data_factory.datafactory.id
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
+/*
   log {
     category = "ActivityRuns"
     enabled  = true
@@ -110,7 +111,7 @@ resource "azurerm_monitor_diagnostic_setting" "datafactory_log_setting" {
       days = 0
     }
   }
-/*
+
   log {
     category = "PipelineRuns"
     enabled  = true
