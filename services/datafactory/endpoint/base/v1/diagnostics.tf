@@ -110,7 +110,7 @@ resource "azurerm_monitor_diagnostic_setting" "datafactory_log_setting" {
       days = 0
     }
   }
-
+/*
   log {
     category = "PipelineRuns"
     enabled  = true
@@ -120,7 +120,7 @@ resource "azurerm_monitor_diagnostic_setting" "datafactory_log_setting" {
       days = 0
     }
   }
-
+*/
   log {
     category = "TriggerRuns"
     enabled  = true
