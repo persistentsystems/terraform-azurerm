@@ -11,6 +11,7 @@ resource "azurerm_api_management_api" "api" {
   display_name        = var.service_settings.description
   path                = var.service_settings.path
   protocols           = [var.service_settings.primary_protocol]
+  subscription_required = var.service_settings.subscription_required
 
 }
 

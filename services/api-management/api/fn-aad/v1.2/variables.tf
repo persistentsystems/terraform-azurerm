@@ -20,6 +20,7 @@ variable "service_settings" {
     primary_protocol = string
     publish          = bool
     product_id       = list(string)
+    subscription_required = string
 
   })
 }
