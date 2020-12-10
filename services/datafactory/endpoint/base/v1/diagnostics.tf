@@ -95,3 +95,100 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
   }
 
 }
+
+resource "azurerm_monitor_diagnostic_setting" "datafactory_log_setting" {
+  name                        = "${var.service_settings.name}-adf-storage"
+  target_resource_id          = azurerm_data_factory.datafactory.id
+  log_analytics_workspace_id  = var.observability_settings.workspace_id
+
+  log {
+    category = "ActivityRuns"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "PipelineRuns"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "TriggerRuns"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "SSISPackageEventMessages"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "SSISPackageExecutableStatistics"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "SSISPackageEventMessageContext"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "SSISPackageExecutionComponentPhases"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "SSISPackageExecutionDataStatistics"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+  log {
+    category = "SSISIntegrationRuntimeLogs"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+
+}
