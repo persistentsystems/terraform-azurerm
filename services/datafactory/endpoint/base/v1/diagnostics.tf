@@ -141,6 +141,7 @@ resource "azurerm_monitor_diagnostic_setting" "datafactory_log_setting" {
     }
   }
 
+/*
   log {
     category = "SSISPackageExecutableStatistics"
     enabled  = true
@@ -150,7 +151,7 @@ resource "azurerm_monitor_diagnostic_setting" "datafactory_log_setting" {
       days = 0
     }
   }
-
+*/
   log {
     category = "SSISPackageEventMessageContext"
     enabled  = true
