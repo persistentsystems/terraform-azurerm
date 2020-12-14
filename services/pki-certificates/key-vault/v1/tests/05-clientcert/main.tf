@@ -3,7 +3,7 @@ variable client_certs {
     type = map(string)
 }
 
-module "server_cert" {
+module "client_cert" {
     source = "../../client-cert"
     service_settings = {
         key_vault_resource_id: "/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/erx-ops-backend-us-east/providers/Microsoft.KeyVault/vaults/stevedi-test-vault"
