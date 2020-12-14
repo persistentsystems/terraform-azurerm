@@ -9,5 +9,7 @@ output "host_settings" {
     deployment_storage_account_name = module.code_storage.name
     deployment_storage_container    = azurerm_storage_container.code_storage.name
     deployment_package_sas          = data.azurerm_storage_account_sas.code_storage.sas
+    id                              = module.code_storage.id
+    func_id                         = module.api_hosting_plan.storage_account.id
   }
 }
