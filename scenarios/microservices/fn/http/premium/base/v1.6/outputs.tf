@@ -10,3 +10,6 @@ output "identity" {
 output "hostname" {
     value = module.api_fn.hostname
 }
+output "id" {
+    value = module.api_fn.id
+}
