@@ -22,13 +22,13 @@ resource "random_string" "random" {
   upper = false
 }
 
-resource "null_resource" "erx-storage-logging" {
+resource "null_resource" "storage-logging" {
   provisioner "local-exec" {
     command = "az storage logging update --log rwd --retention 0 --services b --version 2.0 --account-name ${azurerm_storage_account.storage_account.name} --account-key ${azurerm_storage_account.storage_account.primary_access_key}"
   }
 }
 
-resource "null_resource" "erx-storage-metrics" {
+resource "null_resource" "storage-metrics" {
   provisioner "local-exec" {
     command = "az storage metrics update --account-name ${azurerm_storage_account.storage_account.name} --api true --hour true --minute true --retention 0 --services b --account-key ${azurerm_storage_account.storage_account.primary_access_key}"
   }
