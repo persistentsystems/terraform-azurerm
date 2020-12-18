@@ -7,7 +7,7 @@ resource "azurerm_eventgrid_event_subscription" "subscription" {
   included_event_types = var.service_settings.included_event_types
 
   azure_function_endpoint {
-      function_id = "/subscriptions/${data.azuread_client_config.current.subscription_id}/resourceGroups/${var.context.resource_group_name}/providers/Microsoft.Web/sites/${var.endpoint_settings.function_name}/functions/fdb-erx-auditeventsubscriber"  
+      function_id = "/subscriptions/${data.azuread_client_config.current.subscription_id}/resourceGroups/${var.context.resource_group_name}/providers/Microsoft.Web/sites/${var.endpoint_settings.function_name}/functions"  
   }
 
 }
