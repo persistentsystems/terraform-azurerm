@@ -31,3 +31,10 @@ variable "observability_settings" {
     workspace_id              = string
   })
 }
+
+variable "func_name" {
+  type = object({
+    name = string
+  })
+  
+}
