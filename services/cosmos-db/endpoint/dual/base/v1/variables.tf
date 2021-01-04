@@ -20,7 +20,6 @@ variable "service_settings" {
     kind              = string
     failover_location = string
     consistency_level = string
-    log_storage_account = string
     workspace_id              = string
 
   })
