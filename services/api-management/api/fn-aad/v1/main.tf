@@ -27,7 +27,7 @@ XML
 
 module "api" {
   
-  source                = "../../fn/v1.2"
+  source                = "../../fn/v1"
   
   context          = var.context
   service_settings = var.service_settings
