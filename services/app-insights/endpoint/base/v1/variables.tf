@@ -17,8 +17,8 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name            = string
-    retention_days = number
+    name              = string
+    retention_in_days = number
 
   })
 }

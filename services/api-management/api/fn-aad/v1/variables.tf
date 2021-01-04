@@ -19,7 +19,8 @@ variable "service_settings" {
     path             = string
     primary_protocol = string
     publish          = bool
-    product_id       = string
+    product_id       = list(string)
+    subscription_required = string
 
   })
 }
@@ -49,3 +50,10 @@ variable "aad_settings" {
 
   })
 }
+
+variable "observability_settings" {
+  type = object({
+	  api_logger_id             = string
+  })
+}
+

@@ -20,9 +20,9 @@ variable "service_settings" {
 }
 variable "endpoint_settings" {
   type = object({
-    hostname             = string
+    
     function_name        = string
-    eventgrid_key        = string
+    
   })
 }
 variable "observability_settings" {
@@ -30,4 +30,11 @@ variable "observability_settings" {
     instrumentation_key       = string
     workspace_id              = string
   })
+}
+
+variable "func_name" {
+  type = object({
+    name = string
+  })
+  
 }

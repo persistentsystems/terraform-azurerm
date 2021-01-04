@@ -20,6 +20,16 @@ variable "service_settings" {
     kind              = string
     failover_location = string
     consistency_level = string
+    log_storage_account = string
+    workspace_id              = string
 
+  })
+}
+
+variable "observability_settings" {
+  type = object({
+    workspace_id              = string
+    storage_account           = string 
+    retention_days            = number
   })
 }

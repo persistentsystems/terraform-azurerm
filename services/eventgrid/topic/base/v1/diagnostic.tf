@@ -11,6 +11,7 @@ resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
     retention_policy {
       enabled = true
+      days = var.observability_settings.retention_days
     }
   }
   log {
@@ -19,6 +20,7 @@ resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
     retention_policy {
       enabled = true
+      days = var.observability_settings.retention_days
     }
   }
 
@@ -27,6 +29,33 @@ resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
     retention_policy {
       enabled = true
+      days = var.observability_settings.retention_days
+    }
+  }
+}
+
+resource "azurerm_monitor_diagnostic_setting" "eventgrid_log_setting" {
+
+  name                        = "${var.service_settings.name}-eventgrid-storage"
+  target_resource_id          = azurerm_eventgrid_topic.topic.id
+  storage_account_id          = var.observability_settings.storage_account
+
+  log {
+    category = "DeliveryFailures"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
+    }
+  }
+  log {
+    category = "PublishFailures"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days = 0
     }
   }
 }
