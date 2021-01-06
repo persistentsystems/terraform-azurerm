@@ -27,6 +27,7 @@ entry point can be http or https, it should only be https).
 
 ### To not start from scratch on every project
 
+
 There are some basics that you need on every project. You need a resource
 group, you probably want some base services: Key-Vault, Cosmos, API 
 management.  We don't force much, but you should not be starting with a 
