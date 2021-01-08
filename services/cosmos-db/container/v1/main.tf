@@ -1,4 +1,5 @@
 
+/*
 resource "azurerm_cosmosdb_sql_container" "erx" {
 
  
@@ -27,3 +28,4 @@ resource "azurerm_cosmosdb_sql_container" "erx" {
   }
 */  
 }
+*/
