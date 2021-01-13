@@ -7,6 +7,9 @@ log analytics workspace_id to observability_settings from service_settings
 which breaks the interface, and requires a version bump.  Callers using 
 the secure CosmosDB module will need to move the workspace_id from 
 service_settings, to observability setttings.
+
+Remove soft delete from KeyVault when using latest azurerm provider
+it is now marked as deprecated.
 ## Version 0.1.6
 
 The first vesion released with the new tagging structure.  All modules
