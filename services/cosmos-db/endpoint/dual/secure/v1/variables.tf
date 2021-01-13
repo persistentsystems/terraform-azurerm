@@ -9,28 +9,29 @@ variable "context" {
 
   })
 }
+# tier = "Standard"
+# kind = "GlobalDocumentDB"
+# consistency_level = "Eventual"
 variable "service_settings" {
   type = object({
-
     name              = string
     tier              = string
     kind              = string
     failover_location = string
     consistency_level = string
-
   })
-  default = {
-    tier                = "Standard"
-    kind                = "GlobalDocumentDB"
-    consistency_level   = "Eventual"
-  }
 }
 
+variable "observability_settings" {
+  type = object({
+    workspace_id              = string
+    storage_account           = string 
+    retention_days            = number
+  })
+}
 variable "security_settings" {
   type = object({
-
     secret_prefix     = string
     keyvault_id       = string
-
   })
 }
