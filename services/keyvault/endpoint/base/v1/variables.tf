@@ -15,7 +15,6 @@ variable "service_settings" {
   type = object({
 
     name                = string
-    soft_delete_enabled = bool
 
   })
 }
