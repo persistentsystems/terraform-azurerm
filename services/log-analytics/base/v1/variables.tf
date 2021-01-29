@@ -13,20 +13,12 @@ variable "context" {
 
   })
 }
-
-# storage_type = "GRS"
-# maximum_instance_count = 1
-# minimum_instance_count = 1
 variable "service_settings" {
   type = object({
 
     name              = string
+    sku               = string
     retention_in_days = number
 
-    action_groups = object({
-      critical = list(string)
-      high     = list(string)
-      moderate = list(string)
-    })
   })
 }

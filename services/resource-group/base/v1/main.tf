@@ -1,8 +1,7 @@
-
 resource "azurerm_resource_group" "rg" {
 
-  name      = var.name
-  location  = var.context.location
+  name      = "rg-${var.name}"
+  location  = var.context.location.name
 
   tags = {
     app = var.context.application_name

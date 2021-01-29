@@ -1,41 +1,66 @@
-resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
-  name                        = "${var.service_settings.name}-keyvault-logs"
-  target_resource_id          = azurerm_key_vault.keyvault.id
-  log_analytics_workspace_id  = var.observability_settings.workspace_id
 
-  log {
-    category = "AuditEvent"
-    enabled  = true
+locals {
 
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
+  # simple access to the resource we are monitoring
+  resource_id = azurerm_key_vault.keyvault.id
 
-  metric {
-    category = "AllMetrics"
-
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
 }
 
-resource "azurerm_monitor_diagnostic_setting" "keyvault_log_setting" {
-  name                        = "${var.service_settings.name}-keyvault-storage"
-  target_resource_id          = azurerm_key_vault.keyvault.id
-  storage_account_id          = var.observability_settings.storage_account
 
-  log {
-    category = "AuditEvent"
-    enabled  = true
+module "keyvault_availability" {
 
-    retention_policy {
-      enabled = true
-      # 0 means forever
-      days = 0
-    }
+  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/fixed/v1"
+
+  context = var.context
+
+  actions = {
+    ids = var.observability_settings.action_groups.moderate
   }
+
+  metric = {
+    scopes    = [ local.resource_id ]
+    namespace = "Microsoft.KeyVault/vaults"
+    name      = "Availability"
+  }
+
+  threshold = {
+    operator    = "LessThan"
+    aggregation = "Average"
+    value       = 99
+    severity    = 1
+    dimensions  = []
+  }
+
+}
+
+module "keyvault_4xx_requests" {
+
+  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/dynamic/v1"
+
+  context = var.context
+
+  actions = {
+    ids = var.observability_settings.action_groups.moderate
+  }
+
+  metric = {
+    scopes    = [ local.resource_id ]
+    namespace = "Microsoft.KeyVault/vaults"
+    name      = "ServiceApiResult"
+  }
+
+  threshold = {
+    operator    = "GreaterThan"
+    aggregation = "Count"
+    sensitivity = "Medium"
+    severity    = 1
+    dimensions  = [
+      {
+        name = "StatusCode",
+        operator = "Include",
+        values = [ "401", "403" ]
+      }
+    ]
+  }
+
 }

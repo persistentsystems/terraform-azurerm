@@ -41,8 +41,12 @@ variable "observability_settings" {
 
 variable "service_settings" {
   type = object({
-
-    name                = string
+    
+    name        = string
+    resource_id = string
+    
+    logs        = list(string)
+    metrics     = list(string)
 
   })
 }
