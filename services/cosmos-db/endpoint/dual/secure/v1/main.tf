@@ -18,7 +18,7 @@ module "secret_connection_string" {
   context                 = var.context
 
   service_settings = {
-    keyvault_id           = var.security_settings.keyvault_id
+    endpoint              = var.security_settings.keyvault_id
     name                  = "${var.security_settings.secret_prefix}-ConnectionString"
     value                 = module.account.connection_strings[0]
   }

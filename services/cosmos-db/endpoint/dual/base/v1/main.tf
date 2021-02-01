@@ -1,24 +1,42 @@
-resource "azurerm_cosmosdb_account" "account" {
-  name                = "${var.service_settings.name}-${random_string.random.result}"
-  location            = var.context.location
-  resource_group_name = var.context.resource_group_name
-  offer_type          = var.service_settings.tier
-  kind                = var.service_settings.kind
 
-  enable_automatic_failover = true
+resource "azurerm_cosmosdb_account" "account" {
+
+  name                      = "cosmos-${var.service_settings.name}"
+  location                  = var.context.location.name
+  resource_group_name       = var.context.resource_group_name
+  offer_type                = var.service_settings.tier
+  kind                      = var.service_settings.kind
+
+  enable_automatic_failover = var.service_settings.automatic_failover
 
   consistency_policy {
     consistency_level       = var.service_settings.consistency_level
   }
 
-  geo_location {
-    location          = var.service_settings.failover_location
-    failover_priority = 1
-  }
+  /*
 
-  geo_location {
-    location          = var.context.location
-    failover_priority = 0
+  dynamic "metric" {
+    for_each = var.service_settings.metrics
+      content {
+        
+        category = metric.value
+        retention_policy {
+          enabled = true
+          days = var.observability_settings.retention_policy.long_term
+        }
+
+      }
+  }
+  */
+  
+  dynamic "geo_location" {
+    for_each = var.service_settings.locations
+      content {
+        
+        location          = geo_location.value.name
+        failover_priority = geo_location.value.priority
+
+      }
   }
   
   tags = {
@@ -26,11 +44,4 @@ resource "azurerm_cosmosdb_account" "account" {
     env = var.context.environment_name
   }
 
-}
-
-resource "random_string" "random" {
-  length = 8
-  special = false
-  lower = true
-  upper = false
 }

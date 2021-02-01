@@ -21,9 +21,4 @@ resource "azurerm_cosmosdb_sql_container" "container" {
     #  path = "/\"_etag\"/?"
     #}
   }
-/*
-  unique_key {
-    paths = ["/definition/idlong", "/definition/idshort"]
-  }
-*/  
 }
