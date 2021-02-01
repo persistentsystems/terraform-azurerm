@@ -9,7 +9,7 @@ locals {
 # unhandled exceptions spike
 module "app_exceptions" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/dynamic/v1"
+  source = "../../../../monitor/metric-alert/dynamic/v1"
 
   context = var.context
 
@@ -36,7 +36,7 @@ module "app_exceptions" {
 # failed requests spike
 module "app_requests_failed" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/dynamic/v1"
+  source = "../../../../monitor/metric-alert/dynamic/v1"
 
   context = var.context
 
@@ -63,7 +63,7 @@ module "app_requests_failed" {
 # requests rate spike
 module "app_requests_rate" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/dynamic/v1"
+  source = "../../../../monitor/metric-alert/dynamic/v1"
 
   context = var.context
 
@@ -90,7 +90,7 @@ module "app_requests_rate" {
 # response time > 1 second
 module "app_response_time" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/fixed/v1"
+  source = "../../../../monitor/metric-alert/fixed/v1"
 
   context = var.context
 

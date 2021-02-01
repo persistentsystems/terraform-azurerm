@@ -9,7 +9,7 @@ locals {
 
 module "keyvault_availability" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/fixed/v1"
+  source = "../../../../monitor/metric-alert/fixed/v1"
 
   context = var.context
 
@@ -35,7 +35,7 @@ module "keyvault_availability" {
 
 module "keyvault_4xx_requests" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/dynamic/v1"
+  source = "../../../../monitor/metric-alert/dynamic/v1"
 
   context = var.context
 
