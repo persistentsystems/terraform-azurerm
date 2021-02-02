@@ -4,11 +4,16 @@ variable "context" {
     application_name    = string
     environment_name    = string
     resource_group_name = string
-    location            = string
-    location_suffix     = string
+
+    location            = object({
+      name = string
+      suffix = string
+      number = number
+    })
 
   })
 }
+
 # There are a lot of parameters, and some i'm omitting to keep 
 # the parameter list manageable.  There is an open ticket in github
 # Aug 2020, that is trying to address having default values for 
@@ -30,9 +35,23 @@ variable "service_settings" {
 }
 variable "observability_settings" {
   type = object({
-    instrumentation_key       = string
-    workspace_id              = string
-    storage_account           = string 
-    retention_days            = number
+    
+    instrumentation_key = string
+    workspace_id        = string
+    storage_account     = string
+
+    retention_policy = object({
+    
+      short_term = number
+      long_term  = number
+
+    })
+
+    action_groups = object({
+      critical = list(string)
+      high     = list(string)
+      moderate = list(string)
+    })
+
   })
 }

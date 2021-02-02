@@ -1,6 +1,6 @@
 resource "azurerm_kubernetes_cluster" "cluster" {
   name                = var.service_settings.name
-  location            = var.context.location
+  location            = var.context.location.name
   resource_group_name = var.context.resource_group_name
   dns_prefix          = var.service_settings.name
   enable_pod_security_policy = var.service_settings.enable_pod_security_policy
@@ -49,71 +49,14 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
   resource_id = azurerm_kubernetes_cluster.cluster.id
 }
-resource "azurerm_monitor_diagnostic_setting" "diagnostic_settings_log_analytics" {
-  name                           = "Send all to log analytics"
-  target_resource_id             = azurerm_kubernetes_cluster.cluster.id
-  log_analytics_workspace_id     = var.observability_settings.workspace_id
-  # This setting has skew and will constantly apply, so I set it to
-  # ignore changes.  As we are hard-coding this value, it should 
-  # never change anyway.
-  log_analytics_destination_type = "Dedicated"
-  lifecycle {
-    ignore_changes = [ log_analytics_destination_type ]
-  }
-
-  dynamic "log" {
-    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
-
-    content {
-      category = log.value
-      enabled  = true
-      retention_policy {
-        enabled = true 
-        days    = var.observability_settings.retention_days
-      }
-    }
-  }
-
-  dynamic "metric" {
-    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.metrics
-
-    content {
-      category = metric.value
-      enabled  = true
-      retention_policy {
-        enabled = false
-        days    = var.observability_settings.retention_days
-      }
-    }
+module diagnostics {
+  source                 = "../../../../monitor/diagnostics/base/v1"
+  context                = var.context
+  observability_settings = var.observability_settings
+  service_settings = {
+    name        = var.service_settings.name 
+    resource_id = azurerm_kubernetes_cluster.cluster.id 
+    logs        = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
+    metrics     = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.metrics 
   }
 }
-resource "azurerm_monitor_diagnostic_setting" "diagnostic_settings_azure_storage" {
-  name                  = "Send all to Azure Storage"
-  target_resource_id    = azurerm_kubernetes_cluster.cluster.id
-  storage_account_id    = var.observability_settings.storage_account
-
-  dynamic "log" {
-    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
-
-    content {
-      category = log.value
-      enabled  = true
-      retention_policy {
-        enabled = false
-      }
-    }
-  }
-
-  dynamic "metric" {
-    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.metrics
-
-    content {
-      category = metric.value
-      enabled  = true
-      retention_policy {
-        enabled = false
-      }
-    }
-  }
-}
-
