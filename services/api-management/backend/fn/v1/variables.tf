@@ -18,14 +18,15 @@ variable "service_settings" {
   type = object({
 
     endpoint              = string
+    name = string
 
-    product = object({
-      id                    = string
-      description           = string
-      approval_required     = bool
-      subscription_required = bool
-      subscriptions_limit   = number
-      publish               = bool
+    fn = object({
+    
+      protocol = string
+      name     = string
+      key      = string
+      path     = string
+
     })
 
   })

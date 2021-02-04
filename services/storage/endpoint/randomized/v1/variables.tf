@@ -13,20 +13,19 @@ variable "context" {
 
   })
 }
-
+# tier = "Standard"
+# type = "GRS"
 variable "service_settings" {
   type = object({
 
-    endpoint              = string
-
-    product = object({
-      id                    = string
-      description           = string
-      approval_required     = bool
-      subscription_required = bool
-      subscriptions_limit   = number
-      publish               = bool
+    name            = string
+    tier            = string
+    type            = string
+    security_settings = object({
+      allow_blob_public_access    = bool
+      min_tls_version             = string
     })
 
   })
 }
+

@@ -4,36 +4,57 @@ variable "context" {
     application_name    = string
     environment_name    = string
     resource_group_name = string
-    location            = string
-    location_suffix     = string
+
+    location            = object({
+      name = string
+      suffix = string
+      number = number
+    })
 
   })
 }
+
+variable "observability_settings" {
+  type = object({
+    
+    instrumentation_key = string
+    workspace_id        = string
+    storage_account     = string
+
+    retention_policy = object({
+    
+      short_term = number
+      long_term  = number
+
+    })
+
+    action_groups = object({
+      critical = list(string)
+      high     = list(string)
+      moderate = list(string)
+    })
+
+  })
+}
+
 variable "service_settings" {
   type = object({
 
-    name            = string
-    publisher_name  = string
-    publisher_email = string
-    sku_name        = string
-    log_storage_account = string
+    name     = string
+    tier     = string
+    capacity = number
 
-  })
-}
-variable "observability_settings" {
-  type = object({
-    instrumentation_key       = string
-    workspace_id              = string
-    storage_account           = string 
-    retention_days            = number
-  })
-}
+    publisher = object({
+      name  = string
+      email = string
+    })
 
-variable "policies" {
-  type = object({
-    inbound          = string
-    outbound         = string
-    backend          = string
-    error            = string
+    policies = object({
+      inbound  = string
+      outbound = string
+      backend  = string
+      error    = string
+    })
+
   })
 }

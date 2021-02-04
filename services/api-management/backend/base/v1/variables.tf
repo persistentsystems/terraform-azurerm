@@ -17,15 +17,14 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    endpoint              = string
+    endpoint = string
+    name     = string
 
-    product = object({
-      id                    = string
-      description           = string
-      approval_required     = bool
-      subscription_required = bool
-      subscriptions_limit   = number
-      publish               = bool
+    backend = object({
+      
+      protocol = string
+      url      = string
+      
     })
 
   })

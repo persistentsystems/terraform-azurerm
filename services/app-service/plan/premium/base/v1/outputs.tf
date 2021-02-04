@@ -1,14 +1,8 @@
 output "id" {
     value = azurerm_app_service_plan.app_service_plan.id
 }
-output "storage_connection_string" {
-    value = module.func_storage.primary_connection_string
-}
-output "storage_account_name" {
-    value = module.func_storage.name
-}
-output "storage_account_access_key" {
-    value = module.func_storage.primary_access_key
+output "name" {
+    value = azurerm_app_service_plan.app_service_plan.name
 }
 output "storage_account" {
   value = {
@@ -16,7 +10,7 @@ output "storage_account" {
     connection_string = module.func_storage.primary_connection_string
     name              = module.func_storage.name
     access_key        = module.func_storage.primary_access_key
-    id                = module.func_storage.id
+    sas               = data.azurerm_storage_account_sas.code_storage.sas
 
   }
 }

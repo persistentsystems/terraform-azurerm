@@ -1,73 +1,21 @@
-
-resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
-
-  name                        = "${var.service_settings.name}-apim-logs"
-  target_resource_id          = azurerm_api_management.apim.id
-  log_analytics_workspace_id  = var.observability_settings.workspace_id
-  log_analytics_destination_type = "Dedicated"
-
-  log {
-    category = "GatewayLogs"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
-
-  metric {
-    category = "Gateway Requests"
-
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
-
-  metric {
-    category = "Capacity"
-
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
-
-  metric {
-    category = "EventHub Events"
-
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
-
-  metric {
-    category = "Network Status"
-
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
-
+data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
+  resource_id = azurerm_api_management.apim.id
 }
 
-resource "azurerm_monitor_diagnostic_setting" "diagnostic_log_setting" {
+module "apim_diagnostics" {
 
-  name                        = "${var.service_settings.name}-apim-storage"
-  target_resource_id          = azurerm_api_management.apim.id
-  storage_account_id          = var.observability_settings.storage_account  
+  source = "../../../../monitor/diagnostics/base/v1"
 
-  log {
-    category = "GatewayLogs"
-    enabled  = true
+  context                 = var.context
+  observability_settings  = var.observability_settings
 
-    retention_policy {
-      enabled = true
-      days = 0
-    }
+  service_settings = {
+
+    name        = azurerm_api_management.apim.name
+    resource_id = azurerm_api_management.apim.id
+    logs        = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
+    metrics     = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.metrics 
+
   }
 
 }
