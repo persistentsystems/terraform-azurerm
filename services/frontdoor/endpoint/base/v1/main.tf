@@ -1,5 +1,9 @@
+locals {
+  frontdoor_service_name = "fd-${var.service_settings.name}"
+}
+
 resource "azurerm_frontdoor" "frontdoor" {
-  name                                         = var.service_settings.name
+  name                                         = local.frontdoor_service_name
   resource_group_name                          = var.context.resource_group_name
 
   enforce_backend_pools_certificate_name_check = false
@@ -11,57 +15,67 @@ resource "azurerm_frontdoor" "frontdoor" {
 
   frontend_endpoint {
     name                                    = "DefaultEndpoint"
-    host_name                               = "${var.service_settings.name}.azurefd.net"
+    host_name                               = "${local.frontdoor_service_name}.azurefd.net"
     custom_https_provisioning_enabled       = false
-    web_application_firewall_policy_link_id = var.service_settings.web_application_firewall_policy_link_id
-  }
-
-  backend_pool_load_balancing {
-    name = var.backend_settings.name
-    additional_latency_milliseconds = 1000
-  }
-
-  backend_pool_health_probe {
-    name      = var.backend_settings.name
-    protocol  = "Https"
-    path      = var.backend_settings.healthprobe_path
-  }
-
+    web_application_firewall_policy_link_id = var.service_settings.waf_id
   
-  # PRIMARY
-  routing_rule {
-    name               = "PrimaryRoutingRules"
-    accepted_protocols = [ "Https" ]
-    patterns_to_match  = [ "/*" ]
-    frontend_endpoints = [ "DefaultEndpoint" ]
-    forwarding_configuration {
-      forwarding_protocol = "MatchRequest"
-      backend_pool_name   = "PrimaryBackend"
-    }
   }
 
-  backend_pool {
+  # default routing rule for each backend pool
+  dynamic "routing_rule" {
+    for_each = var.service_settings.pools
+      content {
 
-    name = "PrimaryBackend"
+        name               = "PrimaryRoutingRules"
+        accepted_protocols = [ "Https" ]
+        patterns_to_match  = [ "/*" ]
+        frontend_endpoints = [ "DefaultEndpoint" ]
+        forwarding_configuration {
+          forwarding_protocol = "MatchRequest"
+          backend_pool_name   = routing_rule.value.name
+        }
 
-    backend {
-      host_header = var.primary_backend.host_header
-      address     = var.primary_backend.address
-      http_port   = var.primary_backend.http_port
-      https_port  = var.primary_backend.https_port
-      weight      = 50
-    }
-
-    backend {
-      host_header = var.secondary_backend.host_header
-      address     = var.secondary_backend.address
-      http_port   = var.secondary_backend.http_port
-      https_port  = var.secondary_backend.https_port
-      weight      = 50
-    }
-
-    load_balancing_name = var.backend_settings.name
-    health_probe_name   = var.backend_settings.name
-
+      }
   }
+
+  dynamic "backend_pool" {
+    for_each = var.service_settings.pools
+      content {
+        
+        name = backend_pool.value.name
+
+        dynamic "backend" {
+          for_each = backend_pool.value.backends
+            content {
+              host_header = backend.value.host_header
+              address     = backend.value.address
+              http_port   = backend.value.http_port
+              https_port  = backend.value.https_port
+              weight      = backend.value.weight
+            }
+        }
+        
+        load_balancing_name = backend_pool.value.name
+        health_probe_name   = backend_pool.value.name
+
+      }
+  }
+  
+  dynamic "backend_pool_load_balancing" {
+    for_each = var.service_settings.pools
+      content {
+        name = backend_pool_load_balancing.value.name
+        additional_latency_milliseconds = backend_pool_load_balancing.value.latency
+      }
+  }
+
+  dynamic "backend_pool_health_probe" {
+    for_each = var.service_settings.pools
+      content {
+        name      = backend_pool_health_probe.value.name
+        protocol  = "Https"
+        path      = backend_pool_health_probe.value.healthprobe_path
+      }
+  }
+
 }
