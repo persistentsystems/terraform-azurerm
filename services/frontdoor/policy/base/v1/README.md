@@ -11,7 +11,9 @@ change rules between lifecycles.
 ## Inputs
 
 The input structure is fairly long and it's probably easier to directly look at variables.tf and main.tf
-as the module doesn't do much other than unwrap the lists into blocks.
+as the module doesn't do much other than unwrap the lists into blocks.  The module does allow you to 
+specify the rules as lists of objects which makes for easier configuration and manipulation of rulesets
+for different environments.
 
 ## Ouputs
 - id - WAF policy ID

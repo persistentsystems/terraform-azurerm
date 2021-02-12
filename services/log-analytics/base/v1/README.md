@@ -19,10 +19,18 @@
   - name - The resultant name of the workspace
   - primary_shared_key - 
 
-|Setting|Options|
-|sku|Free, PerNode, Premium, Standard, Standalone, Unlimited, PerGB2018|
+## Usage
 
+```hcl
+module log_analytics {
+    source = "../../../submodules/terraform-azurerm/services/log-analytics/base/v1"
+    context = module.my_resource_group.context 
+    service_settings =  {
+          name = "${module.my_resource_group.context.application_name}-${module.my_resource_group.context.environment_name}-workspace-${random_string.deploy_suffix.result}-${module.my_resource_group.context.location.suffix}"
+          sku               = "PerGB2018"
+          retention_in_days = 30
+      }
+}
+```
 
-** Naming Standards
-
-https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
+[Microsoft Naming Standards](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)

@@ -19,7 +19,7 @@ Using the Thresholds in Azure Monitor, create an Alert when a metric crosses a v
 
 This module is called by the KeyVault module.  If you look at the 02-keyvault demonstration scenario, you can see how a KeyVault is created and how Dynamic and Static alearts are created.
 
-```
+```hcl
 module "keyvault_availability" {
 
   source = "../../../../monitor/metric-alert/fixed/v1"
