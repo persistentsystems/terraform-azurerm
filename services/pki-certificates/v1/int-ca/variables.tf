@@ -21,7 +21,7 @@ variable issuer_organization {
 variable common_name {
     type = string 
     description = "Name of the certificate"
-    default = "ACME.com Root CA"
+    default = "ACME.com Intermediate CA"
 }
 
 variable validity_hours {
@@ -32,11 +32,11 @@ variable output_cert_path {
     type = string
     description = "Base File path of output certificate files."
 }
-variable ca_key_file {
+variable ca_key_data {
     type = string 
-    description = "Path of the key file of certificate to sign with."
+    description = "Data (not Path) of the key file of certificate to sign with."
 }
 variable ca_pem_data {
     type = string 
-    description = "Path of CA certificate to sign with."
+    description = "Data (not Path) of CA certificate to sign with."
 }

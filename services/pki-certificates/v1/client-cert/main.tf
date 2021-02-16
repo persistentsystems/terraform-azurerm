@@ -24,7 +24,7 @@ resource "tls_cert_request" "client" {
 resource tls_locally_signed_cert cert {
     cert_request_pem = tls_cert_request.client.cert_request_pem
     ca_key_algorithm = "RSA"
-    ca_private_key_pem = var.ca_key_file 
+    ca_private_key_pem = var.ca_key_data 
     ca_cert_pem = var.ca_pem_data
     validity_period_hours = var.validity_hours
     allowed_uses = [

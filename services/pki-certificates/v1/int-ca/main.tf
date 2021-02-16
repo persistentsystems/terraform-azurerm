@@ -25,8 +25,8 @@ resource "tls_cert_request" "int" {
 resource "tls_locally_signed_cert" "ca" {
     cert_request_pem      = tls_cert_request.int.cert_request_pem
     ca_key_algorithm      = "RSA"
-    # This wants a file name
-    ca_private_key_pem    = var.ca_key_file
+    # key data (not path)
+    ca_private_key_pem    = var.ca_key_data
     # this wants the data (not a path)
     ca_cert_pem           = var.ca_pem_data
     validity_period_hours = var.validity_hours

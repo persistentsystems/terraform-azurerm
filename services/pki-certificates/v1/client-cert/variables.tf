@@ -6,7 +6,7 @@ variable output_cert_path {
     type = string
     description = "Base File path of output certificate files."
 }
-variable ca_key_file {
+variable ca_key_data {
     type = string 
     description = "Path of the key file of certificate to sign with."
 }

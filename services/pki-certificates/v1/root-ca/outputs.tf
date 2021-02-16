@@ -1,6 +1,9 @@
 output ca_file {
     value = local_file.ca_file.filename
 }
+# For a slight increase in security the private key is not 
+# output from the module, but just a filename is output.
+# this keeps the full key in a lot fewer state files.
 output ca_key_file {
     value = local_file.private_key.filename
 }
