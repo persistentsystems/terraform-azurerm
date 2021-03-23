@@ -21,7 +21,7 @@ resource "azurerm_app_service_plan" "app_service_plan" {
 
 module "func_storage" {
   
-  source                = "../../../../../../services/storage/endpoint/base/v1.2"
+  source                = "../../../../../../services/storage/endpoint/base/v1"
   context   = var.context
 
   service_settings = {

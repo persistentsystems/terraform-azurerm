@@ -15,8 +15,17 @@ variable "service_settings" {
   type = object({
 
     name                = string
-    workspace_id        = string
-    soft_delete_enabled = bool
 
+  })
+}
+
+variable "observability_settings" {
+  type = object({
+
+    instrumentation_key = string
+    # log analytics
+    workspace_id        = string
+    storage_account     = string 
+    retention_days   = number
   })
 }

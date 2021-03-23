@@ -14,10 +14,13 @@ module "api" {
     publish          = var.service_settings.publish
     product_id       = var.service_settings.product_id
     backend_name     = module.backend.name
+    subscription_required = var.service_settings.subscription_required
 
   }
+  observability_settings = {
+    api_logger_id = var.observability_settings.api_logger_id
+  }
   policies         = var.policies
-
 }
 
 module "backend" {

@@ -1,6 +1,5 @@
 
-/*
-resource "azurerm_cosmosdb_sql_container" "erx" {
+resource "azurerm_cosmosdb_sql_container" "container" {
 
  
   resource_group_name = var.context.resource_group_name
@@ -28,4 +27,3 @@ resource "azurerm_cosmosdb_sql_container" "erx" {
   }
 */  
 }
-*/

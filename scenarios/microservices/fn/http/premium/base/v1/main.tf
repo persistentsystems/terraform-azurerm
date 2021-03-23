@@ -3,28 +3,40 @@
 locals {
 
   required_settings = {
-      "APPINSIGHTS_INSTRUMENTATIONKEY"    = var.host_settings.instrumentation_key,
       "WEBSITE_RUN_FROM_PACKAGE"          = local.code_drop_url,
-      "ClientID"                          = var.service_settings.client_id,
-      "ClientSecret"                      = var.service_settings.client_secret
   }
   combined_settings = merge(local.required_settings, var.service_settings.app_settings)
 
   merged_service_settings = {
-    name              = var.service_settings.name
-    runtime_version   = var.service_settings.runtime_version
-    runtime_type      = var.service_settings.runtime_type
-    app_settings      = local.combined_settings
-    plan_id           = var.host_settings.plan_id
-    storage_account   = var.host_settings.storage_account
+    name                = var.service_settings.name
+    runtime_version     = var.service_settings.runtime_version
+    runtime_type        = var.service_settings.runtime_type
+    app_settings        = local.combined_settings
+    plan_id             = var.host_settings.plan_id
+    storage_account     = var.host_settings.storage_account
+    storage_account_id  = var.observability_settings.storage_account_id
   }
 }
 
 module "api_fn" {
   
-  source                        = "../../../../../../../services/fn/premium/base/v1"
+  #source                 = "github.com/persistentsystems/terraform-azurerm/services/fn/premium/base/v1.5"
+  # Remove github referece to avoid one more copy of this git repo being down loaded
+  # and to allow user to specify a branch and all code will come from same branch
+  source                  = "../../../../../../../services/fn/premium/base/v1"
   
-  context = var.context
-  service_settings = local.merged_service_settings
+  context                = var.context
+  service_settings       = local.merged_service_settings
+  observability_settings = var.observability_settings
+  ip_rules_settings      = var.ip_rules_settings
+  
+}
+
+module "identity_access_policy" {
+  
+  source                    = "../../../../../../../services/keyvault/accesspolicy/templates/managed-identity-reader/v1"
+
+  keyvault_id               = var.keyvault_id
+  object_id                 = module.api_fn.identity[0].principal_id
 
 }

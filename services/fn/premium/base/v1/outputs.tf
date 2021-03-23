@@ -7,3 +7,9 @@ output "hostname" {
 output "name" {
     value = azurerm_function_app.function_app.name
 }
+output "identity" {
+    value = azurerm_function_app.function_app.identity
+}
+output "id" {
+  value = azurerm_function_app.function_app.id
+}

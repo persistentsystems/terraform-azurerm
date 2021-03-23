@@ -15,7 +15,8 @@ variable "service_settings" {
 
     name              = string
     account_name      = string
-    throughput        = string
+    #throughput        = string
+    max_throughput    = string
 
   })
 }
