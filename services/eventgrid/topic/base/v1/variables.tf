@@ -12,7 +12,6 @@ variable "context" {
 variable "service_settings" {
   type = object({
     name                = string
-    log_storage_account = string
   })
 }
 variable "observability_settings" {
