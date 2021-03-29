@@ -8,7 +8,7 @@ locals {
 
 module "frontdoor_health" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/fixed/v1"
+  source = "../../../../../services/monitor/metric-alert/fixed/v1"
 
   context = var.context
 
@@ -34,7 +34,7 @@ module "frontdoor_health" {
 
 module "frontdoor_4xx_requests" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/dynamic/v1"
+  source = "../../../../../services/monitor/metric-alert/dynamic/v1"
 
   context = var.context
 
@@ -66,7 +66,7 @@ module "frontdoor_4xx_requests" {
 
 module "frontdoor_latency" {
 
-  source = "git::https://onpoint-healthcare@dev.azure.com/onpoint-healthcare/infrastructure-modules/_git/azure//modules/services/monitor/metric-alert/fixed/v1"
+  source = "../../../../../services/monitor/metric-alert/fixed/v1"
 
   context = var.context
 
