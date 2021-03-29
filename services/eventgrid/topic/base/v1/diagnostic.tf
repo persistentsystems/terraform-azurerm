@@ -11,7 +11,7 @@ resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
     retention_policy {
       enabled = true
-      days = var.observability_settings.retention_days
+      days = var.observability_settings.retention_policy.short_term
     }
   }
   log {
@@ -20,7 +20,7 @@ resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
     retention_policy {
       enabled = true
-      days = var.observability_settings.retention_days
+      days = var.observability_settings.retention_policy.short_term
     }
   }
 
@@ -29,7 +29,7 @@ resource "azurerm_monitor_diagnostic_setting" "keyvault_diagnostic_setting" {
 
     retention_policy {
       enabled = true
-      days = var.observability_settings.retention_days
+      days = var.observability_settings.retention_policy.short_term
     }
   }
 }

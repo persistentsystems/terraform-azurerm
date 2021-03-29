@@ -1,7 +1,7 @@
 resource "azurerm_eventgrid_topic" "topic" {
     
   name                = var.service_settings.name
-  location            = var.context.location
+  location            = var.context.location.name
   resource_group_name = var.context.resource_group_name
 
   tags = {
