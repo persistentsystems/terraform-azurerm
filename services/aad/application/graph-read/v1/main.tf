@@ -36,5 +36,5 @@ resource "random_password" "aad_app" {
 resource "azuread_application_password" "aad_app" {
   application_object_id = azuread_application.aad_app.object_id
   value                 = random_password.aad_app.result
-  end_date              = "2021-01-01T01:02:03Z"
+  end_date_relative     = "17520h" # 2 years give or take
 }

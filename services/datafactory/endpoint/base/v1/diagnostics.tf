@@ -1,3 +1,6 @@
+data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
+  resource_id = azurerm_api_management.apim.id
+}
 
 resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 

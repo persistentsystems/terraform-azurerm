@@ -13,5 +13,5 @@ resource "random_password" "aad_sp" {
 resource "azuread_service_principal_password" "aad_sp" {
   service_principal_id  = azuread_service_principal.aad_sp.id
   value                 = random_password.aad_sp.result
-  end_date              = "2021-01-01T01:02:03Z"
+  end_date              = "2028-01-01T01:02:03Z"
 }
