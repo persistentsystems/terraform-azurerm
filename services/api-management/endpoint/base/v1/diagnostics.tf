@@ -44,8 +44,11 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_log_setting" {
   storage_account_id          = var.observability_settings.storage_account  
   # A bug in the provider, or MS API, if I don't specify this then I get 
   # a contstant rebuild state.  We aren't sending this log to LA so 
-  # this shouldn't matter.
+  # this shouldn't matter.  Occsaionally (on first deploy??) This 
+  # gets and erorr saying this must not be specified unless there 
+  # is a log analytics destination.  So I give up.
   # log_analytics_destination_type = "AzureDiagnostics"
+
 
   dynamic log {
     for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs

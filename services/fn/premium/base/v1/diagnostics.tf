@@ -16,7 +16,7 @@ resource "azurerm_monitor_diagnostic_setting" "function_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_days
+        days = var.observability_settings.retention_in_days
       }
     }
   }
@@ -28,7 +28,7 @@ resource "azurerm_monitor_diagnostic_setting" "function_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_days
+        days = var.observability_settings.retention_in_days
       }
     }
   }
@@ -56,7 +56,7 @@ resource "azurerm_monitor_diagnostic_setting" "function_log_setting" {
     }
   }
   metric {
-      category = "Requests"
+      category = "AllMetrics"
       enabled  = false 
 
       retention_policy {

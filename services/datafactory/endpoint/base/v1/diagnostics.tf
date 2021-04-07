@@ -1,5 +1,5 @@
 data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
-  resource_id = azurerm_api_management.apim.id
+  resource_id = azurerm_data_factory.datafactory.id
 }
 
 resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
@@ -8,93 +8,31 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
   target_resource_id          = azurerm_data_factory.datafactory.id
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
-  log {
-    category = "ActivityRuns"
-    enabled  = true
+  dynamic log {
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
+    content {
+      category = log.value
+      enabled  = true
 
-    retention_policy {
-      enabled = true
+      retention_policy {
+        enabled = true
+        days = var.observability_settings.retention_in_days
+      }
     }
   }
 
-  log {
-    category = "PipelineRuns"
-    enabled  = true
+  dynamic metric {
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.metrics 
+    content {
+      category = metric.value
 
-    retention_policy {
-      enabled = true
+      retention_policy {
+        enabled = true
+        days = var.observability_settings.retention_in_days
+      }
     }
   }
 
-  log {
-    category = "TriggerRuns"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
-  log {
-    category = "SSISPackageEventMessages"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
-  log {
-    category = "SSISPackageExecutableStatistics"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
-  log {
-    category = "SSISPackageEventMessageContext"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
-  log {
-    category = "SSISPackageExecutionComponentPhases"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
-  log {
-    category = "SSISPackageExecutionDataStatistics"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
-  log {
-    category = "SSISIntegrationRuntimeLogs"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
-  metric {
-    category = "AllMetrics"
-
-    retention_policy {
-      enabled = true
-    }
-  }
-
+  
 }
+
