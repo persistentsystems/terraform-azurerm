@@ -18,7 +18,6 @@ variable "service_settings" {
 
     name                = string
     resource_group_name = string
-    #node_count          = number
     node_min_count      = number
     node_max_count      = number 
     node_size           = string
