@@ -13,7 +13,7 @@ variable "context" {
 # the parameter list manageable.  There is an open ticket in github
 # Aug 2020, that is trying to address having default values for 
 # objects.  Waiting for this before adding even more options.
-variable "service_settings_test" {
+variable "service_settings" {
   type = object({
 
     name                = string
