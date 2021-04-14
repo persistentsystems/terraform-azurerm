@@ -107,7 +107,7 @@ variable "observability_settings" {
 ## Where to Start
 We will be creating some blogs and other how to's to help you get started
 as we realize the leaning curve on this is pretty abrupt.  For a starting
-point look at scenarios 1-HelloWorld.
+point look at scenarios 1-HelloWorld..
 
 
 
