@@ -32,3 +32,9 @@ variable "observability_settings" {
     retention_days            = number
   })
 }
+
+variable tags {
+
+  type = map
+    
+}

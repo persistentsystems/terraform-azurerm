@@ -13,7 +13,13 @@ locals {
          for ip in local.combined_ip_list: {
               ip_address = ip
                      }
-              ] 
+              ]
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags )
 }
 
 
@@ -45,10 +51,7 @@ resource "azurerm_function_app" "function_app" {
     type = "SystemAssigned"
   }
 
-  tags = {
-    app = var.context.application_name
-    env = var.context.environment_name
-  }
+  tags = local.final_tags
 
 }
 

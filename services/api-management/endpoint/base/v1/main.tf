@@ -1,4 +1,11 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
 
+    final_tags = merge (local.default_tags, var.tags ) 
+}
 resource "azurerm_api_management" "apim" {
 
   name                = var.service_settings.name
@@ -29,9 +36,6 @@ policy {
 XML
   }
 
-  tags = {
-    app = var.context.application_name
-    env = var.context.environment_name
-  }
+  tags = local.final_tags
 
 }

@@ -1,3 +1,11 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags ) 
+}
 resource "azurerm_kubernetes_cluster" "cluster" {
   name                = var.service_settings.name
   location            = var.context.location
@@ -40,10 +48,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     load_balancer_sku = "standard"
   }
 
+  tags = local.final_tags
 
-  tags = {
-    app = var.context.application_name
-    env = var.context.environment_name
-  }
 }
 

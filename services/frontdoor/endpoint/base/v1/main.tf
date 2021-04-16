@@ -1,13 +1,18 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags )
+}
 resource "azurerm_frontdoor" "frontdoor" {
   name                                         = var.service_settings.name
   resource_group_name                          = var.context.resource_group_name
 
   enforce_backend_pools_certificate_name_check = false
 
-  tags = {
-    app = var.context.application_name
-    env = var.context.environment_name
-  }
+  tags = local.final_tags
 
   frontend_endpoint {
     name                                    = "DefaultEndpoint"

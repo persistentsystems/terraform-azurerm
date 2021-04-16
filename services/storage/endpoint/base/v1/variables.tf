@@ -32,3 +32,9 @@ variable "security_settings" {
   }
 
 }
+
+variable tags {
+
+  type = map
+    
+}

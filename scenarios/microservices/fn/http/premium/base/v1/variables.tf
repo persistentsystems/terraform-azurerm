@@ -65,3 +65,9 @@ variable "ip_rules_settings" {
                         }
                  }
 }
+
+variable tags {
+
+  type = map
+    
+}

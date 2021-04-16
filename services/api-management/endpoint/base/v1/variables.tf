@@ -37,3 +37,9 @@ variable "policies" {
     error            = string
   })
 }
+
+variable tags {
+
+  type = map
+    
+}

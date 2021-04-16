@@ -1,3 +1,11 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags ) 
+}
 data "azurerm_client_config" "current" {}
 
 resource "random_string" "random" {
@@ -51,8 +59,6 @@ resource "azurerm_key_vault" "keyvault" {
     bypass         = "AzureServices"
   }
 
-  tags = {
-    app = var.context.application_name
-    env = var.context.environment_name
-  }
+  tags = local.final_tags
+
 }
