@@ -1,5 +1,6 @@
 
 # This will obtain the Azure Function's Key that can be used to integrate with the Azure Function by API Management
+/*
 resource "azurerm_template_deployment" "azfn_function_key" {
   name = "${var.service_settings.name}-key-rgt"
   parameters = {
@@ -30,4 +31,10 @@ resource "azurerm_template_deployment" "azfn_function_key" {
   BODY
 
   depends_on = [azurerm_function_app.function_app]
+}
+*/
+data azurerm_function_app_host_keys azfn_function_key {
+  depends_on = [azurerm_function_app.function_app]
+  name       = azurerm_function_app.function_app.name
+  resource_group_name    = var.context.resource_group_name 
 }
