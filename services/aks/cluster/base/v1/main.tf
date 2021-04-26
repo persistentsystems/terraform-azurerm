@@ -15,7 +15,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
   api_server_authorized_ip_ranges = var.service_settings.api_server_authorized_ip_ranges
 
   node_resource_group = var.service_settings.resource_group_name
-  kubernetes_version  = "1.18.14"
+  kubernetes_version  = var.service_settings.kubernetes_version
 
   default_node_pool {
     name       = "default"
@@ -37,9 +37,6 @@ resource "azurerm_kubernetes_cluster" "cluster" {
         #http_application_routing {
         #    enabled = var.http_routing 
         #}
-        kube_dashboard {
-          enabled = true 
-        }
   }
   role_based_access_control {
     enabled = var.service_settings.rbac_enabled
