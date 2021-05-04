@@ -6,7 +6,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   name                        = "${var.service_settings.name}-cosmosdb-logs"
   target_resource_id          = azurerm_cosmosdb_account.account.id
-  log_analytics_workspace_id  = var.service_settings.workspace_id
+  log_analytics_workspace_id  = var.observability_settings.workspace_id
 
   dynamic log {
     for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
