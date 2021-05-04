@@ -1,61 +1,68 @@
-resource "azurerm_monitor_diagnostic_setting" "frontdoor_diagnostic_setting" {
+data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
+  resource_id = azurerm_frontdoor.frontdoor.id
+}
+
+resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
   name                        = "${var.service_settings.name}-frontdoor-logs"
   target_resource_id          = azurerm_frontdoor.frontdoor.id
   log_analytics_workspace_id  = var.service_settings.workspace_id
 
-  log {
-    category = "FrontdoorAccessLog"
-    enabled  = true
+  dynamic log {
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
+    content {
+      category = log.value
+      enabled  = true
 
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
-    }
-  }
-  log {
-    category = "FrontdoorWebApplicationFirewallLog"
-    enabled  = true
-
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
+      retention_policy {
+        enabled = true
+        days = var.observability_settings.retention_days
+      }
     }
   }
 
-  metric {
-    category = "AllMetrics"
+  dynamic metric {
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.metrics 
+    content {
+      category = metric.value
 
-    retention_policy {
-      enabled = true
-      days = var.observability_settings.retention_days
+      retention_policy {
+        enabled = true
+        days = var.observability_settings.retention_days
+      }
     }
   }
+
+
 
 }
 
-resource "azurerm_monitor_diagnostic_setting" "frontdoor_log_setting" {
+resource "azurerm_monitor_diagnostic_setting" "log_setting" {
 
   name                        = "${var.service_settings.name}-frontdoor-storage"
   target_resource_id          = azurerm_frontdoor.frontdoor.id
   storage_account_id          = var.observability_settings.storage_account_id
+  dynamic log {
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
+    content {
+      category = log.value
+      enabled  = true
 
-  log {
-    category = "FrontdoorAccessLog"
-    enabled  = true
+      retention_policy {
+        enabled = true
+        days = 0
+      }
+    }
+  }
+  metric {
+    category = "AllMetrics"
+    enabled  = false
 
     retention_policy {
-      enabled = true
+      enabled = false
       days = 0
     }
   }
-  log {
-    category = "FrontdoorWebApplicationFirewallLog"
-    enabled  = true
 
-    retention_policy {
-      enabled = true
-      days = 0
-    }
-  }
+
 }

@@ -20,15 +20,13 @@ locals {
 
 module "api_fn" {
   
-  #source                 = "github.com/persistentsystems/terraform-azurerm/services/fn/premium/base/v1.5"
-  # Remove github referece to avoid one more copy of this git repo being down loaded
-  # and to allow user to specify a branch and all code will come from same branch
-  source                  = "../../../../../../../services/fn/premium/base/v1"
+  source                  = "../../../../../../../services/fn/premium/staged/v1"
   
   context                = var.context
   service_settings       = local.merged_service_settings
   observability_settings = var.observability_settings
   ip_rules_settings      = var.ip_rules_settings
+  tags              = var.tags
   
 }
 

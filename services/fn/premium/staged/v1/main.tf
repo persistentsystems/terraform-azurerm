@@ -22,14 +22,31 @@ locals {
     final_tags = merge (local.default_tags, var.tags )
 }
 
-
-# This will deploy an Azure Function to the target Resource Group / App Service Plan
-resource "azurerm_function_app" "function_app" {
+resource azurerm_function_app function_app {
   name                      = var.service_settings.name
   location                  = var.context.location
   resource_group_name       = var.context.resource_group_name
   app_service_plan_id       = var.service_settings.plan_id
-  storage_connection_string = var.service_settings.storage_account.connection_string
+  storage_account_name      = var.service_settings.storage_account.name
+  storage_account_access_key= var.service_settings.storage_account.access_key
+  version                   = var.service_settings.runtime_version 
+  https_only                = true 
+  tags = local.final_tags
+  identity {
+    type = "SystemAssigned"
+  }
+}
+
+# This will deploy an Azure Function to the target Resource Group / App Service Plan
+resource "azurerm_function_app_slot" "function_app" {
+  name                      = "staging" # var.service_settings.name
+  function_app_name         = azurerm_function_app.function_app.name
+  location                  = var.context.location
+  resource_group_name       = var.context.resource_group_name
+  app_service_plan_id       = var.service_settings.plan_id
+  #storage_connection_string = var.service_settings.storage_account.connection_string
+  storage_account_name      = var.service_settings.storage_account.name
+  storage_account_access_key= var.service_settings.storage_account.access_key
   version                   = var.service_settings.runtime_version 
   https_only                = true 
   app_settings = local.combined_settings

@@ -1,3 +1,12 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags ) 
+}
+
 resource "azurerm_storage_account" "storage_account" {
 
   name                      = "${var.service_settings.name}${random_string.random.result}"
@@ -9,10 +18,7 @@ resource "azurerm_storage_account" "storage_account" {
   allow_blob_public_access  = var.security_settings.allow_blob_public_access
   min_tls_version           = var.security_settings.min_tls_version
 
-  tags = {
-    app = var.context.application_name
-    env = var.context.environment_name
-  }
+  tags                      = local.final_tags
 
 }
 

@@ -61,3 +61,9 @@ variable "web_application_firewall_policy_link_id" {
   type = string
 }
 */
+
+variable tags {
+
+  type = map
+    
+}

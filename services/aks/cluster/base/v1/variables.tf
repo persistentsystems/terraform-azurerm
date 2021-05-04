@@ -18,13 +18,13 @@ variable "service_settings" {
 
     name                = string
     resource_group_name = string
-    node_count          = number
     node_min_count      = number
     node_max_count      = number 
     node_size           = string
     rbac_enabled        = bool 
     enable_pod_security_policy = bool 
     api_server_authorized_ip_ranges = list(string)
+    kubernetes_version  = string 
 
   })
 }
@@ -35,4 +35,10 @@ variable "observability_settings" {
     storage_account           = string 
     retention_days            = number
   })
+}
+
+variable tags {
+
+  type = map
+    
 }

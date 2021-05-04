@@ -50,3 +50,9 @@ variable "custom_rules_settings" {
           match_values                   = list(string)
     }))
 }
+
+variable tags {
+
+  type = map
+    
+}

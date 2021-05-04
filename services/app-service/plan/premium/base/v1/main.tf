@@ -1,3 +1,11 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags ) 
+}
 resource "azurerm_app_service_plan" "app_service_plan" {
   name                = var.service_settings.name
   location            = var.context.location
@@ -11,11 +19,7 @@ resource "azurerm_app_service_plan" "app_service_plan" {
   }
 
   maximum_elastic_worker_count = var.service_settings.maximum_instance_count
-
-  tags = {
-    app = var.context.application_name
-    env = var.context.environment_name
-  }
+  tags = local.final_tags
 
 }
 
@@ -29,5 +33,5 @@ module "func_storage" {
     tier                  = "Standard"
     type                  = var.service_settings.storage_type
   }
-
+  tags = local.final_tags
 }
