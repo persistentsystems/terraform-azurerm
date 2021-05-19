@@ -15,12 +15,14 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name              = string
-    tier              = string
-    kind              = string
-    failover_location = string
-    consistency_level = string
-
+    name                  = string
+    tier                  = string
+    kind                  = string
+    failover_location     = string
+    consistency_level     = string
+    backup_type           = string
+    interval_in_minutes   = number
+    retention_in_hours    = number
   })
 }
 

@@ -17,7 +17,8 @@ resource "azurerm_frontdoor" "frontdoor" {
   frontend_endpoint {
     name                                    = "DefaultEndpoint"
     host_name                               = "${var.service_settings.name}.azurefd.net"
-    custom_https_provisioning_enabled       = false
+    //Deprecated by terraform service team in 2.59.0 version
+    //custom_https_provisioning_enabled     = false
     web_application_firewall_policy_link_id = var.service_settings.web_application_firewall_policy_link_id
   }
 
@@ -69,4 +70,9 @@ resource "azurerm_frontdoor" "frontdoor" {
     health_probe_name   = var.backend_settings.name
 
   }
+}
+
+resource "azurerm_frontdoor_custom_https_configuration" "custom_https_0" {
+  frontend_endpoint_id              = azurerm_frontdoor.frontdoor.frontend_endpoints["DefaultEndpoint"]
+  custom_https_provisioning_enabled = false
 }

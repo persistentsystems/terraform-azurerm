@@ -6,6 +6,7 @@ locals {
 
     final_tags = merge (local.default_tags, var.tags ) 
 }
+
 resource "azurerm_cosmosdb_account" "account" {
   name                = "${var.service_settings.name}-${random_string.random.result}"
   location            = var.context.location
@@ -14,7 +15,7 @@ resource "azurerm_cosmosdb_account" "account" {
   kind                = var.service_settings.kind
 
   enable_automatic_failover = true
-
+  
   consistency_policy {
     consistency_level       = var.service_settings.consistency_level
   }
@@ -28,7 +29,13 @@ resource "azurerm_cosmosdb_account" "account" {
     location          = var.context.location
     failover_priority = 0
   }
-  
+
+  backup {
+    type = var.service_settings.backup_type
+    interval_in_minutes = var.service_settings.interval_in_minutes
+    retention_in_hours = var.service_settings.retention_in_hours
+  }
+
   tags = local.final_tags
 
 }
