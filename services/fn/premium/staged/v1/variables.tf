@@ -47,6 +47,8 @@ variable "ip_rules_settings" {
        services_iplist     = {
                          "us-east" = []
                          "us-west" = []
+                         "us-north" = []
+                         "us-south" = []
                         }
                  }
 }
