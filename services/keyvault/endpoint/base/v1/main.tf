@@ -46,7 +46,7 @@ resource "azurerm_key_vault" "keyvault" {
   location                    = var.context.location
   resource_group_name         = var.context.resource_group_name
   tenant_id                   = data.azurerm_client_config.current.tenant_id
-  purge_protection_enabled    = false
+  purge_protection_enabled    = true
   enabled_for_disk_encryption = true
 
   sku_name = "standard"
