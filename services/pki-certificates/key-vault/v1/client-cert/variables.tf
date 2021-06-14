@@ -35,7 +35,7 @@ variable service_settings {
         private_key_size: string
     })
     default = {
-        key_vault_resource_id: "/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/erx-drops-backend-us-north/providers/Microsoft.KeyVault/vaults/stevedi-test-vault"
+        key_vault_resource_id: "/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/erx-opsdr-backend-us-north/providers/Microsoft.KeyVault/vaults/stevedi-test-vault"
         issuing_cert_name : "int2-cert"
         private_key_algorithim: "RSA"
         validity_hours: 8760 # 1 year
