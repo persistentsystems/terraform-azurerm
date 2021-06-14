@@ -60,8 +60,8 @@ variable "ip_rules_settings" {
        user_defined_iplist = []
        apim_iplist         = []
        services_iplist     = {
-                         "us-east" = []
-                         "us-west" = []
+                         "us-north" = []
+                         "us-south" = []
                         }
                  }
 }

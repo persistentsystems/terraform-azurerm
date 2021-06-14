@@ -6,7 +6,7 @@ variable client_certs {
 module "client_cert" {
     source = "../../client-cert"
     service_settings = {
-        key_vault_resource_id: "/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/erx-ops-backend-us-east/providers/Microsoft.KeyVault/vaults/stevedi-test-vault"
+        key_vault_resource_id: "/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/erx-drops-backend-us-north/providers/Microsoft.KeyVault/vaults/stevedi-test-vault"
         issuing_cert_name: "int2-cert"
         cert_name: "myserver"
         validity_hours: 87658 # 10 years

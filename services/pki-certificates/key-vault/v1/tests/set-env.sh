@@ -1,1 +1,1 @@
-export TF_VAR_key_vault_resource_id="/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/erx-ops-backend-us-east/providers/Microsoft.KeyVault/vaults/stevedi-test-vault"
+export TF_VAR_key_vault_resource_id="/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/erx-drops-backend-us-north/providers/Microsoft.KeyVault/vaults/stevedi-test-vault"
