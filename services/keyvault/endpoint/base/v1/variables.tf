@@ -27,7 +27,13 @@ variable "observability_settings" {
     workspace_id        = string
     storage_account     = string 
     retention_days   = number
+    
+
   })
+}
+variable "soft_delete_retention_days"{
+  type = number
+  default = 90
 }
 
 variable tags {

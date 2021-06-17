@@ -42,13 +42,12 @@ resource "azurerm_key_vault_access_policy" "policy" {
 resource "azurerm_key_vault" "keyvault" {
   name                        = "${var.service_settings.name}-${random_string.random.result}"
   #name                       = "${var.service_settings.name}"
-
   location                    = var.context.location
   resource_group_name         = var.context.resource_group_name
-  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  tenant_id                   = data.azurerm_client_config.current.tenant_id  
+  soft_delete_retention_days  = var.soft_delete_retention_days 
   purge_protection_enabled    = true
   enabled_for_disk_encryption = true
-
   sku_name = "standard"
 
   network_acls {
