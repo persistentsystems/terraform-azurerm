@@ -52,7 +52,7 @@ resource "azurerm_function_app_slot" "function_app" {
   app_settings = local.combined_settings
 
   site_config {
-
+    ftps_state  = var.ftps_state
     pre_warmed_instance_count = 1
     dynamic "ip_restriction" {
         

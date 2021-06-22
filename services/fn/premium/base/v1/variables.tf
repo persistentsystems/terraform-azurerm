@@ -57,3 +57,8 @@ variable tags {
   type = map
     
 }
+variable "ftps_state"{
+  type    = string
+  default = "FtpsOnly"
+}
+
