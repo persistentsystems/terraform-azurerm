@@ -21,6 +21,7 @@ resource "azurerm_storage_account" "storage_account" {
   tags                      = local.final_tags
 
 }
+/*
 resource "azurerm_storage_account_network_rules" "storage_account" {
   resource_group_name  = var.context.resource_group_name
   storage_account_name = azurerm_storage_account.storage_account.name
@@ -28,6 +29,7 @@ resource "azurerm_storage_account_network_rules" "storage_account" {
   default_action             = "Deny"  
   ip_rules                   = ["40.121.0.0/16"] 
 }
+*/
 
 resource "random_string" "random" {
   length = 8
