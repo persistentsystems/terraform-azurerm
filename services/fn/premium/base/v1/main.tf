@@ -38,6 +38,7 @@ resource "azurerm_function_app" "function_app" {
   site_config {
     ftps_state  = var.ftps_state 
     pre_warmed_instance_count = 1
+    use_32_bit_worker_process  = false
     dynamic "ip_restriction" {
         
       for_each = local.ip_list
