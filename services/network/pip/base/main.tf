@@ -7,6 +7,7 @@ resource "azurerm_public_ip" "main" {
 
   sku               = var.sku
   allocation_method = var.allocation_method
+  domain_name_label = "${var.context.application_name}-sftp-${var.context.environment_name}"
 
   tags = {
     app = var.context.application_name
