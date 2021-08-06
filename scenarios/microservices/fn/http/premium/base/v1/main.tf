@@ -20,7 +20,7 @@ locals {
 
 module "api_fn" {
   
-  source                  = "../../../../../../../services/fn/premium/staged/v1"
+  source                  = "../../../../../../../services/fn/premium/base/v1"
   
   context                = var.context
   service_settings       = local.merged_service_settings
