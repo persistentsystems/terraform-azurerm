@@ -43,6 +43,7 @@ variable "backend_settings" {
 
     name = string
     healthprobe_path = string
+    probe_method     = string
 
   })
 }

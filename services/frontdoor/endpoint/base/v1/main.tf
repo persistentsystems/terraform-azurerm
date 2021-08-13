@@ -28,9 +28,10 @@ resource "azurerm_frontdoor" "frontdoor" {
   }
 
   backend_pool_health_probe {
-    name      = var.backend_settings.name
-    protocol  = "Https"
-    path      = var.backend_settings.healthprobe_path
+    name          = var.backend_settings.name
+    protocol      = "Https"
+    path          = var.backend_settings.healthprobe_path
+    probe_method  = var.backend_settings.probe_method
   }
 
   
