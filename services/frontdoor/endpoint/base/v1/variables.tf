@@ -68,3 +68,8 @@ variable tags {
   type = map
     
 }
+
+variable "custom_domain" {
+  type = string
+  default = ""
+}

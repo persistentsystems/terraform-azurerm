@@ -22,6 +22,15 @@ resource "azurerm_frontdoor" "frontdoor" {
     web_application_firewall_policy_link_id = var.service_settings.web_application_firewall_policy_link_id
   }
 
+  dynamic "frontend_endpoint" { 
+  for_each = var.custom_domain == "" ? [] : [1]
+    content {
+      name      = "CustomDomainEndpoint"
+      host_name = var.custom_domain
+      web_application_firewall_policy_link_id = var.service_settings.web_application_firewall_policy_link_id
+    }
+  }
+
   backend_pool_load_balancing {
     name = var.backend_settings.name
     additional_latency_milliseconds = 1000
