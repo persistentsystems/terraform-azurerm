@@ -24,6 +24,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     min_count   = var.service_settings.node_min_count
     max_count   = var.service_settings.node_max_count
     vm_size     = var.service_settings.node_size
+    tags        = local.final_tags
   }
 
   identity {
