@@ -14,7 +14,7 @@ resource "azurerm_app_service_plan" "app_service_plan" {
 
   sku {
     tier = "ElasticPremium"
-    size = "EP2"
+    size = var.service_settings.size
     capacity = var.service_settings.minimum_instance_count
   }
 
