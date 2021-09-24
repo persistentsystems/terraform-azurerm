@@ -4,3 +4,6 @@ output "id" {
 output "name" {
   value = var.service_settings.name
 }
+output "expiration_date" {
+  value = var.service_settings.expiration_date  
+}
