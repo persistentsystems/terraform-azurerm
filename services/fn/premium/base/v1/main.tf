@@ -59,18 +59,6 @@ resource "azurerm_function_app" "function_app" {
   tags = local.final_tags
 
 }
-##Currently Vnet Integration was not implemented to stagging slots.
-data "azurerm_subnet" "fn_integration" {
-  name                 = "${var.context.application_name}-${var.context.environment_name}-subnet"
-  virtual_network_name = "${var.context.application_name}-${var.context.environment_name}-vnet"
-  resource_group_name  = var.context.resource_group_name
-}
-##This block will turn on the Vnet Integration for function apps
-resource "azurerm_app_service_virtual_network_swift_connection" "function_app_vnet" {
-  app_service_id = azurerm_function_app.function_app.id
-  subnet_id      = data.azurerm_subnet.fn_integration.id
-}
-
 resource "time_sleep" "wait_30_seconds" {
   depends_on = [azurerm_function_app.function_app]
 
