@@ -13,6 +13,7 @@ variable "service_settings" {
   type = object({
     name                      = string
     plan_id                   = string
+    dotnet_version            = string
 
   })
 }

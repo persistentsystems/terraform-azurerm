@@ -14,7 +14,7 @@ resource "azurerm_app_service" "admin_ui_app_service" {
   app_service_plan_id       = var.service_settings.plan_id 
 
   site_config {
-    dotnet_framework_version = "v5.0"
+    dotnet_framework_version = var.service_settings.dotnet_version
         
   }
 
@@ -24,3 +24,8 @@ resource "azurerm_app_service" "admin_ui_app_service" {
   tags = local.final_tags
 
 }
+
+# data "azurerm_app_service" "adminui" {
+#   name                = "${var.context.application_name}-${var.context.environment_name}-adminui"
+#   resource_group_name =  var.context.resource_group_name
+# }

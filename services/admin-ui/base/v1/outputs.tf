@@ -7,6 +7,6 @@ output "identity" {
 output "id" {
   value = azurerm_app_service.admin_ui_app_service.id
 }
-output "hostname" {
+output "site_name" {
     value = azurerm_app_service.admin_ui_app_service.default_site_hostname
 }
