@@ -24,7 +24,7 @@ module "api_webapp" {
   
   context                = var.context
   service_settings       = local.merged_service_settings
-  observability_settings = var.observability_settings  
+  #observability_settings = var.observability_settings  
   tags                  = var.tags
   
 }
