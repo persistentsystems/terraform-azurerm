@@ -14,12 +14,7 @@ variable "service_settings" {
     name                      = string
     plan_id                   = string
     dotnet_version            = string
-    app_settings              = map(string)
-    storage_account = object({
-        connection_string = string
-        name = string
-        access_key = string
-    })
+    app_settings              = map(string)   
 
   })
 }

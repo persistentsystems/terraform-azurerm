@@ -18,7 +18,6 @@ resource "azurerm_app_service" "admin_ui_app_service" {
   location                  = var.context.location
   resource_group_name       = var.context.resource_group_name
   app_service_plan_id       = var.service_settings.plan_id 
-  storage_connection_string = var.service_settings.storage_account.connection_string
   app_settings              = local.combined_settings
 
   site_config {
