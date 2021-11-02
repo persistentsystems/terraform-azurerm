@@ -9,8 +9,6 @@ locals {
 
   merged_service_settings = {
     name                = var.service_settings.name
-    runtime_version     = var.service_settings.runtime_version
-    runtime_type        = var.service_settings.runtime_type
     app_settings        = local.combined_settings
     plan_id             = var.host_settings.plan_id
     storage_account     = var.host_settings.storage_account
@@ -24,8 +22,8 @@ module "api_webapp" {
   
   context                = var.context
   service_settings       = local.merged_service_settings
-  #observability_settings = var.observability_settings  
-  tags                  = var.tags
+  observability_settings = var.observability_settings  
+  tags                   = var.tags
   
 }
 
