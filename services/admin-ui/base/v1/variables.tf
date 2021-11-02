@@ -13,8 +13,7 @@ variable "service_settings" {
   type = object({
     name                      = string
     plan_id                   = string
-    dotnet_version            = string
-    app_settings              = map(string)   
+    dotnet_version            = string      
 
   })
 }
