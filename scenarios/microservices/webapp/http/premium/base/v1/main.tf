@@ -10,9 +10,7 @@ locals {
   merged_service_settings = {
     name                = var.service_settings.name
     dotnet_version      = var.service_settings.dotnet_version
-    app_settings        = local.combined_settings
-    plan_id             = var.host_settings.plan_id
-    storage_account     = var.host_settings.storage_account    
+    app_settings        = local.combined_settings   
   }
 }
 
@@ -27,11 +25,11 @@ module "api_webapp" {
   
 }
 
-module "identity_access_policy" {
+# module "identity_access_policy" {
   
-  source                    = "../../../../../../../services/keyvault/accesspolicy/templates/managed-identity-reader/v1"
+#   source                    = "../../../../../../../services/keyvault/accesspolicy/templates/managed-identity-reader/v1"
 
-  keyvault_id               = var.keyvault_id
-  object_id                 = module.api_webapp.identity[0].principal_id
+#   keyvault_id               = var.keyvault_id
+#   object_id                 = module.api_webapp.identity[0].principal_id
 
-}
+# }
