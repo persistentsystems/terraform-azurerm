@@ -9,21 +9,21 @@ variable "context" {
 
   })
 }
-# variable "host_settings" {
-#   type = object({
+variable "host_settings" {
+  type = object({
 
-#     plan_id                         = string
-#     storage_account                 = object({
-#         connection_string = string
-#         name = string
-#         access_key = string
-#     })
-#     deployment_storage_account_name = string
-#     deployment_storage_container    = string
-#     deployment_package_sas          = string
+    plan_id                         = string
+    storage_account                 = object({
+        connection_string = string
+        name = string
+        access_key = string
+    })
+    deployment_storage_account_name = string
+    deployment_storage_container    = string
+    deployment_package_sas          = string
 
-#   })
-# }
+  })
+}
 # variable keyvault_id {
 #     type = string
 # }
