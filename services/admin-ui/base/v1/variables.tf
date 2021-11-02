@@ -18,13 +18,6 @@ variable "service_settings" {
 
   })
 }
-variable "observability_settings" {
-  type = object({
-
-    instrumentation_key = string  
-    retention_in_days   = number    
-  })
-}
 variable tags {
 
   type = map
