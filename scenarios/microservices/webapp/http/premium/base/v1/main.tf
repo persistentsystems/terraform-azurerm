@@ -9,6 +9,7 @@ locals {
 
   merged_service_settings = {
     name                = var.service_settings.name
+    dotnet_version      = var.service_settings.dotnet_version
     app_settings        = local.combined_settings
     plan_id             = var.host_settings.plan_id
     storage_account     = var.host_settings.storage_account    

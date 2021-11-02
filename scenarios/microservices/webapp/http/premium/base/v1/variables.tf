@@ -33,6 +33,7 @@ variable "service_settings" {
     name              = string
     app_settings      = map(string)
     package_filename  = string
+    dotnet_version    = string
 
   })
 }
