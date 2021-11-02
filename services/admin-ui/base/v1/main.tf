@@ -1,7 +1,7 @@
 locals {   
 
       required_settings = {
-      "FUNCTIONS_WORKER_RUNTIME"          = var.service_settings.runtime_type,
+      #"FUNCTIONS_WORKER_RUNTIME"          = var.service_settings.runtime_type,
       "APPINSIGHTS_INSTRUMENTATIONKEY"    = var.observability_settings.instrumentation_key,
     }
     combined_settings = merge(local.required_settings, var.service_settings.app_settings)
