@@ -71,7 +71,7 @@ resource "null_resource" "next" {
 }
 ##Currently Vnet Integration was not implemented to stagging slots.
 data "azurerm_subnet" "fn_integration" {
-  name                 = "${var.context.application_name}-${var.context.environment_name}-subnet"
+  name                 = "${var.context.application_name}-${var.context.environment_name}-fn-subnet"
   virtual_network_name = "${var.context.application_name}-${var.context.environment_name}-vnet"
   resource_group_name  = var.context.resource_group_name
 }
