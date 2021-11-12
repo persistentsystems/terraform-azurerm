@@ -24,9 +24,9 @@ resource "azurerm_app_service" "admin_ui_app_service" {
   }
   tags = local.final_tags
 
-  active_directory {
-    client_id = "1d9f5677-f64b-4e2b-9de4-36c4165c4fcd"
-  }
+  # active_directory {
+  #   client_id = "1d9f5677-f64b-4e2b-9de4-36c4165c4fcd"
+  # }
 
 }
 
