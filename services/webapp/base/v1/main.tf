@@ -24,14 +24,3 @@ resource "azurerm_app_service" "admin_ui_app_service" {
   }
   tags = local.final_tags
 }
-# data "azurerm_subnet" "web_integration" {
-#   name                 = "${var.context.application_name}-${var.context.environment_name}-web-subnet"
-#   virtual_network_name = "${var.context.application_name}-${var.context.environment_name}-vnet"
-#   resource_group_name  = "${var.context.application_name}-${var.context.environment_name}-backend-${var.context.location_suffix}"
-# }
-
-# ##This block will turn on the Vnet Integration for function apps
-# resource "azurerm_app_service_virtual_network_swift_connection" "web_app_vnet" {
-#   app_service_id = azurerm_app_service.admin_ui_app_service.id
-#   subnet_id      = data.azurerm_subnet.web_integration.id
-# }

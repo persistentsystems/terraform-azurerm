@@ -1,0 +1,20 @@
+variable "context" {
+  type = object({
+    application_name    = string
+    environment_name    = string
+    resource_group_name = string
+    location_suffix     = string
+    location            = string   
+   })
+}
+
+variable "vnet_name" {
+  type = string
+}
+variable "address_space" {
+  type = list(string)
+  
+}
+variable tags {
+  type = map    
+}
