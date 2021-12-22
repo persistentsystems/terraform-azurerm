@@ -17,6 +17,7 @@ resource "azurerm_cosmosdb_account" "account" {
   enable_automatic_failover = true
 
   enable_multiple_write_locations = var.service_settings.enable_multiregion_write
+  is_virtual_network_filter_enabled = var.service_settings.is_virtual_network_filter_enabled
   
   consistency_policy {
     consistency_level       = var.service_settings.consistency_level

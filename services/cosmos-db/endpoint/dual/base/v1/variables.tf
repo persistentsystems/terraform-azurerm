@@ -24,6 +24,7 @@ variable "service_settings" {
     interval_in_minutes       = number
     retention_in_hours        = number
     enable_multiregion_write  = bool
+    is_virtual_network_filter_enabled = bool
   })
 }
 
