@@ -11,7 +11,8 @@ resource "azurerm_app_service" "admin_ui_app_service" {
   name                      = var.service_settings.name
   location                  = var.context.location
   resource_group_name       = var.context.resource_group_name
-  app_service_plan_id       = var.service_settings.plan_id 
+  app_service_plan_id       = var.service_settings.plan_id
+  https_only                = true
   
   site_config {
     dotnet_framework_version = var.service_settings.dotnet_version
