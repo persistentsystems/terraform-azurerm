@@ -17,6 +17,10 @@ resource "azurerm_storage_account" "storage_account" {
   account_replication_type  = var.service_settings.type
   allow_blob_public_access  = var.security_settings.allow_blob_public_access
   min_tls_version           = var.security_settings.min_tls_version
+  
+    identity {
+    type = "SystemAssigned"
+  }
 
   tags                      = local.final_tags
 
