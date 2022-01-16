@@ -4,3 +4,4 @@ output "id" {
 output "name" {
   value = var.service_settings.name
 }
+

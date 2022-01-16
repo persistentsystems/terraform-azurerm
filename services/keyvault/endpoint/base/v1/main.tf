@@ -26,7 +26,7 @@ resource "azurerm_key_vault_access_policy" "policy" {
   ]
 
   key_permissions = [
-    "get", "create", "list", "delete"
+    "get", "create",  "list", "backup", "update", "restore", "recover", "unwrapkey", "wrapkey", "purge", "encrypt", "decrypt", "sign", "verify"
   ]
 
   secret_permissions = [

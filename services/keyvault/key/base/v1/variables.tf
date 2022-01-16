@@ -14,5 +14,7 @@ variable "service_settings" {
 
     keyvault_id     = string
     name            = string
+    expiration_date = string
   })
 }
+#variable "application_id" { }
