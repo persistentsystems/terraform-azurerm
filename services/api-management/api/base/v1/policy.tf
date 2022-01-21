@@ -10,6 +10,7 @@ locals {
   </inbound>    
   <backend>
     ${var.policies.backend}
+    <base />
   </backend>
   <outbound>
     ${var.policies.outbound}
