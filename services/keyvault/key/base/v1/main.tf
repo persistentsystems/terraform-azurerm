@@ -1,4 +1,5 @@
-
+##Use the below link as a reference for cmk implementation
+##https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_customer_managed_key
 resource "azurerm_key_vault_key" "key" {
   name         = var.service_settings.name
   key_vault_id = var.service_settings.keyvault_id

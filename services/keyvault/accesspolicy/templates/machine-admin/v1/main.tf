@@ -11,7 +11,7 @@ resource "azurerm_key_vault_access_policy" "policy" {
   object_id = data.azuread_service_principal.service_account.object_id
 
   key_permissions = [
-    "get",
+    "get", "create", "delete", "list", "restore", "recover", "unwrapkey", "wrapkey", "purge", "encrypt", "decrypt", "sign", "verify"
   ]
 
   secret_permissions = [
