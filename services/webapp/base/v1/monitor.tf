@@ -1,4 +1,4 @@
-/*data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
+data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
   resource_id = azurerm_app_service.admin_ui_app_service.id
 }
 
@@ -65,4 +65,4 @@ resource "azurerm_monitor_diagnostic_setting" "web_log_setting" {
       }
   }
 
-}*/
+}

@@ -18,7 +18,7 @@ variable "service_settings" {
 
   })
 }
-/*
+
 variable "observability_settings" {
   type = object({
 
@@ -29,7 +29,7 @@ variable "observability_settings" {
     storage_account_id  = string
   })
 }
-*/
+
 variable tags {
 
   type = map
