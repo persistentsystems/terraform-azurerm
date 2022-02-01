@@ -17,6 +17,7 @@ output "storage_account" {
     name              = module.func_storage.name
     access_key        = module.func_storage.primary_access_key
     id                = module.func_storage.id
+    principal_id      = module.func_storage.principal_id
 
   }
 }
