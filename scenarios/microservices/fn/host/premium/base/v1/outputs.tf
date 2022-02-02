@@ -11,6 +11,6 @@ output "host_settings" {
     deployment_package_sas          = data.azurerm_storage_account_sas.code_storage.sas
     id                              = module.code_storage.id
     func_id                         = module.api_hosting_plan.storage_account.id
-    func_storage_principal_id       = module.api_hosting_plan.storage_account.principal_id
+    #func_storage_principal_id       = module.api_hosting_plan.storage_account.principal_id
   }
 }
