@@ -18,7 +18,7 @@ resource "azurerm_storage_account" "storage_account" {
   allow_blob_public_access  = var.security_settings.allow_blob_public_access
   min_tls_version           = var.security_settings.min_tls_version
     identity {
-    type = "SystemAssigned"
+    type = var.service_settings.identity
   }
   tags                      = local.final_tags
 
@@ -50,4 +50,15 @@ resource "null_resource" "storage-metrics" {
   provisioner "local-exec" {
     command = "az storage metrics update --account-name ${azurerm_storage_account.storage_account.name} --api true --hour true --minute true --retention 0 --services b --account-key ${azurerm_storage_account.storage_account.primary_access_key}"
   }
+}
+
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [azurerm_storage_account.storage_account]
+
+  create_duration = "30s"
+}
+
+# This resource will create (at least) 30 seconds after null_resource.previous
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_30_seconds]
 }

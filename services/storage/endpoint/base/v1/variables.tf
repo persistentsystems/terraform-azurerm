@@ -17,7 +17,7 @@ variable "service_settings" {
     name            = string
     tier            = string
     type            = string
-
+    identity        = string
   })
 }
 
