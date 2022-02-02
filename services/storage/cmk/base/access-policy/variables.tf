@@ -11,10 +11,10 @@ variable "context" {
 }
 # tier = "Standard"
 # type = "GRS"
-# variable "service_settings" {
-#   type = object({
-#     key_vault_id                  = string
-#     object_id                  = string
+variable "service_settings" {
+  type = object({
+    key_vault_id                  = string
+    object_id                  = string
 
-#   })
-# }
+  })
+}
