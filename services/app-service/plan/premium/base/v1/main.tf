@@ -32,6 +32,7 @@ module "func_storage" {
     name                  = "func"
     tier                  = "Standard"
     type                  = var.service_settings.storage_type
+    identity             = "SystemAssigned"
   }
   tags = local.final_tags
 }
