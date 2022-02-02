@@ -14,7 +14,7 @@ variable "context" {
 variable "service_settings" {
   type = object({
     key_vault_id                  = string
-    principal_id                  = string
+    object_id                  = string
 
   })
 }
