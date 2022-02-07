@@ -10,8 +10,8 @@ resource "azurerm_app_service_plan" "app_service_plan" {
   name                = var.service_settings.name
   location            = var.context.location
   resource_group_name = var.context.resource_group_name
-  kind                = "app"
-
+  kind                = var.service_settings.kind
+  reserved            = var.service_settings.reserved
   sku {
     tier = var.service_settings.tier
     size = var.service_settings.size

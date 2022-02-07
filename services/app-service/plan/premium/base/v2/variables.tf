@@ -16,6 +16,8 @@ variable "service_settings" {
     tier                   = string
     size                   = string
     minimum_instance_count = number
+    kind                   = string
+    reserved               = bool
   })
 }
 
