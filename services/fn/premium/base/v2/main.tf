@@ -36,9 +36,10 @@ resource "azurerm_function_app" "function_app" {
   app_settings = local.combined_settings
 
   site_config {
-    ftps_state  = var.ftps_state 
+    ftps_state  = var.service_settings.ftps_state 
     pre_warmed_instance_count = 1
-    use_32_bit_worker_process  = false
+    linux_fx_version = var.service_settings.linux_fx_version
+    
     ##It's enable the Health check to Functions
     health_check_path           = "/api/health"
     dynamic "ip_restriction" {
@@ -69,14 +70,3 @@ resource "time_sleep" "wait_30_seconds" {
 resource "null_resource" "next" {
   depends_on = [time_sleep.wait_30_seconds]
 }
-##Currently Vnet Integration was not implemented to stagging slots.
-# data "azurerm_subnet" "fn_integration" {
-#   name                 = "${var.context.application_name}-${var.context.environment_name}-fn-subnet"
-#   virtual_network_name = "${var.context.application_name}-${var.context.environment_name}-vnet"
-#   resource_group_name  = var.context.resource_group_name
-# }
-# ##This block will turn on the Vnet Integration for function apps
-# resource "azurerm_app_service_virtual_network_swift_connection" "function_app_vnet" {
-#   app_service_id = azurerm_function_app.function_app.id
-#   subnet_id      = data.azurerm_subnet.fn_integration.id
-# }

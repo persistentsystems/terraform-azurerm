@@ -17,6 +17,8 @@ variable "service_settings" {
     runtime_type              = string
     app_settings              = map(string)
     plan_id                   = string
+    ftps_state                = string
+    linux_fx_version          = string
     storage_account = object({
         connection_string = string
         name = string
@@ -57,8 +59,8 @@ variable tags {
   type = map
     
 }
-variable "ftps_state"{
-  type    = string
-  default = "FtpsOnly"
-}
+# variable "ftps_state"{
+#   type    = string
+#   default = "FtpsOnly"
+# }
 
