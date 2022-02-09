@@ -1,11 +1,11 @@
 data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
-  resource_id = azurerm_function_app.function_app.id 
+  resource_id = azurerm_function_app.function_appv2.id 
 }
 
 resource "azurerm_monitor_diagnostic_setting" "function_diagnostic_setting" {
 
   name                        = "${var.service_settings.name}-function-logs"
-  target_resource_id          = azurerm_function_app.function_app.id
+  target_resource_id          = azurerm_function_app.function_appv2.id
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
   dynamic log {
@@ -40,7 +40,7 @@ resource "azurerm_monitor_diagnostic_setting" "function_diagnostic_setting" {
 resource "azurerm_monitor_diagnostic_setting" "function_log_setting" {
 
   name                        = "${var.service_settings.name}-function-storage"
-  target_resource_id          = azurerm_function_app.function_app.id
+  target_resource_id          = azurerm_function_app.function_appv2.id
   storage_account_id          = var.observability_settings.storage_account_id
 
   dynamic log {

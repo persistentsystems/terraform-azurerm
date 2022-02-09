@@ -20,6 +20,7 @@ variable "service_settings" {
     ftps_state                = string
     linux_fx_version          = string
     os_type                   = string
+    package_filename          = string
     storage_account = object({
         connection_string = string
         name = string
@@ -65,3 +66,18 @@ variable tags {
 #   default = "FtpsOnly"
 # }
 
+variable "host_settings" {
+  type = object({
+
+    plan_id                         = string
+    storage_account                 = object({
+        connection_string = string
+        name = string
+        access_key = string
+    })
+    deployment_storage_account_name = string
+    deployment_storage_container    = string
+    deployment_package_sas          = string
+
+  })
+}

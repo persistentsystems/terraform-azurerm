@@ -24,7 +24,7 @@ locals {
 
 
 # This will deploy an Azure Function to the target Resource Group / App Service Plan
-resource "azurerm_function_app" "function_app" {
+resource "azurerm_function_app" "function_appv2" {
   name                      = var.service_settings.name
   location                  = var.context.location
   resource_group_name       = var.context.resource_group_name
@@ -61,13 +61,13 @@ resource "azurerm_function_app" "function_app" {
   tags = local.final_tags
 
 }
-resource "time_sleep" "wait_30_seconds" {
-  depends_on = [azurerm_function_app.function_app]
+resource "time_sleep" "wait_45_seconds" {
+  depends_on = [azurerm_function_app.function_appv2]
 
-  create_duration = "30s"
+  create_duration = "45s"
 }
 
 # This resource will create (at least) 30 seconds after null_resource.previous
 resource "null_resource" "next" {
-  depends_on = [time_sleep.wait_30_seconds]
+  depends_on = [time_sleep.wait_45_seconds]
 }
