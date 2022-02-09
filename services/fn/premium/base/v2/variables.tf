@@ -19,6 +19,7 @@ variable "service_settings" {
     plan_id                   = string
     ftps_state                = string
     linux_fx_version          = string
+    os_type                   = string
     storage_account = object({
         connection_string = string
         name = string

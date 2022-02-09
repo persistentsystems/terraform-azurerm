@@ -32,6 +32,7 @@ resource "azurerm_function_app" "function_app" {
   storage_connection_string = var.service_settings.storage_account.connection_string
   version                   = var.service_settings.runtime_version 
   https_only                = true
+  os_type                   = var.service_settings.os_type
   
   app_settings = local.combined_settings
 
