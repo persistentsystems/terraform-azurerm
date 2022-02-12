@@ -10,3 +10,7 @@ output "administrator_login" {
 output "administrator_login_password" {
   value = azurerm_mssql_server.mssql.administrator_login_password
 }
+
+output "principal_id" {
+  value = azurerm_mssql_server.mssql.identity.0.principal_id
+}

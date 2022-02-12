@@ -16,6 +16,13 @@ variable "service_settings" {
     version                         = string
     administrator_login             = string
     administrator_login_password    = string
+    minimum_tls_version             = string
      
   })
+}
+
+variable tags {
+
+  type = map
+    
 }

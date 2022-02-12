@@ -27,3 +27,9 @@ variable "service_settings" {
 
   })
 }
+
+variable tags {
+
+  type = map
+    
+}

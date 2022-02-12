@@ -1,3 +1,3 @@
 output "name" {
-    value = azurerm_cosmosdb_sql_database.database.name
+    value = azurerm_mssql_database.mssql-db.name
 }

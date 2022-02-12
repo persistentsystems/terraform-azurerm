@@ -1,4 +1,4 @@
-resource "azurerm_mssql_database" "test" {
+resource "azurerm_mssql_database" "mssql-db" {
   name           = var.service_settings.name
   server_id      = var.service_settings.server_id
   collation      = var.service_settings.collation
