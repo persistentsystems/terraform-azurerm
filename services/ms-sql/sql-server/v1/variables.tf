@@ -17,7 +17,7 @@ variable "service_settings" {
     administrator_login             = string
     administrator_login_password    = string
     minimum_tls_version             = string
-     
+    identity                        = string 
   })
 }
 

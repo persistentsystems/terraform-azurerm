@@ -13,11 +13,7 @@ resource "azurerm_mssql_database" "mssql-db" {
     storage_account_access_key              = var.service_settings.storage_account_access_key
     retention_in_days                       = var.service_settings.retention_in_days
   }
-
-
-  tags = {
-    tags = local.final_tags
-  }
+  tags                      = local.final_tags
 
 }
 
