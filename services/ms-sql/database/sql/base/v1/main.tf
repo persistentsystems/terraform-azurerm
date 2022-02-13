@@ -1,3 +1,13 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags ) 
+}
+
+
 resource "azurerm_mssql_database" "mssql-db" {
   name           = var.service_settings.name
   server_id      = var.service_settings.server_id
