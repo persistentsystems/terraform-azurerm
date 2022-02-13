@@ -12,7 +12,7 @@ variable "context" {
 }
 variable "service_settings" {
   type = object({
-
+    name                            = string
     version                         = string
     administrator_login             = string
     administrator_login_password    = string
