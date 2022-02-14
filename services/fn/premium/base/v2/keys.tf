@@ -12,6 +12,6 @@ resource "time_sleep" "wait_120_seconds" {
 }
 
 # This resource will create (at least) 30 seconds after null_resource.previous
-resource "null_resource" "next" {
+resource "null_resource" "next_keys" {
   depends_on = [time_sleep.wait_120_seconds]
 }
