@@ -5,7 +5,7 @@ data azurerm_function_app_host_keys azfn_function_keyv2 {
 }
 
 resource "time_sleep" "wait_30_seconds_for_keys" {
-  depends_on = [azurerm_function_app_host_keys.azfn_function_keyv2.default_function_key]
+  depends_on = [azurerm_function_app_host_keys.azfn_function_keyv2]
 
   create_duration = "30s"
 }
