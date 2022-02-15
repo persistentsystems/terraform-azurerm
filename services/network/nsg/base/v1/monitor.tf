@@ -39,7 +39,7 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
 
 resource "azurerm_monitor_diagnostic_setting" "nsg_log_setting" {
 
-  name                        = "${var.nsg_name}-storage"
+  name                        = "setbypolicy"
   target_resource_id          = azurerm_network_security_group.nsg.id
   storage_account_id          = var.observability_settings.storage_account_id
 
