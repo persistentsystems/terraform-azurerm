@@ -14,7 +14,7 @@ variable "service_settings" {
   type = object({
 
     name              = string
-    server_id         = string    
+    server_name       = string    
     license_type      = string
     max_size_gb       = string
     sku_name          = string

@@ -9,11 +9,13 @@ locals {
 
 
 resource "azurerm_mssql_elasticpool" "mssql-db" {
-  name           = var.service_settings.name
-  server_id      = var.service_settings.server_id
-  license_type   = var.service_settings.license_type
-  max_size_gb    = var.service_settings.max_size_gb   
-  zone_redundant = var.service_settings.zone_redundant
+  name                = var.service_settings.name
+  resource_group_name = var.context.resource_group_name
+  location            = var.context.location
+  server_name         = var.service_settings.server_name
+  license_type        = var.service_settings.license_type
+  max_size_gb         = var.service_settings.max_size_gb   
+  zone_redundant      = var.service_settings.zone_redundant
   sku  {
     name         = var.service_settings.sku_name
     tier         = var.service_settings.tier
