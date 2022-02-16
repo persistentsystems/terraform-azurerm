@@ -8,20 +8,21 @@ locals {
 }
 
 
-resource "azurerm_mssql_database" "mssql-db" {
+resource "azurerm_mssql_elasticpool" "mssql-db" {
   name           = var.service_settings.name
   server_id      = var.service_settings.server_id
-  collation      = var.service_settings.collation
   license_type   = var.service_settings.license_type
-  max_size_gb    = var.service_settings.max_size_gb
-  read_scale     = var.service_settings.read_scale
-  sku_name       = var.service_settings.sku_name
+  max_size_gb    = var.service_settings.max_size_gb   
   zone_redundant = var.service_settings.zone_redundant
-
-  extended_auditing_policy {
-    storage_endpoint                        = var.service_settings.storage_endpoint
-    storage_account_access_key              = var.service_settings.storage_account_access_key
-    retention_in_days                       = var.service_settings.retention_in_days
+  sku  {
+    name         = var.service_settings.sku_name
+    tier         = var.service_settings.tier
+    family       = var.service_settings.family
+    capacity     = var.service_settings.capacity
+  } 
+  per_database_settings {
+    min_capacity = var.service_settings.min_capacity
+    max_capacity = var.service_settings.max_capacity
   }
   tags                      = local.final_tags
 

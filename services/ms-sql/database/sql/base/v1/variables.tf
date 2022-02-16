@@ -14,16 +14,16 @@ variable "service_settings" {
   type = object({
 
     name              = string
-    server_id         = string
-    collation         = string
+    server_id         = string    
     license_type      = string
     max_size_gb       = string
-    read_scale        = bool
     sku_name          = string
+    tier              = string
+    family            = string
+    capacity          = string
     zone_redundant    = bool
-    storage_endpoint  = string
-    storage_account_access_key = string
-    retention_in_days   = string
+    min_capacity      = string
+    max_capacity      = string
 
   })
 }
