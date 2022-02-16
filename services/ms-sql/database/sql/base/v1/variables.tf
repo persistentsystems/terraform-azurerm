@@ -24,6 +24,7 @@ variable "service_settings" {
     storage_account_access_key = string
     retention_in_days          = string
     auto_pause_delay_in_minutes = string
+    min_capacity               = string
 
   })
 }

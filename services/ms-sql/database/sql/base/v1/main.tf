@@ -18,6 +18,7 @@ resource "azurerm_mssql_database" "mssql-db" {
   sku_name       = var.service_settings.sku_name
   zone_redundant = var.service_settings.zone_redundant
   auto_pause_delay_in_minutes = var.service_settings.auto_pause_delay_in_minutes
+  min_capacity    = var.service_settings.min_capacity
 
   extended_auditing_policy {
     storage_endpoint                        = var.service_settings.storage_endpoint
