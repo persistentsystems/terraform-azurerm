@@ -30,9 +30,7 @@ variable "service_settings" {
 }
 
 variable "observability_settings" {
-  type = object({
-
-    instrumentation_key = string
+  type = object({    
     workspace_id        = string
     storage_account     = string 
     retention_days      = number   
