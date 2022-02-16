@@ -14,3 +14,6 @@ output "administrator_login_password" {
 output "principal_id" {
   value = azurerm_mssql_server.mssql.identity.0.principal_id
 }
+output "fully_qualified_domain_name" {
+  value = azurerm_mssql_server.mssql.fully_qualified_domain_name
+}
