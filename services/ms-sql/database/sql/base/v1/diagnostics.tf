@@ -41,7 +41,7 @@ resource "azurerm_monitor_diagnostic_setting" "database_log_setting" {
 
   name                        = "${var.service_settings.name}-db-storage"
   target_resource_id          = azurerm_mssql_database.mssql-db.id
-  storage_account_id          = var.observability_settings.storage_account_id
+  storage_account_id          = var.observability_settings.storage_account
 
   dynamic log {
     for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
