@@ -16,7 +16,7 @@ resource "azurerm_monitor_diagnostic_setting" "database_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_in_days
+        days = var.observability_settings.retention_days
       }
     }
   }
@@ -28,7 +28,7 @@ resource "azurerm_monitor_diagnostic_setting" "database_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_in_days
+        days = var.observability_settings.retention_days
       }
     }
   }
