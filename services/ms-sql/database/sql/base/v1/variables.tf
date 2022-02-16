@@ -17,7 +17,7 @@ variable "service_settings" {
     collation                 = string
     license_type              = string
     max_size_gb               = string
-    read_scale                = bool
+    #read_scale                = bool
     sku_name                  = string
     zone_redundant            = bool
     storage_endpoint          = string

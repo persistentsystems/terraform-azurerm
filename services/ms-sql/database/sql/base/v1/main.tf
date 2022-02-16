@@ -14,7 +14,7 @@ resource "azurerm_mssql_database" "mssql-db" {
   collation      = var.service_settings.collation
   license_type   = var.service_settings.license_type
   max_size_gb    = var.service_settings.max_size_gb
-  read_scale     = var.service_settings.read_scale
+  #read_scale     = var.service_settings.read_scale
   sku_name       = var.service_settings.sku_name
   zone_redundant = var.service_settings.zone_redundant
   auto_pause_delay_in_minutes = var.service_settings.auto_pause_delay_in_minutes
