@@ -4,7 +4,7 @@ data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
 
 resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
-  name                        = "${var.service_settings.name}-petmeddb-logs"
+  name                        = "${var.service_settings.name}-database-logs"
   target_resource_id          = azurerm_mssql_database.mssql-db.id 
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
@@ -38,7 +38,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
 
 resource "azurerm_monitor_diagnostic_setting" "log_setting" {
 
-  name                        = "${var.service_settings.name}-petmeddb-storage"
+  name                        = "${var.service_settings.name}-database-storage"
   target_resource_id          = azurerm_mssql_database.mssql-db.id
   storage_account_id          = var.observability_settings.storage_account
 
@@ -54,15 +54,15 @@ resource "azurerm_monitor_diagnostic_setting" "log_setting" {
       }
     }
   }
-  metric {
-      category = "Basic"
-      enabled  = false 
+  # metric {
+  #     category = "Basic"
+  #     enabled  = false 
 
-      retention_policy {
-        enabled = false
-        days = 0
-      }
-  }
+  #     retention_policy {
+  #       enabled = false
+  #       days = 0
+  #     }
+  # }
 
 
 }
