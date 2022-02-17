@@ -29,14 +29,14 @@ variable "service_settings" {
   })
 }
 
-variable "observability_settings" {
-  type = object({    
-    workspace_id        = string
-    storage_account     = string 
-    retention_days      = number   
+# variable "observability_settings" {
+#   type = object({    
+#     workspace_id        = string
+#     storage_account     = string 
+#     retention_days      = number   
 
-  })
-}
+#   })
+# }
 
 variable tags {
 
