@@ -23,3 +23,6 @@ variable "service_endpoints" {
   type = list(string)
   
 }
+variable "service_delegation_name" {
+  type = string
+}
