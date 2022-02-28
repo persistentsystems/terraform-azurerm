@@ -9,7 +9,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
   dynamic log {
-    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories_postgres.logs
     content {
       category = log.value
       enabled  = true
@@ -22,7 +22,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
   }
 
   dynamic metric {
-    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.metrics 
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories_postgres.metrics 
     content {
       category = metric.value
 
@@ -43,7 +43,7 @@ resource "azurerm_monitor_diagnostic_setting" "log_setting_postgres" {
   storage_account_id          = var.observability_settings.storage_account
 
   dynamic log {
-    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
+    for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories_postgres.logs
     content {
       category = log.value
       enabled  = true
