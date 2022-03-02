@@ -16,7 +16,7 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_in_days
+        days = var.observability_settings.retention_days
       }
     }
   }
@@ -28,7 +28,7 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_in_days
+        days = var.observability_settings.retention_days
       }
     }
   }
@@ -41,7 +41,7 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_log_setting" {
 
   name                        = "setbypolicy"
   target_resource_id          = azurerm_network_security_group.nsg.id
-  storage_account_id          = var.observability_settings.storage_account_id
+  storage_account_id          = var.observability_settings.storage_account
 
   dynamic log {
     for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
