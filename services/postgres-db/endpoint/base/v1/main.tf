@@ -28,3 +28,10 @@ resource "random_string" "random_postgres" {
   lower = true
   upper = false
 }
+
+resource "azurerm_postgresql_flexible_server_firewall_rule" "fw_rule" {
+  name                = "AllowIps"
+  server_id           = azurerm_postgresql_flexible_server.postgres_server.id
+  start_ip_address    = var.firewall_rule_settings.start_ip_address
+  end_ip_address      = var.firewall_rule_settings.end_ip_address
+}
