@@ -21,6 +21,8 @@ variable "service_settings" {
     storage_mb                      = number
     sku_name                        = string
     backup_retention_days           = string
+    delegated_subnet_id             = string
+    private_dns_zone_id             = string
   })
 }
 
@@ -36,11 +38,4 @@ variable tags {
 
   type = map
     
-}
-
-variable "firewall_rule_settings" {
-  type = object({
-    start_ip_address          = string 
-    end_ip_address            = string
-  })
 }
