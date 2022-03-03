@@ -17,8 +17,8 @@ resource "azurerm_postgresql_flexible_server" "postgres_server" {
   storage_mb                      = var.service_settings.storage_mb
   sku_name                        = var.service_settings.sku_name
   backup_retention_days           = var.service_settings.backup_retention_days
-  delegated_subnet_id             = var.service_settings.delegated_subnet_id
-  private_dns_zone_id             = var.service_settings.private_dns_zone_id    
+  #delegated_subnet_id             = var.service_settings.delegated_subnet_id
+  #private_dns_zone_id             = var.service_settings.private_dns_zone_id    
 
   tags = local.final_tags
 
@@ -29,4 +29,11 @@ resource "random_string" "random_postgres" {
   special = false
   lower = true
   upper = false
+}
+
+resource "azurerm_postgresql_flexible_server_firewall_rule" "fw_rule" {
+  name                = "AllowIps"
+  server_id           = azurerm_postgresql_flexible_server.postgres_server.id
+  start_ip_address    = var.firewall_rule_settings.start_ip_address
+  end_ip_address      = var.firewall_rule_settings.end_ip_address
 }
