@@ -7,7 +7,7 @@ locals {
 
     final_tags = merge (local.default_tags, var.tags )
 }
-resource "azurerm_app_service" "patientmatch_docker" {
+resource "azurerm_app_service" "webapp_docker" {
   name                      = var.service_settings.name
   location                  = var.context.location
   resource_group_name       = var.context.resource_group_name

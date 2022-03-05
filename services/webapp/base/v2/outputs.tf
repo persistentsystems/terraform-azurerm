@@ -1,12 +1,12 @@
 output "name" {
-    value = azurerm_app_service.patientmatch_docker.name
+    value = azurerm_app_service.webapp_docker.name
 }
 output "identity" {
-    value = azurerm_app_service.patientmatch_docker.identity
+    value = azurerm_app_service.webapp_docker.identity
 }
 output "id" {
-  value = azurerm_app_service.patientmatch_docker.id
+  value = azurerm_app_service.webapp_docker.id
 }
 output "site_name" {
-    value = azurerm_app_service.patientmatch_docker.default_site_hostname
+    value = azurerm_app_service.webapp_docker.default_site_hostname
 }
