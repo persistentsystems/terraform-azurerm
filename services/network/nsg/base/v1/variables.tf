@@ -18,10 +18,10 @@ variable tags {
 variable "observability_settings" {
   type = object({
 
-    instrumentation_key = string
+    #instrumentation_key = string
     workspace_id        = string
     storage_account     = string 
-    retention_in_days   = number
-    storage_account_id  = string
+    retention_days      = number
+    #storage_account_id  = string
   })
 }

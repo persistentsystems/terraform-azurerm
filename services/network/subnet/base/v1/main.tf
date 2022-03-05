@@ -9,7 +9,7 @@ resource "azurerm_subnet" "subnet" {
     name = "${var.context.application_name}-delegation-${var.context.environment_name}"
 
     service_delegation {
-      name    = "Microsoft.Web/serverFarms"
+      name    = var.service_delegation_name
       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
     }
   }

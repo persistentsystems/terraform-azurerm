@@ -1,11 +1,11 @@
 data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
-  resource_id = azurerm_network_security_group.nsg.id
+  resource_id = azurerm_app_service.webapp_docker.id
 }
 
-resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
+resource "azurerm_monitor_diagnostic_setting" "web_diagnostic_setting" {
 
-  name                        = "${var.nsg_name}-logs"
-  target_resource_id          = azurerm_network_security_group.nsg.id
+  name                        = "${var.service_settings.name}-web-logs"
+  target_resource_id          = azurerm_app_service.webapp_docker.id
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
   dynamic log {
@@ -16,7 +16,7 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_days
+        days = var.observability_settings.retention_in_days
       }
     }
   }
@@ -28,7 +28,7 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
 
       retention_policy {
         enabled = true
-        days = var.observability_settings.retention_days
+        days = var.observability_settings.retention_in_days
       }
     }
   }
@@ -37,11 +37,11 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
 
 }
 
-resource "azurerm_monitor_diagnostic_setting" "nsg_log_setting" {
+resource "azurerm_monitor_diagnostic_setting" "web_log_setting" {
 
-  name                        = "setbypolicy"
-  target_resource_id          = azurerm_network_security_group.nsg.id
-  storage_account_id          = var.observability_settings.storage_account
+  name                        = "${var.service_settings.name}-web-storage"
+  target_resource_id          = azurerm_app_service.webapp_docker.id
+  storage_account_id          = var.observability_settings.storage_account_id
 
   dynamic log {
     for_each = data.azurerm_monitor_diagnostic_categories.diagnostic_categories.logs
@@ -55,14 +55,14 @@ resource "azurerm_monitor_diagnostic_setting" "nsg_log_setting" {
       }
     }
   }
-  # metric {
-  #     category = "AllMetrics"
-  #     enabled  = false 
+  metric {
+      category = "AllMetrics"
+      enabled  = false 
 
-  #     retention_policy {
-  #       enabled = false
-  #       days = 0
-  #     }
-  # }
+      retention_policy {
+        enabled = false
+        days = 0
+      }
+  }
 
 }
