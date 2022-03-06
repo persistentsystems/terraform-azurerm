@@ -14,6 +14,7 @@ variable "service_settings" {
     name                      = string
     plan_id                   = string
     linux_fx_version          = string
+    app_command_line          = string
     app_settings              = map(string)      
 
   })

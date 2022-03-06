@@ -17,7 +17,7 @@ resource "azurerm_app_service" "webapp_docker" {
   site_config {
     linux_fx_version = var.service_settings.linux_fx_version
     always_on        = "true"
-        
+    app_command_line = var.service_settings.app_command_line
   }
   app_settings              = var.service_settings.app_settings
 
