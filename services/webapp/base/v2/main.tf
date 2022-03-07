@@ -15,9 +15,10 @@ resource "azurerm_app_service" "webapp_docker" {
   https_only                = true
   
   site_config {
-    linux_fx_version = var.service_settings.linux_fx_version
-    always_on        = "true"
-    app_command_line = var.service_settings.app_command_line
+    linux_fx_version        = var.service_settings.linux_fx_version
+    always_on               = "true"
+    app_command_line        = var.service_settings.app_command_line
+    health_check_path       = "/api/health"
   }
   app_settings              = var.service_settings.app_settings
 
