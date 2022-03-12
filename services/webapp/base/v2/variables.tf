@@ -15,7 +15,11 @@ variable "service_settings" {
     plan_id                   = string
     linux_fx_version          = string
     app_command_line          = string
-    app_settings              = map(string)      
+    app_settings              = map(string)
+    virtual_network_subnet_id = string
+    restriction_name          = string
+    priority                  = string
+    action                    = string      
 
   })
 }
