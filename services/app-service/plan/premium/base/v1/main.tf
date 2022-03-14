@@ -15,7 +15,7 @@ resource "azurerm_app_service_plan" "app_service_plan" {
   sku {
     tier = "ElasticPremium"
     size = var.service_settings.size
-    capacity = var.service_settings.minimum_instance_count
+    #capacity = var.service_settings.minimum_instance_count
   }
 
   maximum_elastic_worker_count = var.service_settings.maximum_instance_count

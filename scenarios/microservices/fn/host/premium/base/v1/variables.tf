@@ -21,7 +21,7 @@ variable "service_settings" {
     size                   = string
     storage_type           = string
     maximum_instance_count = number
-    minimum_instance_count = number
+    #minimum_instance_count = number
     workspace_id           = string
     keyvault = object({
       id = string 
