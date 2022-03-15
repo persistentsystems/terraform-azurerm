@@ -36,6 +36,10 @@ variable "service_settings" {
     runtime_type      = string
     app_settings      = map(string)
     package_filename  = string
+    virtual_network_subnet_id = string
+    restriction_name          = string
+    priority                  = string
+    action                    = string 
 
   })
 }

@@ -22,6 +22,10 @@ variable "service_settings" {
         name = string
         access_key = string
     })
+    virtual_network_subnet_id = string
+    restriction_name          = string
+    priority                  = string
+    action                    = string 
 
   })
 }

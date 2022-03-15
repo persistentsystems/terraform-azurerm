@@ -15,6 +15,11 @@ locals {
     plan_id             = var.host_settings.plan_id
     storage_account     = var.host_settings.storage_account
     storage_account_id  = var.observability_settings.storage_account_id
+    virtual_network_subnet_id = var.service_settings.virtual_network_subnet_id
+    restriction_name          = var.service_settings.restriction_name
+    priority                  = var.service_settings.priority
+    action                    = var.service_settings.action
+
   }
 }
 
