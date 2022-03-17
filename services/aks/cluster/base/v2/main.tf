@@ -19,10 +19,11 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 
   default_node_pool {
     name       = "default"
+    node_count = var.service_settings.node_count
     #node_count = var.service_settings.node_count
-    enable_auto_scaling = true
-    min_count   = var.service_settings.node_min_count
-    max_count   = var.service_settings.node_max_count
+    #enable_auto_scaling = true
+    #min_count   = var.service_settings.node_min_count
+    #max_count   = var.service_settings.node_max_count
     vm_size     = var.service_settings.node_size
     tags        = local.final_tags
     vnet_subnet_id = var.service_settings.vnet_subnet_id

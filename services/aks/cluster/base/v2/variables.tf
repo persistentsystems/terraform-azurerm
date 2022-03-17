@@ -18,8 +18,9 @@ variable "service_settings" {
 
     name                = string
     resource_group_name = string
-    node_min_count      = number
-    node_max_count      = number 
+    node_count          = number
+    #node_min_count     = number
+    #node_max_count     = number 
     node_size           = string
     rbac_enabled        = bool 
     enable_pod_security_policy = bool 
