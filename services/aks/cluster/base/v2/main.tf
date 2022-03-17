@@ -25,6 +25,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     max_count   = var.service_settings.node_max_count
     vm_size     = var.service_settings.node_size
     tags        = local.final_tags
+    vnet_subnet_id = var.service_settings.vnet_subnet_id
   }
 
   identity {
@@ -43,7 +44,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     enabled = var.service_settings.rbac_enabled
   }
   network_profile {
-    network_plugin= "kubenet"
+    network_plugin= "azure"
     load_balancer_sku = "standard"
   }
 
