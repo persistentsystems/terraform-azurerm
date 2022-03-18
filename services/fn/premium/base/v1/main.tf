@@ -41,7 +41,7 @@ resource "azurerm_function_app" "function_app" {
     use_32_bit_worker_process  = false
     ##It's enable the Health check to Functions
     health_check_path           = "/api/health"
-    ip_restriction = {
+    ip_restriction {
       virtual_network_subnet_id = var.service_settings.virtual_network_subnet_id
       name                      = var.service_settings.restriction_name
       priority                  = var.service_settings.priority
