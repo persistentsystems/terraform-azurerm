@@ -39,7 +39,12 @@ variable "service_settings" {
     virtual_network_subnet_id = string
     restriction_name          = string
     priority                  = string
-    action                    = string 
+    action                    = string
+    fn_virtual_network_subnet_id = string
+    fn_restriction_name          = string
+    fn_priority                  = string
+    fn_action                    = string 
+     
 
   })
 }
