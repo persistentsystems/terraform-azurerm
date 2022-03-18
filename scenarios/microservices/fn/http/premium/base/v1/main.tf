@@ -19,10 +19,10 @@ locals {
     restriction_name          = var.service_settings.restriction_name
     priority                  = var.service_settings.priority
     action                    = var.service_settings.action
-    fn_virtual_network_subnet_id = var.service_settings.fn_virtual_network_subnet_id
-    fn_restriction_name          = var.service_settings.fn_restriction_name
-    fn_priority                  = var.service_settings.fn_priority
-    fn_action                    = var.service_settings.fn_action
+    # fn_virtual_network_subnet_id = var.service_settings.fn_virtual_network_subnet_id
+    # fn_restriction_name          = var.service_settings.fn_restriction_name
+    # fn_priority                  = var.service_settings.fn_priority
+    # fn_action                    = var.service_settings.fn_action
 
   }
 }
