@@ -47,12 +47,12 @@ resource "azurerm_function_app" "function_app" {
       priority                  = var.service_settings.priority
       action                    = var.service_settings.action
     }
-    # {
-    #   virtual_network_subnet_id = var.service_settings.fn_virtual_network_subnet_id
-    #   name                      = var.service_settings.fn_restriction_name
-    #   priority                  = var.service_settings.fn_priority
-    #   action                    = var.service_settings.fn_action
-    # }
+    ip_restriction {
+      virtual_network_subnet_id = var.service_settings.fn_virtual_network_subnet_id
+      name                      = var.service_settings.fn_restriction_name
+      priority                  = var.service_settings.fn_priority
+      action                    = var.service_settings.fn_action
+    }
     
     
     
