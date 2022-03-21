@@ -42,17 +42,18 @@ resource "azurerm_function_app" "function_app" {
     ##It's enable the Health check to Functions
     health_check_path           = "/api/health"
     ip_restriction {
-      virtual_network_subnet_id = var.service_settings.virtual_network_subnet_id
-      name                      = var.service_settings.restriction_name
-      priority                  = var.service_settings.priority
-      action                    = var.service_settings.action
+      virtual_network_subnet_id = var.service_settings.patientmatch_virtual_network_subnet_id
+      name                      = var.service_settings.patientmatch_restriction_name
+      priority                  = var.service_settings.patientmatch_priority
+      action                    = var.service_settings.patientmatch_action
     }
-    # {
-    #   virtual_network_subnet_id = var.service_settings.fn_virtual_network_subnet_id
-    #   name                      = var.service_settings.fn_restriction_name
-    #   priority                  = var.service_settings.fn_priority
-    #   action                    = var.service_settings.fn_action
-    # }
+    ##Adding fn_subnet to each function in public access restriction in network settings
+    ip_restriction {
+      virtual_network_subnet_id = var.service_settings.fn_virtual_network_subnet_id
+      name                      = var.service_settings.fn_restriction_name
+      priority                  = var.service_settings.fn_priority
+      action                    = var.service_settings.fn_action
+    }
     
     
     

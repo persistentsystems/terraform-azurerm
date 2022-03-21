@@ -22,14 +22,14 @@ variable "service_settings" {
         name = string
         access_key = string
     })
-    virtual_network_subnet_id = string
-    restriction_name          = string
-    priority                  = string
-    action                    = string 
-    # fn_virtual_network_subnet_id = string
-    # fn_restriction_name          = string
-    # fn_priority                  = string
-    # fn_action                    = string 
+    patientmatch_virtual_network_subnet_id = string
+    patientmatch_restriction_name          = string
+    patientmatch_priority                  = string
+    patientmatch_action                    = string 
+    fn_virtual_network_subnet_id           = string
+    fn_restriction_name                    = string
+    fn_priority                            = string
+    fn_action                              = string 
 
   })
 }
