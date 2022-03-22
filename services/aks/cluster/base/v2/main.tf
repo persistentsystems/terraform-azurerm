@@ -21,9 +21,6 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     name       = "default"
     node_count = var.service_settings.node_count
     #node_count = var.service_settings.node_count
-    #enable_auto_scaling = true
-    #min_count   = var.service_settings.node_min_count
-    #max_count   = var.service_settings.node_max_count
     vm_size     = var.service_settings.node_size
     tags        = local.final_tags
     vnet_subnet_id = var.service_settings.vnet_subnet_id
@@ -53,3 +50,32 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 
 }
 
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [azurerm_kubernetes_cluster.cluster]
+
+  create_duration = "30s"
+}
+
+# resource "null_resource" "next" {
+#   depends_on = [time_sleep.wait_30_seconds]
+# }
+
+resource "null_resource" "network_contributor" {
+  provisioner "local-exec" {
+    command = "az role assignment create --assignee ${azurerm_kubernetes_cluster.cluster.identity[0].principal_id} --scope ${var.service_settings.vnet_subnet_id} --role 'Network Contributor' "
+  }
+  depends_on = [time_sleep.wait_30_seconds]
+}
+
+# resource "azurerm_role_assignment" "aks" {
+#   principal_id         = azurerm_kubernetes_cluster.cluster.identity[0].principal_id
+#   role_definition_name = "Network Contributor"
+#   scope                = var.service_settings.vnet_subnet_id
+# }
+
+### Not required atm
+# resource "azurerm_role_assignment" "kubweb_to_acr" {
+#   scope                = "/subscriptions/634cdf5a-6a7b-4bae-828b-41e87ab1378c/resourceGroups/fdb-terraform/providers/Microsoft.ContainerRegistry/registries/fdbeprescription"
+#   role_definition_name = "AcrPull"
+#   principal_id         = azurerm_kubernetes_cluster.cluster.identity[0].principal_id
+# }
