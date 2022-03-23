@@ -43,7 +43,11 @@ variable "service_settings" {
     fn_virtual_network_subnet_id           = string
     fn_restriction_name                    = string
     fn_priority                            = string
-    fn_action                              = string 
+    fn_action                              = string
+    aks_patientmatch_virtual_network_subnet_id = string
+    aks_patientmatch_restriction_name          = string
+    aks_patientmatch_priority                  = string
+    aks_patientmatch_action                    = string
      
 
   })

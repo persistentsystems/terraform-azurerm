@@ -23,6 +23,11 @@ locals {
     fn_restriction_name                    = var.service_settings.fn_restriction_name
     fn_priority                            = var.service_settings.fn_priority
     fn_action                              = var.service_settings.fn_action
+    #AKS subnet
+    aks_patientmatch_virtual_network_subnet_id = var.service_settings.aks_patientmatch_virtual_network_subnet_id
+    aks_patientmatch_restriction_name          = var.service_settings.aks_patientmatch_restriction_name
+    aks_patientmatch_priority                  = var.service_settings.aks_patientmatch_priority
+    aks_patientmatch_action                    = var.service_settings.aks_patientmatch_action
 
   }
 }
