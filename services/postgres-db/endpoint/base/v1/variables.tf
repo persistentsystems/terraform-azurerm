@@ -17,7 +17,8 @@ variable "service_settings" {
     version                         = string
     administrator_login             = string
     administrator_password          = string
-    #zone                            = string
+    location                        = string
+    zone                            = string
     storage_mb                      = number
     sku_name                        = string
     backup_retention_days           = string
@@ -29,7 +30,7 @@ variable "service_settings" {
 variable "observability_settings" {
   type = object({
     workspace_id              = string
-    storage_account           = string 
+    #storage_account           = string 
     retention_days            = number
   })
 }
