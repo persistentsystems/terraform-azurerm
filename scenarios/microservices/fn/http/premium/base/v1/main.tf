@@ -15,10 +15,6 @@ locals {
     plan_id             = var.host_settings.plan_id
     storage_account     = var.host_settings.storage_account
     storage_account_id  = var.observability_settings.storage_account_id
-    patientmatch_virtual_network_subnet_id = var.service_settings.patientmatch_virtual_network_subnet_id
-    patientmatch_restriction_name          = var.service_settings.patientmatch_restriction_name
-    patientmatch_priority                  = var.service_settings.patientmatch_priority
-    patientmatch_action                    = var.service_settings.patientmatch_action
     fn_virtual_network_subnet_id           = var.service_settings.fn_virtual_network_subnet_id
     fn_restriction_name                    = var.service_settings.fn_restriction_name
     fn_priority                            = var.service_settings.fn_priority
