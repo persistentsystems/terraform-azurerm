@@ -30,5 +30,6 @@ variable "alert_settings" {
     scopes      = list(string)
     description = string
     window_size = string
+    frequency   = string
   })
 }
