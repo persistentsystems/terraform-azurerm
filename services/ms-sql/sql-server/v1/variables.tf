@@ -26,3 +26,10 @@ variable tags {
   type = map
     
 }
+
+variable "firewall_rule_settings" {
+  type = object({
+    start_ip_address          = string 
+    end_ip_address            = string
+  })
+} 
