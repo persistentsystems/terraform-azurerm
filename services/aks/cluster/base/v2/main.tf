@@ -12,7 +12,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
   resource_group_name = var.context.resource_group_name
   dns_prefix          = var.service_settings.name
   enable_pod_security_policy = var.service_settings.enable_pod_security_policy
-  #api_server_authorized_ip_ranges = var.service_settings.api_server_authorized_ip_ranges
+  api_server_authorized_ip_ranges = var.service_settings.api_server_authorized_ip_ranges
 
   node_resource_group = var.service_settings.resource_group_name
   kubernetes_version  = var.service_settings.kubernetes_version  

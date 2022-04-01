@@ -24,7 +24,7 @@ variable "service_settings" {
     node_size           = string
     rbac_enabled        = bool 
     enable_pod_security_policy = bool 
-    #api_server_authorized_ip_ranges = list(string)
+    api_server_authorized_ip_ranges = list(string)
     kubernetes_version  = string
     vnet_subnet_id      = string
 
