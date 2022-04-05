@@ -23,6 +23,14 @@ variable "service_settings" {
   })
 }
 
+variable "long_term_retention_policy" {
+  type = object({
+    weekly_retention = string
+    week_of_year     = number
+  })
+  
+}
+
 # variable "observability_settings" {
 #   type = object({    
 #     workspace_id        = string

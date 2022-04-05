@@ -33,3 +33,31 @@ resource "azurerm_mssql_firewall_rule" "mssql_fw_rule" {
   start_ip_address    = var.firewall_rule_settings.start_ip_address
   end_ip_address      = var.firewall_rule_settings.end_ip_address
 }
+
+resource "azurerm_mssql_server_extended_auditing_policy" "mssql_auditing_policy" {
+  server_id                               = azurerm_mssql_server.mssql.id
+  storage_endpoint                        = var.mssql_auditing_policy.storage_endpoint
+  storage_account_access_key              = var.mssql_auditing_policy.storage_account_access_key
+  storage_account_access_key_is_secondary = var.mssql_auditing_policy.storage_account_access_key_is_secondary
+  retention_in_days                       = var.mssql_auditing_policy.retention_in_days
+}
+
+resource "azurerm_mssql_server_security_alert_policy" "mssql_security" {
+  resource_group_name = var.context.resource_group_name
+  server_name         = azurerm_mssql_server.mssql.name
+  state               = "Enabled"
+}
+
+
+resource "azurerm_mssql_server_vulnerability_assessment" "mssql_vulnerability" {
+  server_security_alert_policy_id = azurerm_mssql_server_security_alert_policy.mssql_security.id
+  storage_container_path          = var.mssql_vulnerability.storage_container_path
+  storage_account_access_key      = var.mssql_vulnerability.storage_account_access_key 
+   recurring_scans {
+    enabled                   = var.mssql_vulnerability.recurring_scans_enabled
+    email_subscription_admins = var.mssql_vulnerability.recurring_email_subscription_admins
+    emails = [
+      var.mssql_vulnerability.recurring_emails
+    ]
+  }
+}

@@ -17,7 +17,7 @@ variable "service_settings" {
     administrator_login             = string
     administrator_login_password    = string
     minimum_tls_version             = string
-    identity                        = string 
+    identity                        = string
   })
 }
 
@@ -33,3 +33,23 @@ variable "firewall_rule_settings" {
     end_ip_address            = string
   })
 } 
+
+variable "mssql_auditing_policy" {
+  type = object({
+    
+    storage_endpoint                = string
+    storage_account_access_key      = string
+    storage_account_access_key_is_secondary = bool
+    retention_in_days               = number
+  })
+}
+
+variable "mssql_vulnerability" {
+  type = object({
+    storage_container_path                  = string
+    storage_account_access_key              = string
+    recurring_scans_enabled                 = bool
+    recurring_email_subscription_admins     = bool
+    recurring_emails                        = string
+  })
+}

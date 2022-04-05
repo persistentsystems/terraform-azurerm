@@ -17,6 +17,11 @@ resource "azurerm_mssql_database" "mssql-db" {
   auto_pause_delay_in_minutes = var.service_settings.auto_pause_delay_in_minutes
   min_capacity    = var.service_settings.min_capacity
 
+  long_term_retention_policy  {
+    weekly_retention  = var.long_term_retention_policy.weekly_retention
+    week_of_year      = var.long_term_retention_policy.week_of_year
+  }
+
   tags                      = local.final_tags
 
 }
