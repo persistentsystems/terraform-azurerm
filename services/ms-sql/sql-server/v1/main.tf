@@ -13,6 +13,8 @@ resource "random_string" "random" {
   upper = false
 }
 
+data "azurerm_client_config" "sql_current" {}
+
 resource "azurerm_mssql_server" "mssql" {
   name                         = "${var.service_settings.name}-${random_string.random.result}"
   resource_group_name          = var.context.resource_group_name
@@ -20,7 +22,13 @@ resource "azurerm_mssql_server" "mssql" {
   version                      = var.service_settings.version
   administrator_login          = var.service_settings.administrator_login
   administrator_login_password = var.service_settings.administrator_login_password
-  minimum_tls_version          = var.service_settings.minimum_tls_version  
+  minimum_tls_version          = var.service_settings.minimum_tls_version 
+    azuread_administrator {
+     login_username  = var.service_settings.azuread_administrator_login
+     tenant_id       = data.azurerm_client_config.sql_current.tenant_id
+     object_id       = data.azurerm_client_config.sql_current.object_id
+  }
+
      identity {
         type = var.service_settings.identity
   }
@@ -33,7 +41,7 @@ resource "azurerm_mssql_firewall_rule" "mssql_fw_rule" {
   start_ip_address    = var.firewall_rule_settings.start_ip_address
   end_ip_address      = var.firewall_rule_settings.end_ip_address
 }
-
+##Enabling Audditing
 resource "azurerm_mssql_server_extended_auditing_policy" "mssql_auditing_policy" {
   server_id                               = azurerm_mssql_server.mssql.id
   storage_endpoint                        = var.mssql_auditing_policy.storage_endpoint
@@ -61,3 +69,13 @@ resource "azurerm_mssql_server_vulnerability_assessment" "mssql_vulnerability" {
     ]
   }
 }
+
+
+
+
+
+
+
+
+
+
