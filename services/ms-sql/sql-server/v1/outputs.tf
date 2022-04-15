@@ -17,3 +17,8 @@ output "principal_id" {
 output "fully_qualified_domain_name" {
   value = azurerm_mssql_server.mssql.fully_qualified_domain_name
 }
+output "server_vulnerability_assessment_id" {
+
+  value = azurerm_mssql_server_vulnerability_assessment.mssql_vulnerability.id
+
+}
