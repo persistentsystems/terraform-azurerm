@@ -12,6 +12,7 @@ resource "azurerm_data_factory" "datafactory" {
   name                = var.service_settings.name
   location            = var.context.location
   resource_group_name = var.context.resource_group_name
+  managed_virtual_network_enabled = var.service_settings.managed_virtual_network_enabled
     identity {
     type = "SystemAssigned"
     }

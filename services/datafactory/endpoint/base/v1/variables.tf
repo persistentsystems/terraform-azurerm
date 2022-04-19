@@ -12,7 +12,8 @@ variable "context" {
 variable "service_settings" {
   type = object({
 
-    name            = string
+    name                            = string
+    managed_virtual_network_enabled = bool
 
   })
 }
