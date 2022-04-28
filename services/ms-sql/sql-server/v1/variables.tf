@@ -19,6 +19,7 @@ variable "service_settings" {
     minimum_tls_version             = string
     identity                        = string
     azuread_administrator_login     = string
+    public_network_access_enabled   = bool
   })
 }
 

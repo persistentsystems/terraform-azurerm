@@ -21,6 +21,12 @@ resource "azurerm_mssql_database" "mssql-db" {
     weekly_retention  = var.long_term_retention_policy.weekly_retention
     week_of_year      = var.long_term_retention_policy.week_of_year
   }
+  extended_auditing_policy {
+    storage_endpoint                        = var.mssql_db_auditing_policy.storage_endpoint
+    storage_account_access_key              = var.mssql_db_auditing_policy.storage_account_access_key
+    storage_account_access_key_is_secondary = var.mssql_db_auditing_policy.storage_account_access_key_is_secondary
+    retention_in_days                       = var.mssql_db_auditing_policy.retention_in_days
+  }
 
   tags                      = local.final_tags
 

@@ -23,6 +23,7 @@ resource "azurerm_mssql_server" "mssql" {
   administrator_login          = var.service_settings.administrator_login
   administrator_login_password = var.service_settings.administrator_login_password
   minimum_tls_version          = var.service_settings.minimum_tls_version
+  public_network_access_enabled = var.service_settings.public_network_access_enabled
      azuread_administrator {
       login_username  = var.service_settings.azuread_administrator_login
       tenant_id       = data.azurerm_client_config.sql_current.tenant_id

@@ -45,3 +45,12 @@ variable tags {
   type = map
     
 }
+
+variable "mssql_db_auditing_policy" {
+  type = object({
+    storage_endpoint                         = string
+    storage_account_access_key               = string
+    storage_account_access_key_is_secondary  = bool
+    retention_in_days                        = number
+  })
+}
