@@ -35,12 +35,12 @@ resource "azurerm_mssql_server" "mssql" {
     tags                      = local.final_tags
 }
 
-resource "azurerm_mssql_firewall_rule" "mssql_fw_rule" {
-  name                = "Allowing Azure Services"
-  server_id           = azurerm_mssql_server.mssql.id
-  start_ip_address    = var.firewall_rule_settings.start_ip_address
-  end_ip_address      = var.firewall_rule_settings.end_ip_address
-}
+# resource "azurerm_mssql_firewall_rule" "mssql_fw_rule" {
+#   name                = "Allowing Azure Services"
+#   server_id           = azurerm_mssql_server.mssql.id
+#   start_ip_address    = var.firewall_rule_settings.start_ip_address
+#   end_ip_address      = var.firewall_rule_settings.end_ip_address
+# }
 
 ##Enabling Auditing
 resource "azurerm_mssql_server_extended_auditing_policy" "mssql_auditing_policy" {

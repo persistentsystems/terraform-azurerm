@@ -29,12 +29,12 @@ variable tags {
     
 }
 
-variable "firewall_rule_settings" {
-  type = object({
-    start_ip_address          = string 
-    end_ip_address            = string
-  })
-} 
+# variable "firewall_rule_settings" {
+#   type = object({
+#     start_ip_address          = string 
+#     end_ip_address            = string
+#   })
+# } 
 
 variable "mssql_auditing_policy" {
   type = object({
