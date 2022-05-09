@@ -19,6 +19,7 @@ variable "service_settings" {
     enable_auto_scaling     = bool
     mode                    = string
     consumerapp_label       = string
+    vnet_subnet_id          = string
   })
 }
 

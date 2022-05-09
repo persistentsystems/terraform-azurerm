@@ -12,8 +12,9 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks_node_pool" {
   kubernetes_cluster_id = var.service_settings.kubernetes_cluster_id
   vm_size               = var.service_settings.vm_size
   node_count            = var.service_settings.node_count
-  enable_auto_scaling   = var.service_settings.enable_auto_scaling
+  enable_auto_scaling   = var.service_settings.enable_auto_scaling 
   mode                  = var.service_settings.mode
+  vnet_subnet_id        = var.service_settings.vnet_subnet_id
   node_labels           = {
     "service"           = var.service_settings.consumerapp_label
   }
