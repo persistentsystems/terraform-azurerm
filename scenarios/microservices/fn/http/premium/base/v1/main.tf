@@ -24,6 +24,11 @@ locals {
     aks_patientmatch_restriction_name          = var.service_settings.aks_patientmatch_restriction_name
     aks_patientmatch_priority                  = var.service_settings.aks_patientmatch_priority
     aks_patientmatch_action                    = var.service_settings.aks_patientmatch_action
+    ##adminui subnet
+    adminui_virtual_network_subnet_id        = var.service_settings.adminui_virtual_network_subnet_id
+    adminui_restriction_name                 = var.service_settings.adminui_restriction_name
+    adminui_priority                         = var.service_settings.adminui_priority
+    adminui_action                           = var.service_settings.adminui_action
 
   }
 }

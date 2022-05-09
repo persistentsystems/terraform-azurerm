@@ -30,6 +30,10 @@ variable "service_settings" {
     aks_patientmatch_restriction_name          = string
     aks_patientmatch_priority                  = string
     aks_patientmatch_action                    = string
+    adminui_virtual_network_subnet_id          = string
+    adminui_restriction_name                   = string
+    adminui_priority                           = string
+    adminui_action                             = string
 
   })
 }

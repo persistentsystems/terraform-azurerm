@@ -55,6 +55,13 @@ resource "azurerm_function_app" "function_app" {
       priority                  = var.service_settings.aks_patientmatch_priority
       action                    = var.service_settings.aks_patientmatch_action
     }
+  ## Adding AdminUI subnet to fns
+    ip_restriction {
+      virtual_network_subnet_id = var.service_settings.adminui_virtual_network_subnet_id
+      name                      = var.service_settings.adminui_restriction_name
+      priority                  = var.service_settings.adminui_priority
+      action                    = var.service_settings.adminui_action
+    }
     
     
     
