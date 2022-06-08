@@ -14,9 +14,11 @@ variable "custom_rules_settings" {
         scopes              = list(string)
         description         = string
         level               = string
-        status              = string
-        sub_status          = string
+        #status              = string
+        #sub_status          = string
         category            = string
         action_group_id     = string
+        current_status = list(string)
+        previous_status = list(string)
     })
 }

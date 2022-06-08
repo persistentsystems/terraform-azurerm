@@ -7,8 +7,12 @@ resource "azurerm_monitor_activity_log_alert" "main" {
   criteria {
     category          = var.custom_rules_settings.category
     level             = var.custom_rules_settings.level
-    status            = var.custom_rules_settings.status
-    sub_status        = var.custom_rules_settings.sub_status
+    #status            = var.custom_rules_settings.status
+    #sub_status        = var.custom_rules_settings.sub_status
+    resource_health {
+      current  = var.custom_rules_settings.current_status
+      previous = var.custom_rules_settings.previous_status
+    }
     
   }
 
