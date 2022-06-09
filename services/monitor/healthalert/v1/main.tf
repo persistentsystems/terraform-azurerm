@@ -12,6 +12,7 @@ resource "azurerm_monitor_activity_log_alert" "main" {
     resource_health {
       current  = var.custom_rules_settings.current_status
       previous = var.custom_rules_settings.previous_status
+      reason   = var.custom_rules_settings.reason
     }
     
   }

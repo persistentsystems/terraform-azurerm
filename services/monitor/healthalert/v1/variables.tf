@@ -18,7 +18,8 @@ variable "custom_rules_settings" {
         #sub_status          = string
         category            = string
         action_group_id     = string
-        current_status = list(string)
-        previous_status = list(string)
+        current_status      = list(string)
+        previous_status     = list(string)
+        reason              = list(string)
     })
 }
