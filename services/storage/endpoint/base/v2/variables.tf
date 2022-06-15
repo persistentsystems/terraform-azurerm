@@ -10,18 +10,27 @@ variable "context" {
   })
 }
 # tier = "Standard"
-# size = "EP1"
-# storage_type = "GRS"
+# type = "GRS"
 variable "service_settings" {
   type = object({
 
-    name                   = string
-    size                   = string
-    storage_type           = string
-    maximum_instance_count = number
-    #minimum_instance_count = number
-
+    name            = string
+    tier            = string
+    type            = string
+    identity        = string
   })
+}
+
+variable "security_settings" {
+  type = object({
+    allow_blob_public_access    = bool
+    min_tls_version             = string
+  })
+  default = {
+    allow_blob_public_access            = false
+    min_tls_version                     = "TLS1_2"
+  }
+
 }
 
 variable tags {
