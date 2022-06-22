@@ -22,3 +22,8 @@ variable "sku" {
 variable "allocation_method" {
   type = string
 }
+
+
+variable "availability_zone" {
+  type = string
+}
