@@ -39,6 +39,7 @@ resource "azurerm_function_app" "function_app" {
     ftps_state  = var.ftps_state 
     pre_warmed_instance_count = 1
     use_32_bit_worker_process  = false
+    dotnet_framework_version   = "v6.0"
     ##It's enable the Health check to Functions
     health_check_path           = "/api/health"
     ##Adding fn_subnet to each function in public access restriction in network settings
