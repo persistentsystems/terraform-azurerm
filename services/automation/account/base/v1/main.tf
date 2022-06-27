@@ -19,5 +19,8 @@ resource "azurerm_automation_account" "account" {
   resource_group_name = var.context.resource_group_name
 
   sku_name = var.service_settings.sku_name
+  identity {
+    type = "SystemAssigned"
+  } 
   tags = local.final_tags
 }
