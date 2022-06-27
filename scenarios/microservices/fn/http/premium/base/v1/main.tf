@@ -9,7 +9,7 @@ locals {
 
   merged_service_settings = {
     name                = var.service_settings.name
-    runtime_version     = var.service_settings.runtime_version
+    #runtime_version     = var.service_settings.runtime_version
     runtime_type        = var.service_settings.runtime_type
     app_settings        = local.combined_settings
     plan_id             = var.host_settings.plan_id

@@ -32,7 +32,7 @@ variable "service_settings" {
 
     name              = string
     service_name      = string
-    runtime_version   = string
+    #runtime_version   = string
     runtime_type      = string
     app_settings      = map(string)
     package_filename  = string

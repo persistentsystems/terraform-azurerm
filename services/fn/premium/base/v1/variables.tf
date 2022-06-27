@@ -13,7 +13,7 @@ variable "service_settings" {
   type = object({
 
     name                      = string
-    runtime_version           = string
+    #runtime_version           = string
     runtime_type              = string
     app_settings              = map(string)
     plan_id                   = string
