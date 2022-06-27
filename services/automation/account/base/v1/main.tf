@@ -14,7 +14,7 @@ resource "random_string" "random" {
 }
 
 resource "azurerm_automation_account" "account" {
-  name                = "${var.service_settings.name}-${random_string.random.result}"
+  name                = "${var.service_settings.name}"
   location            = var.context.location
   resource_group_name = var.context.resource_group_name
 
