@@ -27,7 +27,8 @@ variable tags {
 }
 
 variable "observability_settings" {
-  type = object({    
+  type = object({   
+    instrumentation_key       = string 
     workspace_id              = string
     storage_account           = string 
     retention_days            = number
