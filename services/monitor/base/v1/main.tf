@@ -4,7 +4,7 @@ resource "azurerm_monitor_metric_alert" "alert" {
   name                = var.alert_settings.name
   scopes              = var.alert_settings.scopes
   description         = var.alert_settings.description
-  
+  severity            = var.alert_settings.severity
   criteria {
     metric_namespace    = var.criteria_settings.metric_namespace
     metric_name         = var.criteria_settings.metric_name

@@ -31,5 +31,6 @@ variable "alert_settings" {
     description = string
     window_size = string
     frequency   = string
+    severity    = number
   })
 }

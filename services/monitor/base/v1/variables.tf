@@ -32,5 +32,6 @@ variable "alert_settings" {
     name   =string
     scopes = list(string)
     description = string
+    severity    = number
   })
 }
