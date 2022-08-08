@@ -24,6 +24,8 @@ variable "criteria_settings" {
         dimension_name      = string
         dimension_operator  = string
         values              = list(string)
+        window_size         = string
+        frequency           = string
     }) 
 }
 

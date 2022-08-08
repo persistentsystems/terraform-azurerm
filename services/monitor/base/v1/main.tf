@@ -5,6 +5,8 @@ resource "azurerm_monitor_metric_alert" "alert" {
   scopes              = var.alert_settings.scopes
   description         = var.alert_settings.description
   severity            = var.alert_settings.severity
+  window_size         = var.criteria_settings.window_size
+  frequency           = var.criteria_settings.frequency
   criteria {
     metric_namespace    = var.criteria_settings.metric_namespace
     metric_name         = var.criteria_settings.metric_name
