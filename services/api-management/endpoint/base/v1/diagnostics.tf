@@ -71,6 +71,4 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic_log_setting" {
       days = 0
     }
   }
-
-
 }
