@@ -16,7 +16,7 @@ resource "azurerm_app_service" "admin_ui_app_service" {
   
   site_config {
     dotnet_framework_version = var.service_settings.dotnet_version
-        
+    ftps_state               = "Disabled"
   }
   app_settings              = var.service_settings.app_settings
 
