@@ -3,6 +3,5 @@ variable "vnet_rule" {
         name      = string
         server_id = string
         subnet_id = string
-    })
-  
+    })  
 }
