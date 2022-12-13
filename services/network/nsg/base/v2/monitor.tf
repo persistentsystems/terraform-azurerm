@@ -4,7 +4,7 @@ data "azurerm_monitor_diagnostic_categories" "diagnostic_categories" {
 
 resource "azurerm_monitor_diagnostic_setting" "nsg_diagnostic_setting" {
 
-  name                        = "${var.nsg_name}-logs"
+  name                        = "setbypolicy"
   target_resource_id          = azurerm_network_security_group.nsg.id
   log_analytics_workspace_id  = var.observability_settings.workspace_id
 
