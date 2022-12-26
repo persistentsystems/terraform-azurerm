@@ -19,18 +19,16 @@ variable "service_settings" {
   })
 }
 
-# variable "observability_settings" {
-#   type = object({
+variable "observability_settings" {
+  type = object({
 
-#     instrumentation_key = string
-#     # log analytics
-#     workspace_id        = string
-#     storage_account     = string 
-#     retention_days   = number
-    
-
-#   })
-# }
+    #instrumentation_key = string
+    workspace_id        = string
+    #storage_account     = string 
+    retention_days      = number
+    #storage_account_id  = string
+  })
+}
 variable "soft_delete_retention_days"{
   type = number
   default = 90
