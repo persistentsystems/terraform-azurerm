@@ -1,6 +1,6 @@
 resource "azurerm_network_watcher_flow_log" "flow_log" {
   network_watcher_name      = var.service_settings.network_watcher_name
-  resource_group_name       = var.context.resource_group_name
+  resource_group_name       = var.service_settings.network_watcher_resource_group_name
   name                      = var.service_settings.name
   network_security_group_id = var.service_settings.network_security_group_id
   storage_account_id        = var.service_settings.storage_account_id

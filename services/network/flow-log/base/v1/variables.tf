@@ -10,12 +10,13 @@ variable "context" {
 
 variable "service_settings" {
   type = object({
-    network_watcher_name = string
-    name                 = string
-    network_security_group_id = string
-    storage_account_id   = string
-    enabled              = bool
-    version              = number
+    network_watcher_name                = string
+    network_watcher_resource_group_name = string
+    name                                = string
+    network_security_group_id           = string
+    storage_account_id                  = string
+    enabled                             = bool
+    version                             = number
   })
   
 }
