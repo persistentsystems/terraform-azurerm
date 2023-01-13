@@ -40,7 +40,7 @@ data "azurerm_storage_account_sas" "code_storage" {
   }
 
   start  = timestamp()
-  expiry = timeadd(timestamp(), "2160h")
+  expiry = timeadd(timestamp(), "4320h")
 
   permissions {
     read    = true
