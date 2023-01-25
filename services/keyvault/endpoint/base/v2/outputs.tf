@@ -8,7 +8,6 @@ output "uri" {
 output "name" {
   value = azurerm_key_vault.keyvault.name
 }
-
-output "secret_permissions" {
-  value = azurerm_key_vault_access_policy.policy.secret_permissions 
+output "key_permissions" {
+  value = azurerm_key_vault_access_policy.policy.key_permissions 
 }

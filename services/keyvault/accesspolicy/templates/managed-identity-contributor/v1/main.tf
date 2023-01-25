@@ -7,11 +7,11 @@ resource "azurerm_key_vault_access_policy" "policy" {
   object_id = var.object_id
 
   key_permissions = [
-    "get", "list"
+    "get", "create", "delete", "list", "restore", "update", "import", "recover", "backup"
   ]
 
   secret_permissions = [
-    "get", "list", "set", "delete"
+    "get", "list", "set", "delete", "backup"
   ]
 
   certificate_permissions = [
