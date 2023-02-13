@@ -9,3 +9,6 @@ output "kube_config" {
 output "id" {
   value = azurerm_kubernetes_cluster.cluster.id
 }
+output "name" {
+  value = azurerm_kubernetes_cluster.cluster.name
+}
