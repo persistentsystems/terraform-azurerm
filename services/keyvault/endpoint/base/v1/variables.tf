@@ -15,7 +15,7 @@ variable "service_settings" {
   type = object({
 
     name                = string
-
+    virtual_network_subnet_ids = list(string)
   })
 }
 

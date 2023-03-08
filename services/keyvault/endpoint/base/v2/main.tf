@@ -51,9 +51,10 @@ resource "azurerm_key_vault" "keyvault" {
 
   network_acls {
  
-    #default_action = "Deny"
-    default_action = "Allow"
+    default_action = "Deny"
+    #default_action = "Allow"
     bypass         = "AzureServices"
+    virtual_network_subnet_ids = tolist(var.service_settings.virtual_network_subnet_ids)
   }
 
   tags = local.final_tags
