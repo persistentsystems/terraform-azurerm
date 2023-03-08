@@ -1,7 +1,5 @@
 data "azurerm_client_config" "current" {}
 
-#https://fdbvelaidentitynp.okta.com/oauth2/aus3ui5qaswUMxq9Q697/.well-known/oauth-authorization-server
-
 locals {
 
   jwt_authentication = <<XML
