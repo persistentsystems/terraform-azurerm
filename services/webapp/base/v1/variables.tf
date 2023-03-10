@@ -15,7 +15,7 @@ variable "service_settings" {
     plan_id                   = string
     dotnet_version            = string
     app_settings              = map(string)      
-
+    websockets_enabled        = bool
   })
 }
 
