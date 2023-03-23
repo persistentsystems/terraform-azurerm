@@ -1,0 +1,66 @@
+locals {
+    default_tags = {
+      app = var.context.application_name
+      env = var.context.environment_name
+    }
+
+    final_tags = merge (local.default_tags, var.tags ) 
+}
+
+resource "azurerm_storage_account" "storage_account" {
+
+  name                      = "${var.service_settings.name}${random_string.random.result}"
+  resource_group_name       = var.context.resource_group_name
+
+  location                  = var.context.location
+  account_tier              = var.service_settings.account_tier
+  account_replication_type  = var.service_settings.account_replication_type
+  #allow_blob_public_access  = var.security_settings.allow_blob_public_access
+  min_tls_version           = var.security_settings.min_tls_version
+  is_hns_enabled            = var.service_settings.is_hns_enabled
+  sftp_enabled              = var.service_settings.sftp_enabled
+    identity {
+    type = var.service_settings.identity
+  }
+  tags                      = local.final_tags
+
+}
+/*
+resource "azurerm_storage_account_network_rules" "storage_account" {
+  resource_group_name  = var.context.resource_group_name
+  storage_account_name = azurerm_storage_account.storage_account.name
+
+  default_action             = "Deny"  
+  ip_rules                   = ["40.121.0.0/16"] 
+}
+*/
+
+resource "random_string" "random" {
+  length = 8
+  special = false
+  lower = true
+  upper = false
+}
+
+# resource "null_resource" "storage-logging" {
+#   provisioner "local-exec" {
+#     command = "az storage logging update --log rwd --retention 0 --services b --version 2.0 --account-name ${azurerm_storage_account.storage_account.name} --account-key ${azurerm_storage_account.storage_account.primary_access_key}"
+#   }
+# }
+
+# resource "null_resource" "storage-metrics" {
+#   provisioner "local-exec" {
+#     command = "az storage metrics update --account-name ${azurerm_storage_account.storage_account.name} --api true --hour true --minute true --retention 0 --services b --account-key ${azurerm_storage_account.storage_account.primary_access_key}"
+#   }
+# }
+
+# resource "time_sleep" "wait_30_seconds" {
+#   depends_on = [azurerm_storage_account.storage_account]
+
+#   create_duration = "30s"
+# }
+
+# # This resource will create (at least) 30 seconds after null_resource.previous
+# resource "null_resource" "next" {
+#   depends_on = [time_sleep.wait_30_seconds]
+# }
